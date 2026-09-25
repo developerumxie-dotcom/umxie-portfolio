@@ -1,0 +1,157 @@
+/* Typography System */
+
+/* Editorial Headlines */
+.headline-huge {
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 9vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-white);
+}
+
+.headline-large {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 5.5vw, 4.8rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.headline-medium {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+/* Section Indices & Titles */
+.section-meta-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.section-index {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.section-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.portfolio-section--light .section-index {
+  color: var(--text-dark-muted);
+}
+
+.portfolio-section--light .section-title {
+  color: var(--text-dark);
+}
+
+/* Body & Editorial Text */
+.statement-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-white);
+}
+
+.portfolio-section--light .statement-lead {
+  color: var(--text-dark);
+}
+
+.body-large {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.portfolio-section--light .body-large {
+  color: var(--text-dark-secondary);
+}
+
+.body-regular {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Monospace Technical Labels & Metadata */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.mono-value {
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.portfolio-section--light .mono-label {
+  color: var(--text-dark-muted);
+}
+
+.portfolio-section--light .mono-value {
+  color: var(--text-dark);
+}
+
+/* Tech Pills & Micro Tags */
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.tech-tag:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--text-white);
+}
+
+.portfolio-section--light .tech-tag {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--border-light);
+  color: var(--text-dark-secondary);
+}
+
+.portfolio-section--light .tech-tag:hover {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: var(--text-dark);
+  color: var(--text-dark);
+}

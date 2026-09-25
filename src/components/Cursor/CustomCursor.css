@@ -1,0 +1,90 @@
+.custom-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* Inner dot */
+.cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+/* Outer ring */
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: difference;
+}
+
+/* Cursor States */
+.cursor-ring--hover {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.cursor-ring--view,
+.cursor-ring--explore,
+.cursor-ring--open,
+.cursor-ring--sound {
+  width: 76px;
+  height: 76px;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  mix-blend-mode: normal;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.cursor-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0B0B0C;
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* When badge is visible, hide the inner dot to keep it ultra crisp */
+.cursor-dot--hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.2);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-container {
+    display: none !important;
+  }
+}

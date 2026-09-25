@@ -1,0 +1,106 @@
+.philosophy-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+
+.philosophy-hero-block {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto clamp(4rem, 8vw, 7rem) auto;
+}
+
+.philosophy-headline {
+  font-family: var(--font-sans);
+  font-size: clamp(2.4rem, 6vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  margin-bottom: 2rem;
+}
+
+.philosophy-headline span {
+  display: block;
+}
+
+.philosophy-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 4 Minimal Principles with Horizontal Dividers */
+.principles-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+}
+
+.principle-row {
+  display: grid;
+  grid-template-columns: 80px 220px 1fr;
+  align-items: baseline;
+  gap: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.principle-row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  padding-left: 1rem;
+}
+
+.principle-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.principle-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--text-white);
+}
+
+.principle-desc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.principle-headline {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.principle-details {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .principle-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
