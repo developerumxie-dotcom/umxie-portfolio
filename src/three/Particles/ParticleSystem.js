@@ -23,10 +23,10 @@ export class ParticleSystem {
     geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
 
     this.material = new THREE.PointsMaterial({
-      color: 0x888890,
-      size: 0.035,
+      color: 0xCDB5FF,
+      size: 0.045,
       transparent: true,
-      opacity: 0.45,
+      opacity: 0.65,
       blending: THREE.AdditiveBlending
     });
 
@@ -37,14 +37,14 @@ export class ParticleSystem {
   update(time, delta, mouse, scrollVelocity = 0, isLightSection = false) {
     if (!this.points) return;
 
-    // In light section, darken particles to remain visible and aesthetic
+    // In light section, adjust particles to subtle violet to remain visible and aesthetic
     if (isLightSection) {
-      this.material.color.setHex(0x333339);
-      this.material.opacity = 0.55;
+      this.material.color.setHex(0x792CFF);
+      this.material.opacity = 0.35;
       this.material.blending = THREE.NormalBlending;
     } else {
-      this.material.color.setHex(0x888890);
-      this.material.opacity = 0.45;
+      this.material.color.setHex(0xCDB5FF);
+      this.material.opacity = 0.65;
       this.material.blending = THREE.AdditiveBlending;
     }
 

@@ -18,19 +18,19 @@ export class NetworkSystem {
       nodeSubGroup.position.set(tech.coords.x * 1.3, tech.coords.y * 1.1, tech.coords.z * 1.2);
 
       const baseMat = new THREE.MeshStandardMaterial({
-        color: 0x444449,
+        color: 0x792CFF,
         metalness: 0.8,
         roughness: 0.2,
-        emissive: 0x111115
+        emissive: 0x240B4D
       });
       const mesh = new THREE.Mesh(nodeGeometry, baseMat);
       nodeSubGroup.add(mesh);
 
       const haloMat = new THREE.MeshBasicMaterial({
-        color: 0x66666E,
+        color: 0xCDB5FF,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.35
+        opacity: 0.45
       });
       const halo = new THREE.Mesh(outerHaloGeometry, haloMat);
       halo.lookAt(0, 0, 10);
@@ -43,9 +43,9 @@ export class NetworkSystem {
 
     // Interconnecting Network Lines
     const lineMat = new THREE.LineBasicMaterial({
-      color: 0x333338,
+      color: 0x4A1D85,
       transparent: true,
-      opacity: 0.4
+      opacity: 0.45
     });
 
     TECHNOLOGIES.forEach((tech) => {
@@ -75,16 +75,16 @@ export class NetworkSystem {
     if (!techId) {
       // Reset all nodes and lines
       this.techNodesMap.forEach((nodeGroup) => {
-        nodeGroup.userData.mesh.material.color.setHex(0x444449);
-        nodeGroup.userData.mesh.material.emissive.setHex(0x111115);
-        nodeGroup.userData.halo.material.color.setHex(0x66666E);
-        nodeGroup.userData.halo.material.opacity = 0.35;
+        nodeGroup.userData.mesh.material.color.setHex(0x792CFF);
+        nodeGroup.userData.mesh.material.emissive.setHex(0x240B4D);
+        nodeGroup.userData.halo.material.color.setHex(0xCDB5FF);
+        nodeGroup.userData.halo.material.opacity = 0.45;
         nodeGroup.scale.set(1, 1, 1);
       });
 
       this.techLinesMap.forEach((line) => {
-        line.material.color.setHex(0x333338);
-        line.material.opacity = 0.4;
+        line.material.color.setHex(0x4A1D85);
+        line.material.opacity = 0.45;
       });
       return;
     }
@@ -99,20 +99,20 @@ export class NetworkSystem {
 
       if (isSelected) {
         nodeGroup.userData.mesh.material.color.setHex(0xFFFFFF);
-        nodeGroup.userData.mesh.material.emissive.setHex(0x888888);
-        nodeGroup.userData.halo.material.color.setHex(0xFFFFFF);
-        nodeGroup.userData.halo.material.opacity = 0.9;
+        nodeGroup.userData.mesh.material.emissive.setHex(0x792CFF);
+        nodeGroup.userData.halo.material.color.setHex(0xCDB5FF);
+        nodeGroup.userData.halo.material.opacity = 0.95;
         nodeGroup.scale.set(1.4, 1.4, 1.4);
       } else if (isConnected) {
-        nodeGroup.userData.mesh.material.color.setHex(0xAAAAAF);
-        nodeGroup.userData.mesh.material.emissive.setHex(0x333338);
-        nodeGroup.userData.halo.material.color.setHex(0xAAAAAF);
-        nodeGroup.userData.halo.material.opacity = 0.6;
+        nodeGroup.userData.mesh.material.color.setHex(0xCDB5FF);
+        nodeGroup.userData.mesh.material.emissive.setHex(0x4A1D85);
+        nodeGroup.userData.halo.material.color.setHex(0x792CFF);
+        nodeGroup.userData.halo.material.opacity = 0.75;
         nodeGroup.scale.set(1.15, 1.15, 1.15);
       } else {
-        nodeGroup.userData.mesh.material.color.setHex(0x222226);
-        nodeGroup.userData.mesh.material.emissive.setHex(0x000000);
-        nodeGroup.userData.halo.material.opacity = 0.12;
+        nodeGroup.userData.mesh.material.color.setHex(0x22133A);
+        nodeGroup.userData.mesh.material.emissive.setHex(0x0A0414);
+        nodeGroup.userData.halo.material.opacity = 0.1;
         nodeGroup.scale.set(0.9, 0.9, 0.9);
       }
     });
@@ -120,13 +120,13 @@ export class NetworkSystem {
     this.techLinesMap.forEach((line) => {
       const { from, to } = line.userData;
       const isLineConnected = (from === techId && connectedIds.includes(to)) ||
-                              (to === techId && connectedIds.includes(from));
+        (to === techId && connectedIds.includes(from));
 
       if (isLineConnected) {
-        line.material.color.setHex(0xFFFFFF);
+        line.material.color.setHex(0xCDB5FF);
         line.material.opacity = 0.95;
       } else {
-        line.material.color.setHex(0x1B1B1E);
+        line.material.color.setHex(0x1A0933);
         line.material.opacity = 0.15;
       }
     });

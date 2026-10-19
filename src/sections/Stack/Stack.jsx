@@ -73,9 +73,8 @@ export default function Stack({ hoveredTech, onTechHover }) {
                       y1={`${startPos.top}%`}
                       x2={`${targetPos.left}%`}
                       y2={`${targetPos.top}%`}
-                      className={`stack-svg-line ${
-                        isConnected ? 'stack-svg-line--active' : ''
-                      } ${isMuted ? 'stack-svg-line--muted' : ''}`}
+                      className={`stack-svg-line ${isConnected ? 'stack-svg-line--active' : ''
+                        } ${isMuted ? 'stack-svg-line--muted' : ''}`}
                     />
                   );
                 });
@@ -119,7 +118,7 @@ export default function Stack({ hoveredTech, onTechHover }) {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                 <span className="stack-detail-category">{currentTech.category}</span>
-                <TechnicalLabel statusDot={true} statusColor="#FFFFFF" label="STATUS" value="ONLINE" />
+                <TechnicalLabel statusDot={true} statusColor="#CDB5FF" label="STATUS" value="ONLINE" />
               </div>
               <h3 className="stack-detail-title">{currentTech.name}</h3>
               <p className="stack-detail-desc">{currentTech.description}</p>

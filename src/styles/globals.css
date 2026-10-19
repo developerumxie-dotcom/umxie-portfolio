@@ -1,32 +1,42 @@
 :root {
-  /* Color System */
-  --bg-primary: #0B0B0C;
-  --bg-secondary: #111113;
-  --bg-light: #F2F2F2;
-  --bg-light-muted: #E5E5E8;
-  --surface-light-gray: #DCDCDC;
-  
-  --text-primary: #F5F5F5;
-  --text-white: #FFFFFF;
-  --text-secondary: #A4A4A8;
-  --text-muted: #66666B;
-  --text-dark: #111111;
-  --text-dark-secondary: #48484F;
-  --text-dark-muted: #808088;
+  /* Color System - Reference Purple & Deep Dark Palette */
+  --bg-primary: #09090D;
+  --bg-secondary: #120D1D;
+  --bg-tertiary: #1A1329;
+  --bg-light: #F5F3F8;
+  --bg-light-muted: #EAE6F2;
+  --surface-light-gray: #DCD8E8;
 
-  --border-color: #29292D;
-  --border-subtle: #1D1D20;
-  --border-light: #D5D5DA;
-  --border-light-subtle: #E2E2E6;
+  /* Accent Purple System */
+  --accent-purple: #792CFF;
+  --accent-purple-light: #CDB5FF;
+  --accent-purple-vibrant: #A855F7;
+  --accent-purple-deep: #4E18B8;
+  --accent-purple-glow: rgba(121, 44, 255, 0.45);
+  --accent-purple-subtle: rgba(121, 44, 255, 0.12);
+
+  --text-primary: #F5F3F8;
+  --text-white: #FFFFFF;
+  --text-secondary: #A8A2B5;
+  --text-muted: #6B6578;
+  --text-dark: #09090D;
+  --text-dark-secondary: #3D3846;
+  --text-dark-muted: #756F82;
+
+  --border-color: #241D33;
+  --border-subtle: #191326;
+  --border-accent: #792CFF;
+  --border-light: #DDD7E8;
+  --border-light-subtle: #E8E4F2;
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Layout & Grid */
-  --max-width: 1440px;
+  --max-width: 100%;
   --header-height: 80px;
-  --container-padding: clamp(1.25rem, 5vw, 4rem);
+  --container-padding: clamp(1.5rem, 5vw, 5rem);
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -35,14 +45,16 @@
   --transition-med: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Corner Radii - intentionally restrained */
+  /* Corner Radii */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-pill: 9999px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -57,6 +69,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -66,6 +81,13 @@ body {
   position: relative;
   overflow-x: hidden;
   line-height: 1.5;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(121, 44, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(121, 44, 255, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
 }
 
 /* Custom Scrollbar */
@@ -83,18 +105,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--accent-purple);
 }
 
 /* Selection */
 ::selection {
-  background-color: #FFFFFF;
-  color: #0B0B0C;
+  background-color: var(--accent-purple);
+  color: #FFFFFF;
 }
 
 /* Accessibility focus */
 :focus-visible {
-  outline: 2px solid #FFFFFF;
+  outline: 2px solid var(--accent-purple-light);
   outline-offset: 4px;
 }
 
@@ -112,7 +134,8 @@ button {
   cursor: pointer;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   display: block;
 }
@@ -133,9 +156,9 @@ img, video {
   inset: 0;
   pointer-events: none;
   background-size: 80px 80px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(205, 181, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(205, 181, 255, 0.025) 1px, transparent 1px);
 }
 
 /* Light section technical grid */
@@ -144,9 +167,9 @@ img, video {
   inset: 0;
   pointer-events: none;
   background-size: 80px 80px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(121, 44, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(121, 44, 255, 0.04) 1px, transparent 1px);
 }
 
 /* Crosshair Coordinate Markers */
@@ -157,7 +180,8 @@ img, video {
   pointer-events: none;
 }
 
-.crosshair::before, .crosshair::after {
+.crosshair::before,
+.crosshair::after {
   content: '';
   position: absolute;
   background-color: var(--border-color);
@@ -199,6 +223,7 @@ img, video {
   .custom-cursor-container {
     display: none !important;
   }
+
   * {
     cursor: auto !important;
   }

@@ -71,15 +71,15 @@
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
-  color: #FFFFFF;
+  color: var(--text-white);
 }
 
 .footer-status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  background-color: var(--accent-purple-light);
+  box-shadow: 0 0 8px var(--accent-purple);
   animation: pulseGlow 2.5s infinite ease-in-out;
 }
 
@@ -95,10 +95,12 @@
     align-items: flex-start;
     gap: 1.5rem;
   }
+
   .footer-center {
     align-items: flex-start;
     text-align: left;
   }
+
   .footer-right {
     align-items: flex-start;
   }

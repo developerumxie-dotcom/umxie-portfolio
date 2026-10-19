@@ -19,7 +19,7 @@ export default function About() {
             <div style={{ marginTop: '1.5rem' }}>
               <TechnicalLabel
                 statusDot={true}
-                statusColor="#FFFFFF"
+                statusColor="#CDB5FF"
                 label="RUNTIME"
                 value="NODE.JS / V8"
               />

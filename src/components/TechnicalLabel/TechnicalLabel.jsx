@@ -5,7 +5,7 @@ export default function TechnicalLabel({
   label = '',
   value = '',
   statusDot = false,
-  statusColor = '#FFFFFF',
+  statusColor = '#CDB5FF',
   className = '',
   theme = 'dark', // 'dark' | 'light'
   ...props

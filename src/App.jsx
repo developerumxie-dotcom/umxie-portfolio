@@ -10,6 +10,7 @@ import Stack from './sections/Stack/Stack';
 import Projects from './sections/Projects/Projects';
 import Experience from './sections/Experience/Experience';
 import Philosophy from './sections/Philosophy/Philosophy';
+import FAQ from './sections/FAQ/FAQ';
 import Contact from './sections/Contact/Contact';
 import Footer from './sections/Footer/Footer';
 import ThreeCanvas from './three/ThreeCanvas';
@@ -118,6 +119,7 @@ export default function App() {
           <Projects />
           <Experience />
           <Philosophy />
+          <FAQ />
           <Contact />
         </main>
 

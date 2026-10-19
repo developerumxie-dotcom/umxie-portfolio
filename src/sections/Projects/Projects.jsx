@@ -102,9 +102,8 @@ export default function Projects() {
 
       {/* Project Detail Modal Overlay */}
       <div
-        className={`project-modal-backdrop ${
-          activeModalProject ? 'project-modal-backdrop--open' : ''
-        }`}
+        className={`project-modal-backdrop ${activeModalProject ? 'project-modal-backdrop--open' : ''
+          }`}
         onClick={() => setActiveModalProject(null)}
       >
         {activeModalProject && (

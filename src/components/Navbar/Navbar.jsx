@@ -18,6 +18,7 @@ export default function Navbar({ activeSection = 'hero' }) {
   }, []);
 
   const navItems = [
+    { label: 'HOME', target: '#hero', id: 'hero' },
     { label: 'ABOUT', target: '#about', id: 'about' },
     { label: 'STACK', target: '#stack', id: 'stack' },
     { label: 'WORK', target: '#work', id: 'projects' },
@@ -28,6 +29,13 @@ export default function Navbar({ activeSection = 'hero' }) {
   const handleNavClick = (e, target) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    if (target === '#hero') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
     const element = document.querySelector(target);
     if (element) {
       const topOffset = 70;
@@ -40,7 +48,7 @@ export default function Navbar({ activeSection = 'hero' }) {
     }
   };
 
-  const isLightSection = activeSection === 'contact'; // Dynamic navbar contrast adjustment
+  const isLightSection = activeSection === 'projects' || activeSection === 'contact'; // Dynamic navbar contrast adjustment
 
   return (
     <header className={`portfolio-navbar ${isScrolled ? 'portfolio-navbar--scrolled' : ''} ${isLightSection ? 'portfolio-navbar--light' : ''}`}>

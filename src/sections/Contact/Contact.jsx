@@ -63,7 +63,7 @@ export default function Contact() {
             <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
               <TechnicalLabel
                 statusDot={true}
-                statusColor="#111111"
+                statusColor="var(--accent-purple)"
                 label="RESPONSE TIME"
                 value="< 24H"
                 theme="light"

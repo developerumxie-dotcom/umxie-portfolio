@@ -13,18 +13,18 @@
 
 .portfolio-navbar--scrolled {
   height: 64px;
-  background-color: rgba(11, 11, 12, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom-color: var(--border-subtle);
+  background-color: rgba(9, 9, 13, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom-color: rgba(121, 44, 255, 0.2);
 }
 
 /* Light mode overlay when hovering or scrolling over light section */
 .portfolio-navbar--light {
-  background-color: rgba(242, 242, 242, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom-color: var(--border-light-subtle);
+  background-color: rgba(245, 243, 248, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom-color: var(--border-light);
 }
 
 .portfolio-navbar--light .nav-brand-title {
@@ -50,7 +50,8 @@
 }
 
 .portfolio-navbar--light .nav-status-dot {
-  background-color: var(--text-dark);
+  background-color: var(--accent-purple);
+  box-shadow: 0 0 6px rgba(121, 44, 255, 0.6);
 }
 
 .portfolio-navbar--light .hamburger-bar {
@@ -133,8 +134,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1px;
-  background-color: currentColor;
+  height: 1.5px;
+  background-color: var(--accent-purple);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform var(--transition-med);
@@ -169,8 +170,8 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  background-color: var(--accent-purple-light);
+  box-shadow: 0 0 8px var(--accent-purple);
   animation: pulseGlow 2s infinite ease-in-out;
 }
 
@@ -255,9 +256,11 @@
   .nav-links-wrapper {
     display: none;
   }
+
   .nav-hamburger {
     display: flex;
   }
+
   .nav-right-actions {
     gap: 0.65rem;
   }

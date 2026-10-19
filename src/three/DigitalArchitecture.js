@@ -41,9 +41,9 @@ export class DigitalArchitecture {
     const boxGeometry = new THREE.BoxGeometry(2.4, 2.4, 2.4);
     const boxEdges = new THREE.EdgesGeometry(boxGeometry);
     const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0xFFFFFF,
+      color: 0xCDB5FF,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.85,
       linewidth: 1.5
     });
     this.heroOuterBox = new THREE.LineSegments(boxEdges, lineMaterial);
@@ -53,9 +53,9 @@ export class DigitalArchitecture {
     const innerBoxGeom = new THREE.BoxGeometry(1.4, 1.4, 1.4);
     const innerEdges = new THREE.EdgesGeometry(innerBoxGeom);
     const innerMaterial = new THREE.LineBasicMaterial({
-      color: 0x88888E,
+      color: 0x792CFF,
       transparent: true,
-      opacity: 0.5
+      opacity: 0.65
     });
     this.heroInnerBox = new THREE.LineSegments(innerEdges, innerMaterial);
     this.heroGroup.add(this.heroInnerBox);
@@ -63,7 +63,8 @@ export class DigitalArchitecture {
     // Core Solid Translucent Prismatic Monolith
     const coreGeom = new THREE.BoxGeometry(0.8, 0.8, 0.8);
     const coreMat = new THREE.MeshPhysicalMaterial({
-      color: 0x222226,
+      color: 0x1E0D36,
+      emissive: 0x240B4D,
       metalness: 0.9,
       roughness: 0.1,
       transmission: 0.6,
@@ -76,7 +77,7 @@ export class DigitalArchitecture {
 
     // Corner Vertex Nodes
     const sphereGeom = new THREE.SphereGeometry(0.045, 16, 16);
-    const nodeMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+    const nodeMat = new THREE.MeshBasicMaterial({ color: 0xCDB5FF });
     const positions = [
       [-1.2, -1.2, -1.2], [1.2, -1.2, -1.2], [1.2, 1.2, -1.2], [-1.2, 1.2, -1.2],
       [-1.2, -1.2, 1.2], [1.2, -1.2, 1.2], [1.2, 1.2, 1.2], [-1.2, 1.2, 1.2]
@@ -93,10 +94,10 @@ export class DigitalArchitecture {
     // Orbiting Geometric Rings / Data Coordinates
     const ringGeom = new THREE.RingGeometry(2.2, 2.22, 64);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: 0x66666F,
+      color: 0x792CFF,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.4
+      opacity: 0.5
     });
     this.heroRing1 = new THREE.Mesh(ringGeom, ringMat);
     this.heroRing1.rotation.x = Math.PI / 3;
@@ -112,12 +113,12 @@ export class DigitalArchitecture {
   }
 
   initAboutArchitecture() {
-    // Polished titanium sphere + dark gray monolithic block
+    // Polished titanium sphere + dark purple-charcoal monolithic block
     const sphereGeom = new THREE.SphereGeometry(1.1, 48, 48);
     const chromeMat = new THREE.MeshStandardMaterial({
       color: 0xEEEEEE,
       metalness: 0.95,
-      roughness: 0.12
+      roughness: 0.1
     });
     this.aboutSphere = new THREE.Mesh(sphereGeom, chromeMat);
     this.aboutSphere.position.set(2.2, 1.2, -0.5);
@@ -125,9 +126,9 @@ export class DigitalArchitecture {
 
     const prismGeom = new THREE.BoxGeometry(1.6, 2.8, 1.2);
     const darkMat = new THREE.MeshStandardMaterial({
-      color: 0x1A1A1E,
+      color: 0x181026,
       metalness: 0.8,
-      roughness: 0.3
+      roughness: 0.25
     });
     this.aboutPrism = new THREE.Mesh(prismGeom, darkMat);
     this.aboutPrism.position.set(2.8, -0.6, -1.0);
@@ -136,27 +137,39 @@ export class DigitalArchitecture {
 
     const archEdge = new THREE.LineSegments(
       new THREE.EdgesGeometry(prismGeom),
-      new THREE.LineBasicMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.35 })
+      new THREE.LineBasicMaterial({ color: 0xCDB5FF, transparent: true, opacity: 0.45 })
     );
     this.aboutPrism.add(archEdge);
+
+    // Glowing curved purple torus ribbon looping around architecture (Slide 01 About)
+    const torusGeom = new THREE.TorusGeometry(1.6, 0.045, 16, 80);
+    const torusMat = new THREE.MeshStandardMaterial({
+      color: 0x792CFF,
+      emissive: 0x3B0764,
+      metalness: 0.9,
+      roughness: 0.15
+    });
+    this.aboutRibbon = new THREE.Mesh(torusGeom, torusMat);
+    this.aboutRibbon.position.set(2.4, 0.2, -0.7);
+    this.aboutRibbon.rotation.set(Math.PI / 3, Math.PI / 6, 0);
+    this.aboutGroup.add(this.aboutRibbon);
 
     this.aboutGroup.position.set(0.5, 0, 0);
     this.aboutGroup.visible = true;
   }
 
   initProjectsArchitecture() {
-    // DARK GRAY 3D architecture against the #F2F2F2 light surface:
-    // Floating monolithic slabs & computational geometry that camera orbits sideways around
+    // DARK PURPLE-CHARCOAL 3D architecture against the light Selected Work surface
     const darkMat = new THREE.MeshStandardMaterial({
-      color: 0x1D1D22, // Dark gray as required
+      color: 0x1A1424,
       metalness: 0.85,
       roughness: 0.28
     });
 
     const edgeMat = new THREE.LineBasicMaterial({
-      color: 0x111113,
+      color: 0x792CFF,
       transparent: true,
-      opacity: 0.7
+      opacity: 0.65
     });
 
     this.projectMonoliths = [];
@@ -193,7 +206,7 @@ export class DigitalArchitecture {
   }
 
   initExperienceMicrochip() {
-    // Silicon wafer layers
+    // Silicon wafer layers with glowing purple architecture
     const layers = 4;
     this.chipLayers = [];
 
@@ -202,7 +215,7 @@ export class DigitalArchitecture {
       const geom = new THREE.BoxGeometry(size, 0.06, size);
       const edges = new THREE.EdgesGeometry(geom);
       const mat = new THREE.MeshStandardMaterial({
-        color: 0x1D1D22,
+        color: 0x150E24,
         metalness: 0.9,
         roughness: 0.2
       });
@@ -212,9 +225,9 @@ export class DigitalArchitecture {
       const edgeLine = new THREE.LineSegments(
         edges,
         new THREE.LineBasicMaterial({
-          color: i === 0 ? 0xFFFFFF : 0x777780,
+          color: i === 0 ? 0xCDB5FF : 0x792CFF,
           transparent: true,
-          opacity: 0.7 - i * 0.12
+          opacity: 0.85 - i * 0.12
         })
       );
       layerMesh.add(edgeLine);
@@ -229,18 +242,19 @@ export class DigitalArchitecture {
   }
 
   initPhilosophyRibbon() {
-    // Flowing parametric geometric curves / digital architectural plane
+    // Flowing metallic purple ribbon matching Panel 8 in reference
     const curve = new THREE.CatmullRomCurve3([
       new THREE.Vector3(-3.5, -1.5, -1),
       new THREE.Vector3(-1.5, 0.8, 0.5),
       new THREE.Vector3(1.2, -0.6, -0.5),
       new THREE.Vector3(3.5, 1.2, 0)
     ]);
-    const tubeGeom = new THREE.TubeGeometry(curve, 64, 0.04, 8, false);
+    const tubeGeom = new THREE.TubeGeometry(curve, 64, 0.05, 12, false);
     const tubeMat = new THREE.MeshStandardMaterial({
-      color: 0x888890,
-      metalness: 0.85,
-      roughness: 0.15
+      color: 0x792CFF,
+      emissive: 0x2E0B59,
+      metalness: 0.92,
+      roughness: 0.16
     });
     this.philosophyRibbon = new THREE.Mesh(tubeGeom, tubeMat);
     this.philosophyGroup.add(this.philosophyRibbon);
@@ -248,10 +262,10 @@ export class DigitalArchitecture {
     // Wireframe ribbon plane
     const ribbonPlaneGeom = new THREE.PlaneGeometry(6, 3, 24, 12);
     const wireMat = new THREE.MeshBasicMaterial({
-      color: 0x33333A,
+      color: 0x4E18B8,
       wireframe: true,
       transparent: true,
-      opacity: 0.3
+      opacity: 0.4
     });
     this.philosophyGrid = new THREE.Mesh(ribbonPlaneGeom, wireMat);
     this.philosophyGrid.rotation.x = -Math.PI / 2.6;
@@ -262,28 +276,33 @@ export class DigitalArchitecture {
   }
 
   initContactSphere() {
-    // Focal sphere with orbit paths
+    // Focal chrome sphere with glowing purple orbit paths in bottom left (Slide 06)
     const sphereGeom = new THREE.SphereGeometry(1.3, 64, 64);
     const chromeMat = new THREE.MeshStandardMaterial({
-      color: 0x222226,
+      color: 0x241838,
       metalness: 0.98,
       roughness: 0.08
     });
     this.contactFocalSphere = new THREE.Mesh(sphereGeom, chromeMat);
     this.contactGroup.add(this.contactFocalSphere);
 
-    const orbitGeom = new THREE.TorusGeometry(2.0, 0.015, 16, 100);
+    const orbitGeom = new THREE.TorusGeometry(2.0, 0.02, 16, 100);
     const orbitMat = new THREE.MeshBasicMaterial({
-      color: 0x111111,
+      color: 0x792CFF,
       transparent: true,
-      opacity: 0.4
+      opacity: 0.75
     });
     this.contactOrbit1 = new THREE.Mesh(orbitGeom, orbitMat);
     this.contactOrbit1.rotation.x = Math.PI / 3;
     this.contactGroup.add(this.contactOrbit1);
 
-    const orbitGeom2 = new THREE.TorusGeometry(2.5, 0.015, 16, 100);
-    this.contactOrbit2 = new THREE.Mesh(orbitGeom2, orbitMat.clone());
+    const orbitGeom2 = new THREE.TorusGeometry(2.5, 0.02, 16, 100);
+    const orbitMat2 = new THREE.MeshBasicMaterial({
+      color: 0xCDB5FF,
+      transparent: true,
+      opacity: 0.65
+    });
+    this.contactOrbit2 = new THREE.Mesh(orbitGeom2, orbitMat2);
     this.contactOrbit2.rotation.y = -Math.PI / 4;
     this.contactGroup.add(this.contactOrbit2);
 
@@ -292,7 +311,8 @@ export class DigitalArchitecture {
   }
 
   initGridPlane() {
-    const gridHelper = new THREE.GridHelper(30, 30, 0x333338, 0x1A1A1E);
+    // Neon purple floor grid (Reference 3D Environment)
+    const gridHelper = new THREE.GridHelper(30, 30, 0x792CFF, 0x1A0C33);
     gridHelper.position.y = -3.8;
     this.scene.add(gridHelper);
     this.floorGrid = gridHelper;
@@ -331,11 +351,15 @@ export class DigitalArchitecture {
     if (this.aboutGroup.visible) {
       this.aboutSphere.position.y = 1.2 + Math.sin(time * 1.2) * 0.1;
       this.aboutPrism.rotation.y += speed * 0.3;
+      if (this.aboutRibbon) {
+        this.aboutRibbon.rotation.z += speed * 0.4;
+        this.aboutRibbon.rotation.x += speed * 0.2;
+      }
       this.aboutGroup.rotation.x = mouse.y * 0.2;
       this.aboutGroup.rotation.y = mouse.x * 0.25;
     }
 
-    // 4. Projects Monoliths (Dark gray 3D objects slowly drifting)
+    // 4. Projects Monoliths (Dark purple-gray 3D objects slowly drifting)
     if (this.projectsGroup.visible && this.projectMonoliths) {
       this.projectMonoliths.forEach((m, idx) => {
         m.rotation.y += speed * (0.2 + idx * 0.1);

@@ -31,58 +31,60 @@ export default function Hero({ mousePosition }) {
   const coreSkills = ["JAVASCRIPT", "NODE.JS", "REACT", "MONGODB"];
 
   return (
-    <section id="hero" className="hero-section container">
+    <section id="hero" className="hero-section">
       {/* Top Crosshairs */}
       <div className="crosshair" style={{ top: '80px', left: '20px' }} />
       <div className="crosshair" style={{ top: '80px', right: '20px' }} />
 
-      <div className="hero-content hero-interactive-layer">
-        <div className="hero-eyebrow">
-          <span className="hero-eyebrow-line" />
-          <span>HELLO, I'M UMXIE.</span>
+      <div className="container hero-container">
+        <div className="hero-content hero-interactive-layer">
+          <div className="hero-eyebrow">
+            <span className="hero-eyebrow-line" />
+            <span>HELLO, I'M UMXIE.</span>
+          </div>
+
+          <h1 className="hero-title">
+            <span>SOFTWARE</span>
+            <span>ENGINEER</span>
+          </h1>
+
+          <p className="hero-statement">
+            I build digital products, backend systems, and modern web experiences.
+          </p>
+
+          <div className="hero-tech-row">
+            {coreSkills.map((tech) => (
+              <MagneticElement key={tech} strength={6}>
+                <div
+                  className="hero-tech-tag"
+                  onMouseEnter={() => setCursor('hover')}
+                  onMouseLeave={resetCursor}
+                >
+                  {tech}
+                </div>
+              </MagneticElement>
+            ))}
+          </div>
         </div>
 
-        <h1 className="hero-title">
-          <span>SOFTWARE</span>
-          <span>ENGINEER</span>
-        </h1>
+        <div className="hero-footer-bar hero-interactive-layer">
+          <MagneticElement strength={8}>
+            <a
+              href="#about"
+              onClick={handleScrollClick}
+              className="hero-scroll-cta"
+              onMouseEnter={() => setCursor('hover')}
+              onMouseLeave={resetCursor}
+            >
+              <span>SCROLL TO EXPLORE</span>
+              <span className="hero-scroll-arrow">↓</span>
+            </a>
+          </MagneticElement>
 
-        <p className="hero-statement">
-          I build digital products, backend systems, and modern web experiences.
-        </p>
-
-        <div className="hero-tech-row">
-          {coreSkills.map((tech) => (
-            <MagneticElement key={tech} strength={6}>
-              <div
-                className="hero-tech-tag"
-                onMouseEnter={() => setCursor('hover')}
-                onMouseLeave={resetCursor}
-              >
-                {tech}
-              </div>
-            </MagneticElement>
-          ))}
-        </div>
-      </div>
-
-      <div className="hero-footer-bar hero-interactive-layer">
-        <MagneticElement strength={8}>
-          <a
-            href="#about"
-            onClick={handleScrollClick}
-            className="hero-scroll-cta"
-            onMouseEnter={() => setCursor('hover')}
-            onMouseLeave={resetCursor}
-          >
-            <span>SCROLL TO EXPLORE</span>
-            <span className="hero-scroll-arrow">↓</span>
-          </a>
-        </MagneticElement>
-
-        <div className="hero-telemetry">
-          <span>X: {coords.x} &nbsp; Y: {coords.y} &nbsp; Z: {coords.z}</span>
-          <span>/ 00</span>
+          <div className="hero-telemetry">
+            <span>X: {coords.x} &nbsp; Y: {coords.y} &nbsp; Z: {coords.z}</span>
+            <span>/ 00</span>
+          </div>
         </div>
       </div>
     </section>

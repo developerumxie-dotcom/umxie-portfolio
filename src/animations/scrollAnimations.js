@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function initScrollAnimations() {
   // Check if reduced motion is requested
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return () => {};
+  if (prefersReducedMotion) return () => { };
 
   const triggers = [];
 

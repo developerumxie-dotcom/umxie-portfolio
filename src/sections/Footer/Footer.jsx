@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Center */}
         <div className="footer-center">
           <span className="footer-tech">BUILT WITH REACT + THREE.JS</span>
-          <span className="footer-sub">MONOCHROME SYSTEM ARCHITECTURE</span>
+          <span className="footer-sub">PURPLE CYBERNETIC SYSTEM ARCHITECTURE</span>
         </div>
 
         {/* Right */}

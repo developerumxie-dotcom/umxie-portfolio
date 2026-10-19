@@ -131,27 +131,30 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.35rem 0.75rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
+  background: rgba(26, 19, 41, 0.7);
+  border: 1px solid rgba(121, 44, 255, 0.3);
   border-radius: var(--radius-sm);
-  color: var(--text-secondary);
+  color: var(--accent-purple-light);
   transition: all var(--transition-fast);
 }
 
 .tech-tag:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: var(--text-white);
+  background: rgba(121, 44, 255, 0.2);
+  border-color: var(--accent-purple-vibrant);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(121, 44, 255, 0.3);
 }
 
-.portfolio-section--light .tech-tag {
-  background: rgba(0, 0, 0, 0.03);
-  border-color: var(--border-light);
-  color: var(--text-dark-secondary);
+.portfolio-section--light .tech-tag,
+.tech-tag--light {
+  background: #EAE6F2;
+  border: 1px solid #D6D0E3;
+  color: var(--text-dark);
 }
 
-.portfolio-section--light .tech-tag:hover {
-  background: rgba(0, 0, 0, 0.07);
-  border-color: var(--text-dark);
+.portfolio-section--light .tech-tag:hover,
+.tech-tag--light:hover {
+  background: #DDD7E8;
+  border-color: var(--accent-purple);
   color: var(--text-dark);
 }

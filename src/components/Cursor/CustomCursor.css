@@ -16,11 +16,11 @@
   left: 0;
   width: 5px;
   height: 5px;
-  background-color: #FFFFFF;
+  background-color: var(--accent-purple-light);
+  box-shadow: 0 0 8px var(--accent-purple);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
   transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
@@ -31,27 +31,28 @@
   left: 0;
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(205, 181, 255, 0.45);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.3s ease;
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  mix-blend-mode: difference;
 }
 
 /* Cursor States */
 .cursor-ring--hover {
-  width: 50px;
-  height: 50px;
-  border-color: rgba(255, 255, 255, 0.85);
-  background-color: rgba(255, 255, 255, 0.08);
+  width: 52px;
+  height: 52px;
+  border-color: var(--accent-purple-vibrant);
+  background-color: rgba(121, 44, 255, 0.16);
+  box-shadow: 0 0 20px rgba(121, 44, 255, 0.35);
 }
 
 .cursor-ring--view,
@@ -60,18 +61,17 @@
 .cursor-ring--sound {
   width: 76px;
   height: 76px;
-  background-color: #FFFFFF;
-  border-color: #FFFFFF;
-  mix-blend-mode: normal;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #792CFF 0%, #5218B8 100%);
+  border: 1px solid var(--accent-purple-light);
+  box-shadow: 0 8px 32px rgba(121, 44, 255, 0.6);
 }
 
 .cursor-text {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #0B0B0C;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
   text-transform: uppercase;
   pointer-events: none;
   white-space: nowrap;

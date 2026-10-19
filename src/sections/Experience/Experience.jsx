@@ -89,7 +89,7 @@ export default function Experience() {
             <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-subtle)' }}>
               <TechnicalLabel
                 statusDot={true}
-                statusColor="#FFFFFF"
+                statusColor="#CDB5FF"
                 label="LIVE CLUSTER"
                 value="ALL SERVICES OPERATIONAL"
               />

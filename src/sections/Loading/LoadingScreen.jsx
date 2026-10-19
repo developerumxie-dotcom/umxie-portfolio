@@ -33,8 +33,8 @@ export default function LoadingScreen({ onLoaded, onSystemReady }) {
   return (
     <div className={`loading-screen ${isFading ? 'loading-screen--fading' : ''}`}>
       <div className="loading-header">
-        <span>UMXIE // DEV.STUDIO</span>
-        <span>INITIALIZING SEQUENCE</span>
+        <span>UMXIE</span>
+        <span>SOFTWARE ENGINEER</span>
       </div>
 
       <div className="loading-body">
@@ -82,9 +82,9 @@ export default function LoadingScreen({ onLoaded, onSystemReady }) {
           </div>
         </div>
 
-        <div className="mono-label" style={{ textAlign: 'right' }}>
-          <span>LAT: 28.6139° N</span><br />
-          <span>LNG: 77.2090° E</span>
+        <div className="mono-label" style={{ textAlign: 'right', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <span style={{ color: 'var(--accent-purple-light)' }}>● Loading 3D environment...</span>
+          <span style={{ color: 'var(--text-muted)' }}>/ 08</span>
         </div>
       </div>
     </div>

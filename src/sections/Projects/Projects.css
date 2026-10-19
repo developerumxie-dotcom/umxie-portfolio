@@ -108,9 +108,9 @@
 }
 
 .tech-tag--light {
-  background-color: #E6E6EB;
-  border-color: #D2D2D8;
-  color: #111111;
+  background-color: #EAE6F2;
+  border-color: #D6D0E3;
+  color: var(--text-dark);
 }
 
 /* Visual Mockup Frame with Parallax Mouse effect */
@@ -125,7 +125,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(11, 11, 12, 0.88);
+  background-color: rgba(9, 9, 13, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   z-index: 10000;
@@ -144,7 +144,7 @@
 }
 
 .project-modal-content {
-  background-color: #111113;
+  background-color: #120D1D;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   width: 100%;
@@ -154,7 +154,7 @@
   padding: clamp(1.75rem, 4vw, 3.5rem);
   color: var(--text-primary);
   position: relative;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.85);
   transform: translateY(24px) scale(0.98);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -179,8 +179,9 @@
 }
 
 .project-modal-close-btn:hover {
-  background: #FFFFFF;
-  color: #0B0B0C;
+  background: var(--accent-purple);
+  color: #FFFFFF;
+  border-color: var(--accent-purple);
 }
 
 .project-modal-stats-grid {
@@ -206,17 +207,21 @@
 }
 
 @media (max-width: 992px) {
+
   .project-inner-grid,
   .project-inner-grid--reverse {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
   .project-inner-grid--reverse .project-info-side {
     order: 1;
   }
+
   .project-inner-grid--reverse .project-visual-side {
     order: 2;
   }
+
   .project-modal-stats-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
