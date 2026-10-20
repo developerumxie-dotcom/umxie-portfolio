@@ -139,7 +139,7 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
-  box-shadow: 0 10px 30px rgba(121, 44, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(90, 69, 132, 0.4);
   z-index: 10001;
   animation: floatSubtle 3s ease-in-out infinite;
 }

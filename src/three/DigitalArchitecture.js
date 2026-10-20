@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { NetworkSystem } from './Network/NetworkSystem';
+import { DeveloperOrbitSystem } from './Hero/DeveloperOrbitSystem';
 
 export class DigitalArchitecture {
   constructor(scene, camera) {
@@ -53,7 +54,7 @@ export class DigitalArchitecture {
     const innerBoxGeom = new THREE.BoxGeometry(1.4, 1.4, 1.4);
     const innerEdges = new THREE.EdgesGeometry(innerBoxGeom);
     const innerMaterial = new THREE.LineBasicMaterial({
-      color: 0x792CFF,
+      color: 0x5A4584,
       transparent: true,
       opacity: 0.65
     });
@@ -94,7 +95,7 @@ export class DigitalArchitecture {
     // Orbiting Geometric Rings / Data Coordinates
     const ringGeom = new THREE.RingGeometry(2.2, 2.22, 64);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: 0x792CFF,
+      color: 0x5A4584,
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 0.5
@@ -109,7 +110,25 @@ export class DigitalArchitecture {
     this.heroRing2.rotation.x = -Math.PI / 6;
     this.heroGroup.add(this.heroRing2);
 
-    this.heroGroup.position.set(2.4, 0.2, 0);
+    // Developer Symbol Orbit Animation System (Dual Coordinated Orbits)
+    this.orbitSystem = new DeveloperOrbitSystem(this.heroGroup, this.camera);
+
+    this.heroGroup.position.set(this.getHeroGroupTargetX(), 0.2, 0);
+  }
+
+  getHeroGroupTargetX() {
+    if (typeof window === 'undefined') return 3.92;
+    const width = window.innerWidth;
+    if (width < 768) return 1.4;    // centered on mobile viewports
+    if (width < 1024) return 2.75;  // balanced rightward positioning on tablet
+    if (width >= 1440) return 4.15; // wide desktop placement further right
+    return 3.92;                   // standard desktop placement further right
+  }
+
+  getAboutGroupTargetX() {
+    const heroX = this.getHeroGroupTargetX();
+    // Keeps aboutSphere (round shape) and aboutPrism (rectangle) aligned with heroGroup
+    return heroX - 1.9;
   }
 
   initAboutArchitecture() {
@@ -144,7 +163,7 @@ export class DigitalArchitecture {
     // Glowing curved purple torus ribbon looping around architecture (Slide 01 About)
     const torusGeom = new THREE.TorusGeometry(1.6, 0.045, 16, 80);
     const torusMat = new THREE.MeshStandardMaterial({
-      color: 0x792CFF,
+      color: 0x5A4584,
       emissive: 0x3B0764,
       metalness: 0.9,
       roughness: 0.15
@@ -154,7 +173,7 @@ export class DigitalArchitecture {
     this.aboutRibbon.rotation.set(Math.PI / 3, Math.PI / 6, 0);
     this.aboutGroup.add(this.aboutRibbon);
 
-    this.aboutGroup.position.set(0.5, 0, 0);
+    this.aboutGroup.position.set(this.getAboutGroupTargetX(), 0, 0);
     this.aboutGroup.visible = true;
   }
 
@@ -167,7 +186,7 @@ export class DigitalArchitecture {
     });
 
     const edgeMat = new THREE.LineBasicMaterial({
-      color: 0x792CFF,
+      color: 0x5A4584,
       transparent: true,
       opacity: 0.65
     });
@@ -225,7 +244,7 @@ export class DigitalArchitecture {
       const edgeLine = new THREE.LineSegments(
         edges,
         new THREE.LineBasicMaterial({
-          color: i === 0 ? 0xCDB5FF : 0x792CFF,
+          color: i === 0 ? 0xCDB5FF : 0x5A4584,
           transparent: true,
           opacity: 0.85 - i * 0.12
         })
@@ -251,7 +270,7 @@ export class DigitalArchitecture {
     ]);
     const tubeGeom = new THREE.TubeGeometry(curve, 64, 0.05, 12, false);
     const tubeMat = new THREE.MeshStandardMaterial({
-      color: 0x792CFF,
+      color: 0x5A4584,
       emissive: 0x2E0B59,
       metalness: 0.92,
       roughness: 0.16
@@ -288,7 +307,7 @@ export class DigitalArchitecture {
 
     const orbitGeom = new THREE.TorusGeometry(2.0, 0.02, 16, 100);
     const orbitMat = new THREE.MeshBasicMaterial({
-      color: 0x792CFF,
+      color: 0x5A4584,
       transparent: true,
       opacity: 0.75
     });
@@ -312,7 +331,7 @@ export class DigitalArchitecture {
 
   initGridPlane() {
     // Neon purple floor grid (Reference 3D Environment)
-    const gridHelper = new THREE.GridHelper(30, 30, 0x792CFF, 0x1A0C33);
+    const gridHelper = new THREE.GridHelper(30, 30, 0x5A4584, 0x1A0C33);
     gridHelper.position.y = -3.8;
     this.scene.add(gridHelper);
     this.floorGrid = gridHelper;
@@ -328,6 +347,9 @@ export class DigitalArchitecture {
     const velInfluence = Math.min(scrollVelocity * 0.8, 1.5);
     const speed = (0.2 + velInfluence) * delta;
 
+    // Responsive X alignment for hero animation (subtle rightward desktop placement, centered on mobile)
+    this.heroGroup.position.x = this.getHeroGroupTargetX();
+
     // 1. Hero Object Rotation & Pulse
     if (this.heroOuterBox) {
       this.heroOuterBox.rotation.x += speed * 0.6;
@@ -342,6 +364,11 @@ export class DigitalArchitecture {
       this.heroGroup.rotation.y = mouse.x * 0.35;
     }
 
+    // Developer Symbol Orbital Animation System
+    if (this.orbitSystem) {
+      this.orbitSystem.update(time, delta, mouse, scrollVelocity);
+    }
+
     // 2. Stack Network
     if (this.networkSystem) {
       this.networkSystem.update(time, mouse);
@@ -349,6 +376,7 @@ export class DigitalArchitecture {
 
     // 3. About Architecture
     if (this.aboutGroup.visible) {
+      this.aboutGroup.position.x = this.getAboutGroupTargetX();
       this.aboutSphere.position.y = 1.2 + Math.sin(time * 1.2) * 0.1;
       this.aboutPrism.rotation.y += speed * 0.3;
       if (this.aboutRibbon) {
@@ -438,6 +466,7 @@ export class DigitalArchitecture {
 
   dispose() {
     this.scene.remove(this.group);
+    if (this.orbitSystem) this.orbitSystem.dispose();
     if (this.networkSystem) this.networkSystem.dispose();
     if (this.floorGrid) this.scene.remove(this.floorGrid);
   }

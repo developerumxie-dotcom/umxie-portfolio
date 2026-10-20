@@ -37,7 +37,7 @@
 /* Theme Dark */
 .section-header-block--dark .section-index-badge {
   color: var(--accent-purple-light);
-  text-shadow: 0 0 12px rgba(121, 44, 255, 0.5);
+  text-shadow: 0 0 12px rgba(90, 69, 132, 0.5);
 }
 
 .section-header-block--dark .section-headline {

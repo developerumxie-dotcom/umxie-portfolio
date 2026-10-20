@@ -93,17 +93,17 @@
   padding: 0.5rem 1.15rem;
   background: rgba(23, 13, 36, 0.85);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(121, 44, 255, 0.35);
+  border: 1px solid rgba(90, 69, 132, 0.35);
   color: var(--accent-purple-light);
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
 }
 
 .hero-tech-tag:hover {
-  background: rgba(121, 44, 255, 0.22);
+  background: rgba(90, 69, 132, 0.22);
   border-color: var(--accent-purple-light);
   color: #FFFFFF;
-  box-shadow: 0 0 16px rgba(121, 44, 255, 0.4);
+  box-shadow: 0 0 16px rgba(90, 69, 132, 0.4);
 }
 
 /* Hero Bottom Bar */

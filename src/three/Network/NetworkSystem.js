@@ -18,7 +18,7 @@ export class NetworkSystem {
       nodeSubGroup.position.set(tech.coords.x * 1.3, tech.coords.y * 1.1, tech.coords.z * 1.2);
 
       const baseMat = new THREE.MeshStandardMaterial({
-        color: 0x792CFF,
+        color: 0x5A4584,
         metalness: 0.8,
         roughness: 0.2,
         emissive: 0x240B4D
@@ -75,7 +75,7 @@ export class NetworkSystem {
     if (!techId) {
       // Reset all nodes and lines
       this.techNodesMap.forEach((nodeGroup) => {
-        nodeGroup.userData.mesh.material.color.setHex(0x792CFF);
+        nodeGroup.userData.mesh.material.color.setHex(0x5A4584);
         nodeGroup.userData.mesh.material.emissive.setHex(0x240B4D);
         nodeGroup.userData.halo.material.color.setHex(0xCDB5FF);
         nodeGroup.userData.halo.material.opacity = 0.45;
@@ -99,14 +99,14 @@ export class NetworkSystem {
 
       if (isSelected) {
         nodeGroup.userData.mesh.material.color.setHex(0xFFFFFF);
-        nodeGroup.userData.mesh.material.emissive.setHex(0x792CFF);
+        nodeGroup.userData.mesh.material.emissive.setHex(0x5A4584);
         nodeGroup.userData.halo.material.color.setHex(0xCDB5FF);
         nodeGroup.userData.halo.material.opacity = 0.95;
         nodeGroup.scale.set(1.4, 1.4, 1.4);
       } else if (isConnected) {
         nodeGroup.userData.mesh.material.color.setHex(0xCDB5FF);
         nodeGroup.userData.mesh.material.emissive.setHex(0x4A1D85);
-        nodeGroup.userData.halo.material.color.setHex(0x792CFF);
+        nodeGroup.userData.halo.material.color.setHex(0x5A4584);
         nodeGroup.userData.halo.material.opacity = 0.75;
         nodeGroup.scale.set(1.15, 1.15, 1.15);
       } else {

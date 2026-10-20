@@ -88,7 +88,7 @@
 .loading-status-ready {
   color: var(--accent-purple-light);
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(121, 44, 255, 0.6);
+  text-shadow: 0 0 10px rgba(90, 69, 132, 0.6);
 }
 
 .loading-footer {

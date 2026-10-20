@@ -132,17 +132,17 @@
   text-transform: uppercase;
   padding: 0.35rem 0.75rem;
   background: rgba(26, 19, 41, 0.7);
-  border: 1px solid rgba(121, 44, 255, 0.3);
+  border: 1px solid rgba(90, 69, 132, 0.3);
   border-radius: var(--radius-sm);
   color: var(--accent-purple-light);
   transition: all var(--transition-fast);
 }
 
 .tech-tag:hover {
-  background: rgba(121, 44, 255, 0.2);
+  background: rgba(90, 69, 132, 0.2);
   border-color: var(--accent-purple-vibrant);
   color: #FFFFFF;
-  box-shadow: 0 0 12px rgba(121, 44, 255, 0.3);
+  box-shadow: 0 0 12px rgba(90, 69, 132, 0.3);
 }
 
 .portfolio-section--light .tech-tag,

@@ -39,7 +39,7 @@ export class ParticleSystem {
 
     // In light section, adjust particles to subtle violet to remain visible and aesthetic
     if (isLightSection) {
-      this.material.color.setHex(0x792CFF);
+      this.material.color.setHex(0x5A4584);
       this.material.opacity = 0.35;
       this.material.blending = THREE.NormalBlending;
     } else {

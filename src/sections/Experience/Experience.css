@@ -27,7 +27,7 @@
   left: 0;
   width: 1.5px;
   height: 100%;
-  background-color: rgba(121, 44, 255, 0.25);
+  background-color: rgba(90, 69, 132, 0.25);
 }
 
 .timeline-progress-fill {
@@ -116,7 +116,7 @@
 
 /* Microchip Spec Column on Right */
 .experience-spec-col {
-  border: 1px solid rgba(121, 44, 255, 0.2);
+  border: 1px solid rgba(90, 69, 132, 0.2);
   background: rgba(23, 13, 36, 0.6);
   backdrop-filter: blur(12px);
   padding: 2.25rem;

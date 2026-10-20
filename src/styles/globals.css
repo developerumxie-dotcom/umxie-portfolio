@@ -8,12 +8,12 @@
   --surface-light-gray: #DCD8E8;
 
   /* Accent Purple System */
-  --accent-purple: #792CFF;
+  --accent-purple: #5A4584;
   --accent-purple-light: #CDB5FF;
   --accent-purple-vibrant: #A855F7;
   --accent-purple-deep: #4E18B8;
-  --accent-purple-glow: rgba(121, 44, 255, 0.45);
-  --accent-purple-subtle: rgba(121, 44, 255, 0.12);
+  --accent-purple-glow: rgba(90, 69, 132, 0.45);
+  --accent-purple-subtle: rgba(90, 69, 132, 0.12);
 
   --text-primary: #F5F3F8;
   --text-white: #FFFFFF;
@@ -25,7 +25,7 @@
 
   --border-color: #241D33;
   --border-subtle: #191326;
-  --border-accent: #792CFF;
+  --border-accent: #5A4584;
   --border-light: #DDD7E8;
   --border-light-subtle: #E8E4F2;
 
@@ -85,8 +85,8 @@ body {
   margin: 0;
   padding: 0;
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(121, 44, 255, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 60%, rgba(121, 44, 255, 0.05) 0%, transparent 40%);
+    radial-gradient(circle at 50% 0%, rgba(90, 69, 132, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(90, 69, 132, 0.05) 0%, transparent 40%);
   background-attachment: fixed;
 }
 
@@ -168,8 +168,8 @@ video {
   pointer-events: none;
   background-size: 80px 80px;
   background-image:
-    linear-gradient(to right, rgba(121, 44, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(121, 44, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(90, 69, 132, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(90, 69, 132, 0.04) 1px, transparent 1px);
 }
 
 /* Crosshair Coordinate Markers */

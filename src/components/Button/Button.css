@@ -26,13 +26,13 @@
   background-color: var(--accent-purple);
   color: #FFFFFF;
   border-color: var(--accent-purple);
-  box-shadow: 0 4px 20px rgba(121, 44, 255, 0.35);
+  box-shadow: 0 4px 20px rgba(90, 69, 132, 0.35);
 }
 
 .btn-primary:hover {
-  background-color: #8C42FF;
-  border-color: #8C42FF;
-  box-shadow: 0 6px 28px rgba(121, 44, 255, 0.55);
+  background-color: #6B539C;
+  border-color: #6B539C;
+  box-shadow: 0 6px 28px rgba(90, 69, 132, 0.55);
 }
 
 .btn-secondary {
@@ -55,7 +55,7 @@
 }
 
 .btn-outline:hover {
-  background-color: rgba(121, 44, 255, 0.12);
+  background-color: rgba(90, 69, 132, 0.12);
   border-color: var(--accent-purple-light);
 }
 
@@ -68,7 +68,7 @@
 .btn-dark:hover {
   background-color: var(--accent-purple);
   border-color: var(--accent-purple);
-  box-shadow: 0 4px 18px rgba(121, 44, 255, 0.35);
+  box-shadow: 0 4px 18px rgba(90, 69, 132, 0.35);
 }
 
 .btn-arrow {

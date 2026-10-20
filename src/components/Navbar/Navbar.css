@@ -16,7 +16,7 @@
   background-color: rgba(9, 9, 13, 0.88);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-bottom-color: rgba(121, 44, 255, 0.2);
+  border-bottom-color: rgba(90, 69, 132, 0.2);
 }
 
 /* Light mode overlay when hovering or scrolling over light section */
@@ -51,7 +51,7 @@
 
 .portfolio-navbar--light .nav-status-dot {
   background-color: var(--accent-purple);
-  box-shadow: 0 0 6px rgba(121, 44, 255, 0.6);
+  box-shadow: 0 0 6px rgba(90, 69, 132, 0.6);
 }
 
 .portfolio-navbar--light .hamburger-bar {

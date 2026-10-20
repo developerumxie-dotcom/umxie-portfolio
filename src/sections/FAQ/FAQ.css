@@ -104,21 +104,21 @@
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  border: 1px solid rgba(121, 44, 255, 0.3);
+  border: 1px solid rgba(90, 69, 132, 0.3);
   border-radius: var(--radius-sm);
-  background-color: rgba(121, 44, 255, 0.06);
+  background-color: rgba(90, 69, 132, 0.06);
   transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .faq-question-btn:hover .faq-icon-indicator {
   border-color: var(--accent-purple-light);
-  background-color: rgba(121, 44, 255, 0.15);
+  background-color: rgba(90, 69, 132, 0.15);
 }
 
 .faq-item--open .faq-icon-indicator {
   border-color: var(--accent-purple);
-  background-color: rgba(121, 44, 255, 0.25);
-  box-shadow: 0 0 12px rgba(121, 44, 255, 0.45);
+  background-color: rgba(90, 69, 132, 0.25);
+  box-shadow: 0 0 12px rgba(90, 69, 132, 0.45);
 }
 
 .faq-icon-line {

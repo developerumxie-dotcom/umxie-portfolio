@@ -20,7 +20,7 @@ export class LightingSetup {
     this.lights.push(mainKeyLight);
 
     // 3. Rim Light (electric purple edge definition)
-    const rimLight = new THREE.DirectionalLight(0x792CFF, 2.5);
+    const rimLight = new THREE.DirectionalLight(0x5A4584, 2.5);
     rimLight.position.set(-6, -4, -3);
     this.scene.add(rimLight);
     this.lights.push(rimLight);

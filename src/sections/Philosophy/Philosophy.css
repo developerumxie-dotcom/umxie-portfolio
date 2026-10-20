@@ -57,7 +57,7 @@
 }
 
 .principle-row:hover {
-  background-color: rgba(121, 44, 255, 0.06);
+  background-color: rgba(90, 69, 132, 0.06);
   padding-left: 1rem;
 }
 
@@ -67,7 +67,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--accent-purple-light);
-  text-shadow: 0 0 8px rgba(121, 44, 255, 0.4);
+  text-shadow: 0 0 8px rgba(90, 69, 132, 0.4);
 }
 
 .principle-title {
