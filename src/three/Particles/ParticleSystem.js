@@ -3,7 +3,7 @@ import * as THREE from 'three';
 export class ParticleSystem {
   constructor(scene) {
     this.scene = scene;
-    this.particleCount = 280;
+    this.particleCount = 140;  // sparse — reference shows very few stars
     this.init();
   }
 
@@ -23,10 +23,10 @@ export class ParticleSystem {
     geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
 
     this.material = new THREE.PointsMaterial({
-      color: 0xCDB5FF,
-      size: 0.045,
+      color: 0xBBAAEE,
+      size: 0.028,        // small stars
       transparent: true,
-      opacity: 0.65,
+      opacity: 0.38,      // very faint
       blending: THREE.AdditiveBlending
     });
 

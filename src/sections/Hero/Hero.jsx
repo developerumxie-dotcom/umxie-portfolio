@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useCursor } from '../../components/Cursor/CursorContext';
 import { useSound } from '../../components/Sound/SoundContext';
 import MagneticElement from '../../components/Cursor/MagneticElement';
@@ -7,17 +7,6 @@ import './Hero.css';
 export default function Hero({ mousePosition }) {
   const { setCursor, resetCursor } = useCursor();
   const { playSound } = useSound();
-  const [coords, setCoords] = useState({ x: '042', y: '081', z: '266' });
-
-  // Update real-time mock coordinates based on mouse movement
-  useEffect(() => {
-    if (mousePosition) {
-      const calcX = Math.abs(Math.round(mousePosition.x % 1000)).toString().padStart(3, '0');
-      const calcY = Math.abs(Math.round(mousePosition.y % 1000)).toString().padStart(3, '0');
-      const calcZ = Math.abs(Math.round((mousePosition.x + mousePosition.y) % 500)).toString().padStart(3, '0');
-      setCoords({ x: calcX, y: calcY, z: calcZ });
-    }
-  }, [mousePosition]);
 
   const handleScrollClick = (e) => {
     e.preventDefault();
@@ -32,10 +21,6 @@ export default function Hero({ mousePosition }) {
 
   return (
     <section id="hero" className="hero-section">
-      {/* Top Crosshairs */}
-      <div className="crosshair" style={{ top: '80px', left: '20px' }} />
-      <div className="crosshair" style={{ top: '80px', right: '20px' }} />
-
       <div className="container hero-container">
         <div className="hero-content hero-interactive-layer">
           <div className="hero-eyebrow">
@@ -44,12 +29,13 @@ export default function Hero({ mousePosition }) {
           </div>
 
           <h1 className="hero-title">
-            <span>SOFTWARE</span>
-            <span>ENGINEER</span>
+            <span className="hero-title-software">SOFTWARE</span>
+            <span className="hero-title-engineer">ENGINEER</span>
           </h1>
 
           <p className="hero-statement">
-            I build digital products, backend systems, and modern web experiences.
+            I BUILD DIGITAL PRODUCTS, BACKEND SYSTEMS,<br className="hero-break-desk" />
+            AND MODERN WEB EXPERIENCES.
           </p>
 
           <div className="hero-tech-row">
@@ -76,15 +62,11 @@ export default function Hero({ mousePosition }) {
               onMouseEnter={() => setCursor('hover')}
               onMouseLeave={resetCursor}
             >
+              <span className="hero-scroll-line" />
               <span>SCROLL TO EXPLORE</span>
               <span className="hero-scroll-arrow">↓</span>
             </a>
           </MagneticElement>
-
-          <div className="hero-telemetry">
-            <span>X: {coords.x} &nbsp; Y: {coords.y} &nbsp; Z: {coords.z}</span>
-            <span>/ 00</span>
-          </div>
         </div>
       </div>
     </section>

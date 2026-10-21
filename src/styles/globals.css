@@ -1,31 +1,38 @@
 :root {
-  /* Color System - Reference Purple & Deep Dark Palette */
-  --bg-primary: #09090D;
-  --bg-secondary: #120D1D;
-  --bg-tertiary: #1A1329;
+  /* Exact Reference Color System */
+  --bg-primary: #07070B;
+  --bg-secondary: #0B0912;
+  --bg-tertiary: #100C1C;
+  --bg-panel: rgba(12, 9, 22, 0.78);
   --bg-light: #F5F3F8;
   --bg-light-muted: #EAE6F2;
   --surface-light-gray: #DCD8E8;
 
-  /* Accent Purple System */
-  --accent-purple: #5A4584;
-  --accent-purple-light: #CDB5FF;
-  --accent-purple-vibrant: #A855F7;
-  --accent-purple-deep: #4E18B8;
-  --accent-purple-glow: rgba(90, 69, 132, 0.45);
-  --accent-purple-subtle: rgba(90, 69, 132, 0.12);
+  /* Violet & Lavender System */
+  --color-violet: #A855F7;
+  --color-violet-bright: #C084FC;
+  --color-lavender: #D8B4FE;
+  --purple-border: rgba(168, 85, 247, 0.35);
+  --purple-glow: rgba(168, 85, 247, 0.2);
+  --faint-grid: rgba(168, 85, 247, 0.15);
 
-  --text-primary: #F5F3F8;
+  --accent-purple: #A855F7;
+  --accent-purple-light: #D8B4FE;
+  --accent-purple-vibrant: #C084FC;
+  --accent-purple-glow: rgba(168, 85, 247, 0.2);
+  --accent-purple-subtle: rgba(168, 85, 247, 0.15);
+
+  --text-primary: #FFFFFF;
   --text-white: #FFFFFF;
-  --text-secondary: #A8A2B5;
-  --text-muted: #6B6578;
-  --text-dark: #09090D;
+  --text-secondary: #B9B3C9;
+  --text-muted: #7E788F;
+  --text-dark: #07070B;
   --text-dark-secondary: #3D3846;
   --text-dark-muted: #756F82;
 
-  --border-color: #241D33;
-  --border-subtle: #191326;
-  --border-accent: #5A4584;
+  --border-color: rgba(168, 85, 247, 0.35);
+  --border-subtle: rgba(168, 85, 247, 0.15);
+  --border-accent: #A855F7;
   --border-light: #DDD7E8;
   --border-light-subtle: #E8E4F2;
 

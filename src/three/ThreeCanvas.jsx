@@ -55,8 +55,8 @@ export default function ThreeCanvas({
       0.1,
       100
     );
-    camera.position.set(0.8, 0.2, 6.2);
-    camera.lookAt(1.4, 0.2, 0);
+    camera.position.set(0.4, 0.1, 5.8);
+    camera.lookAt(0.8, 0.1, 0);
     const cameraController = new CameraController(camera);
     cameraControllerRef.current = cameraController;
 
@@ -69,7 +69,7 @@ export default function ThreeCanvas({
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.0;
+    renderer.toneMappingExposure = 0.82;
     container.innerHTML = '';
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
@@ -113,11 +113,14 @@ export default function ThreeCanvas({
         mousePosition: curMouse
       } = propsRef.current;
 
-      // Real-time zero-latency scroll progress calculation for Hero -> About travel
+      // Real-time zero-latency scroll progress calculation for Hero -> About travel and through About
       const scrollY = window.scrollY;
       const aboutElem = document.getElementById('about');
       const aboutTop = aboutElem ? aboutElem.offsetTop : window.innerHeight;
+      const aboutHeight = aboutElem ? aboutElem.offsetHeight : window.innerHeight;
+      const aboutEnd = aboutTop + aboutHeight;
       const heroAboutProgress = aboutTop > 0 ? Math.min(Math.max(scrollY / aboutTop, 0), 1) : 0;
+      const scrollThroughAbout = aboutEnd > 0 ? Math.min(Math.max(scrollY / aboutEnd, 0), 1) : 0;
 
       // Overall document scroll progress
       const totalScrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -153,7 +156,13 @@ export default function ThreeCanvas({
           delta,
           { x: curMouse?.normalizedX || 0, y: curMouse?.normalizedY || 0 },
           docProgress,
-          curVelocity
+          curVelocity,
+          heroAboutProgress,
+          curSection,
+          scrollThroughAbout,
+          scrollY,
+          aboutTop,
+          aboutHeight
         );
       }
 
