@@ -176,7 +176,8 @@ export class DigitalArchitecture {
 
     // 3. Update Home Coding Universe as one unified entity
     if (this.homeUniverse) {
-      const isVisible = !isExitedOffscreen && actualScrollY < exitEnd + 100;
+      const isHeroOrAbout = _curSection === 'hero' || _curSection === 'about';
+      const isVisible = isHeroOrAbout && !isExitedOffscreen && actualScrollY < exitEnd + 100;
       this.heroGroup.visible = isVisible;
 
       if (isVisible) {
@@ -194,15 +195,23 @@ export class DigitalArchitecture {
     }
 
     // 4. Update Perspective Floor Grid to track planet position
-    if (this.floorGrid) {
-      this.floorGrid.update(time);
-      this.floorGrid.setPlanetPosition(this.currentX);
+    if (this.floorGrid && this.floorGrid.group) {
+      const isHeroOrAbout = _curSection === 'hero' || _curSection === 'about';
+      this.floorGrid.group.visible = isHeroOrAbout;
+      if (isHeroOrAbout) {
+        this.floorGrid.update(time);
+        this.floorGrid.setPlanetPosition(this.currentX);
+      }
     }
   }
 
   setSectionState(sectionName) {
-    if (this.floorGrid) {
-      this.floorGrid.group.visible = (sectionName !== 'projects' && sectionName !== 'philosophy');
+    const isHeroOrAbout = sectionName === 'hero' || sectionName === 'about';
+    if (this.heroGroup) {
+      this.heroGroup.visible = isHeroOrAbout;
+    }
+    if (this.floorGrid && this.floorGrid.group) {
+      this.floorGrid.group.visible = isHeroOrAbout;
     }
   }
 

@@ -14,8 +14,6 @@ import FAQ from './sections/FAQ/FAQ';
 import Contact from './sections/Contact/Contact';
 import Footer from './sections/Footer/Footer';
 import ThreeCanvas from './three/ThreeCanvas';
-import { useMousePosition } from './hooks/useMousePosition';
-import { useScrollProgress } from './hooks/useScrollProgress';
 import { initScrollAnimations } from './animations/scrollAnimations';
 import './App.css';
 
@@ -24,9 +22,6 @@ export default function App() {
   const [hoveredTech, setHoveredTech] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const { onSystemReady } = useSound();
-
-  const mousePosition = useMousePosition();
-  const { progress, velocity } = useScrollProgress();
 
   // Active section tracking via robust viewport calculation
   useEffect(() => {
@@ -99,10 +94,7 @@ export default function App() {
         {/* Background 3D Digital Architecture WebGL Canvas */}
         <ThreeCanvas
           activeSection={activeSection}
-          scrollProgress={progress}
-          scrollVelocity={velocity}
           hoveredTech={hoveredTech}
-          mousePosition={mousePosition}
         />
 
         {/* Fixed Minimalist Navigation */}
@@ -110,7 +102,7 @@ export default function App() {
 
         {/* Content Flow */}
         <main className="content-flow">
-          <Hero mousePosition={mousePosition} />
+          <Hero />
           <About />
           <Stack
             hoveredTech={hoveredTech}
