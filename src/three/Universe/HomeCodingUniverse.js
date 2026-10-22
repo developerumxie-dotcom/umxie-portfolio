@@ -35,13 +35,13 @@ export class HomeCodingUniverse {
   }
 
   getTargetX() {
-    if (typeof window === 'undefined') return 2.45;
+    if (typeof window === 'undefined') return 2.75;
     const width = window.innerWidth;
-    if (width < 640) return 0.05;
-    if (width < 768) return 0.35;
-    if (width < 1024) return 1.45;
-    if (width < 1440) return 2.40;
-    return 2.58;
+    if (width < 640) return 0.35;
+    if (width < 768) return 0.65;
+    if (width < 1024) return 1.75;
+    if (width < 1440) return 2.75;
+    return 2.98;
   }
 
   getScale() {

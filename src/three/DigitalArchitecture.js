@@ -47,25 +47,25 @@ export class DigitalArchitecture {
     let rightX, leftX, finalRightX;
 
     if (width < 640) {
-      rightX = 0.20;
+      rightX = 0.35;
       leftX = -0.85;
-      finalRightX = 0.35;
+      finalRightX = 0.50;
     } else if (width < 768) {
-      rightX = 0.45;
+      rightX = 0.65;
       leftX = -1.15;
-      finalRightX = 0.55;
+      finalRightX = 0.75;
     } else if (width < 1024) {
-      rightX = 1.45;
+      rightX = 1.75;
       leftX = -1.85;
-      finalRightX = 1.55;
+      finalRightX = 1.85;
     } else if (width < 1440) {
-      rightX = 2.40;
+      rightX = 2.75;
       leftX = -2.35;
-      finalRightX = 2.55;
+      finalRightX = 2.90;
     } else {
-      rightX = 2.58;
+      rightX = 2.98;
       leftX = -2.55;
-      finalRightX = 2.75;
+      finalRightX = 3.15;
     }
 
     return { rightX, leftX, finalRightX };
