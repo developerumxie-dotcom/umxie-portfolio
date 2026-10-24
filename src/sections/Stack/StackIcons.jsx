@@ -247,20 +247,38 @@ export function TechIcon({ id, size = 36, className = '' }) {
         </svg>
       );
 
-    case 'cpp':
+    case 'c':
       return (
         <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
-          <polygon points="24,4 42,14 42,34 24,44 6,34 6,14" fill="#00599C" rx="4" />
+          <polygon points="24,4 42,14 42,34 24,44 6,34 6,14" fill="#00599C" />
           <text
             x="24"
-            y="30"
+            y="31"
             fontFamily="'Inter', 'Arial Black', sans-serif"
-            fontSize="15"
+            fontSize="20"
             fontWeight="900"
             fill="#FFFFFF"
             textAnchor="middle"
           >
-            C/C++
+            C
+          </text>
+        </svg>
+      );
+
+    case 'cpp':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <polygon points="24,4 42,14 42,34 24,44 6,34 6,14" fill="#00599C" />
+          <text
+            x="24"
+            y="30"
+            fontFamily="'Inter', 'Arial Black', sans-serif"
+            fontSize="16"
+            fontWeight="900"
+            fill="#FFFFFF"
+            textAnchor="middle"
+          >
+            C++
           </text>
         </svg>
       );
@@ -1141,6 +1159,346 @@ export function TechIcon({ id, size = 36, className = '' }) {
           <rect x="15" y="17" width="9" height="9" rx="4.5" fill="#A259FF" />
           <circle cx="28.5" cy="21.5" r="4.5" fill="#1ABCFE" />
           <rect x="15" y="26" width="9" height="9" rx="4.5" fill="#0ACF83" />
+        </svg>
+      );
+
+    case 'github':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#181717" />
+          <path
+            d="M24 10C16.3 10 10 16.3 10 24c0 6.2 4 11.4 9.6 13.3.7.1 1-.3 1-.7v-2.5c-3.9.8-4.7-1.9-4.7-1.9-.6-1.6-1.5-2.1-1.5-2.1-1.3-.9.1-.9.1-.9 1.4.1 2.2 1.5 2.2 1.5 1.3 2.1 3.3 1.5 4.1 1.2.1-.9.5-1.5.9-1.9-3.1-.4-6.4-1.6-6.4-7 0-1.5.5-2.8 1.4-3.8-.1-.4-.6-1.8.1-3.7 0 0 1.2-.4 3.9 1.5 1.1-.3 2.3-.5 3.5-.5s2.4.2 3.5.5c2.7-1.9 3.9-1.5 3.9-1.5.7 1.9.3 3.3.1 3.7.9 1 1.4 2.3 1.4 3.8 0 5.4-3.3 6.6-6.4 7 .5.4 1 1.3 1 2.6v3.8c0 .4.3.8 1 .7C34 35.4 38 30.2 38 24c0-7.7-6.3-14-14-14z"
+            fill="#FFFFFF"
+          />
+        </svg>
+      );
+
+    case 'auth':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#1A132F" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M24 10l12 5v9c0 7.5-5.2 14.5-12 16.5-6.8-2-12-9-12-16.5v-9l12-5z" fill="none" stroke="#C084FC" strokeWidth="2.5" />
+          <circle cx="24" cy="22" r="3" fill="#D8B4FE" />
+          <path d="M24 25v5" stroke="#D8B4FE" strokeWidth="2.5" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'middleware':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <line x1="10" y1="24" x2="38" y2="24" stroke="#A855F7" strokeWidth="2.5" strokeDasharray="3 3" />
+          <rect x="18" y="14" width="12" height="20" rx="3" fill="#241B3B" stroke="#C084FC" strokeWidth="2" />
+          <path d="M22 21l4 3-4 3" stroke="#FFFFFF" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+
+    case 'websockets':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#0E121E" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M12 20h24m-6-5l6 5-6 5" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <path d="M36 28H12m6-5l-6 5 6 5" stroke="#C084FC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      );
+
+    case 'flutter':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#042B59" />
+          <path d="M25 10L11 24l5 5 14-14h8L25 10z" fill="#42A5F5" />
+          <path d="M25 38l6-6-6-6h8l6 6-6 6h-8z" fill="#027DFD" />
+          <path d="M20 29l4-4 4 4-4 4-4-4z" fill="#01579B" />
+        </svg>
+      );
+
+    case 'reactnative':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#0E1726" />
+          <circle cx="24" cy="24" r="3.5" fill="#61DAFB" />
+          <ellipse cx="24" cy="24" rx="17" ry="6.5" fill="none" stroke="#61DAFB" strokeWidth="1.8" />
+          <ellipse cx="24" cy="24" rx="17" ry="6.5" transform="rotate(60 24 24)" fill="none" stroke="#61DAFB" strokeWidth="1.8" />
+          <ellipse cx="24" cy="24" rx="17" ry="6.5" transform="rotate(120 24 24)" fill="none" stroke="#61DAFB" strokeWidth="1.8" />
+        </svg>
+      );
+
+    case 'bootstrap':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#7952B3" />
+          <text x="24" y="34" fontFamily="'Inter', sans-serif" fontSize="30" fontWeight="900" fill="#FFFFFF" textAnchor="middle">B</text>
+        </svg>
+      );
+
+    case 'mongoose':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#880000" />
+          <text x="24" y="34" fontFamily="'Inter', sans-serif" fontSize="28" fontWeight="900" fill="#FFFFFF" textAnchor="middle">M</text>
+        </svg>
+      );
+
+    case 'npm':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#CB3837" />
+          <path d="M10 14h28v20H24v-14h-6v14h-8V14z" fill="#FFFFFF" />
+        </svg>
+      );
+
+    case 'pnpm':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#1B1B1F" />
+          <rect x="11" y="11" width="11" height="11" rx="2" fill="#F69220" />
+          <rect x="25" y="11" width="11" height="11" rx="2" fill="#F69220" />
+          <rect x="11" y="25" width="11" height="11" rx="2" fill="#F69220" />
+          <rect x="25" y="25" width="11" height="11" rx="2" fill="#4E4E4E" />
+        </svg>
+      );
+
+    case 'pytest':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#0A3B5C" />
+          <path d="M21 12h6v8l6 14a2 2 0 0 1-2 2H17a2 2 0 0 1-2-2l6-14v-8z" fill="#00D2FF" opacity="0.3" stroke="#00D2FF" strokeWidth="2" />
+          <circle cx="21" cy="29" r="2" fill="#FED136" />
+          <circle cx="26" cy="27" r="1.5" fill="#FED136" />
+          <circle cx="24" cy="32" r="2.5" fill="#FED136" />
+        </svg>
+      );
+
+    case 'devtools':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#1E293B" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M13 18l7 6-7 6" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1="23" y1="30" x2="33" y2="30" stroke="#C084FC" strokeWidth="2.5" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'terminal':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#0F172A" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <polyline points="14 18 21 24 14 30" fill="none" stroke="#4ADE80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1="24" y1="30" x2="33" y2="30" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'network_debug':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#131124" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <circle cx="15" cy="24" r="4" fill="#38BDF8" />
+          <circle cx="33" cy="16" r="4" fill="#C084FC" />
+          <circle cx="33" cy="32" r="4" fill="#A855F7" />
+          <line x1="19" y1="22" x2="29" y2="18" stroke="#94A3B8" strokeWidth="2" strokeDasharray="2 2" />
+          <line x1="19" y1="26" x2="29" y2="30" stroke="#94A3B8" strokeWidth="2" strokeDasharray="2 2" />
+        </svg>
+      );
+
+    case 'dynamodb':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#1C2833" />
+          <ellipse cx="24" cy="14" rx="14" ry="5" fill="#2E86C1" />
+          <path d="M10 14v10c0 2.8 6.3 5 14 5s14-2.2 14-5V14" fill="#3498DB" />
+          <path d="M10 24v10c0 2.8 6.3 5 14 5s14-2.2 14-5V24" fill="#2980B9" />
+          <polygon points="21,19 28,19 24,29 27,29 20,38 22,29 18,29" fill="#F39C12" />
+        </svg>
+      );
+
+    case 'serverless':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#18132B" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M26 8L14 26h10l-2 14 14-18H26l2-14z" fill="#F59E0B" stroke="#FBBF24" strokeWidth="1.2" />
+        </svg>
+      );
+
+    case 'app_deployment':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M24 10c4 0 10 7 10 16 0 3-1 6-3 8l-7-4-7 4c-2-2-3-5-3-8 0-9 6-16 10-16z" fill="#C084FC" />
+          <circle cx="24" cy="20" r="3" fill="#120E22" />
+          <path d="M17 32l-5 4v-8l5 4zM31 32l5 4v-8l-5 4z" fill="#A855F7" />
+          <path d="M21 34l3 6 3-6z" fill="#F59E0B" />
+        </svg>
+      );
+
+    case 'api_validation':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#141E28" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M24 10l12 5v8c0 8-5 13-12 16-7-3-12-8-12-16v-8l12-5z" fill="none" stroke="#10B981" strokeWidth="2.5" />
+          <polyline points="18 24 22 28 30 19" fill="none" stroke="#34D399" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+
+    case 'error_handling':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#24141E" stroke="rgba(244, 63, 94, 0.4)" strokeWidth="1.5" />
+          <circle cx="24" cy="24" r="14" fill="none" stroke="#F43F5E" strokeWidth="2.5" />
+          <line x1="24" y1="16" x2="24" y2="25" stroke="#FDA4AF" strokeWidth="2.5" strokeLinecap="round" />
+          <circle cx="24" cy="30" r="1.5" fill="#FDA4AF" />
+        </svg>
+      );
+
+    case 'jwt':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#18132B" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <rect x="14" y="20" width="20" height="16" rx="4" fill="#A855F7" />
+          <path d="M18 20v-5a6 6 0 0 1 12 0v5" fill="none" stroke="#C084FC" strokeWidth="2.5" />
+          <circle cx="24" cy="28" r="2.5" fill="#FFFFFF" />
+        </svg>
+      );
+
+    case 'db_indexing':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <rect x="18" y="10" width="12" height="7" rx="2" fill="#C084FC" />
+          <rect x="10" y="27" width="11" height="7" rx="2" fill="#A855F7" />
+          <rect x="27" y="27" width="11" height="7" rx="2" fill="#A855F7" />
+          <line x1="21" y1="17" x2="15" y2="27" stroke="#818CF8" strokeWidth="2" />
+          <line x1="27" y1="17" x2="33" y2="27" stroke="#818CF8" strokeWidth="2" />
+        </svg>
+      );
+
+    case 'db_modeling':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <rect x="10" y="12" width="12" height="10" rx="2" fill="none" stroke="#38BDF8" strokeWidth="2" />
+          <line x1="10" y1="16" x2="22" y2="16" stroke="#38BDF8" strokeWidth="1.5" />
+          <rect x="26" y="26" width="12" height="10" rx="2" fill="none" stroke="#C084FC" strokeWidth="2" />
+          <line x1="26" y1="30" x2="38" y2="30" stroke="#C084FC" strokeWidth="1.5" />
+          <path d="M22 17h4v14h-4" fill="none" stroke="#94A3B8" strokeWidth="2" strokeDasharray="2 2" />
+        </svg>
+      );
+
+    case 'db_migrations':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <path d="M16 28l8-10 8 10" fill="none" stroke="#4ADE80" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1="24" y1="19" x2="24" y2="35" stroke="#4ADE80" strokeWidth="3" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'system_design':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#0F172A" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <circle cx="24" cy="14" r="5" fill="#38BDF8" />
+          <rect x="10" y="29" width="10" height="9" rx="2" fill="#A855F7" />
+          <rect x="28" y="29" width="10" height="9" rx="2" fill="#A855F7" />
+          <line x1="22" y1="18" x2="16" y2="29" stroke="#94A3B8" strokeWidth="2" />
+          <line x1="26" y1="18" x2="32" y2="29" stroke="#94A3B8" strokeWidth="2" />
+        </svg>
+      );
+
+    case 'clean_arch':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <circle cx="24" cy="24" r="16" fill="none" stroke="#7E22CE" strokeWidth="2" />
+          <circle cx="24" cy="24" r="10" fill="none" stroke="#A855F7" strokeWidth="2" />
+          <circle cx="24" cy="24" r="4" fill="#C084FC" />
+        </svg>
+      );
+
+    case 'distributed_sys':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <circle cx="15" cy="16" r="4" fill="#38BDF8" />
+          <circle cx="33" cy="16" r="4" fill="#C084FC" />
+          <circle cx="24" cy="33" r="4" fill="#A855F7" />
+          <line x1="18" y1="16" x2="30" y2="16" stroke="#94A3B8" strokeWidth="2" />
+          <line x1="16" y1="19" x2="22" y2="30" stroke="#94A3B8" strokeWidth="2" />
+          <line x1="32" y1="19" x2="26" y2="30" stroke="#94A3B8" strokeWidth="2" />
+        </svg>
+      );
+
+    case 'design_patterns':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <rect x="12" y="12" width="10" height="10" rx="2" fill="#C084FC" />
+          <rect x="26" y="12" width="10" height="10" rx="2" fill="#818CF8" />
+          <rect x="12" y="26" width="10" height="10" rx="2" fill="#A855F7" />
+          <rect x="26" y="26" width="10" height="10" rx="2" fill="#EC4899" />
+        </svg>
+      );
+
+    case 'concurrency':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <line x1="10" y1="18" x2="38" y2="18" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="10" y1="30" x2="38" y2="30" stroke="#C084FC" strokeWidth="2.5" strokeLinecap="round" />
+          <circle cx="20" cy="18" r="3" fill="#FFFFFF" />
+          <circle cx="30" cy="30" r="3" fill="#FFFFFF" />
+        </svg>
+      );
+
+    case 'rtos':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#1E162E" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <circle cx="24" cy="24" r="14" fill="none" stroke="#C084FC" strokeWidth="2" strokeDasharray="3 3" />
+          <polyline points="24 16 24 24 30 24" fill="none" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round" />
+          <rect x="22" y="7" width="4" height="4" fill="#A855F7" />
+          <rect x="22" y="37" width="4" height="4" fill="#A855F7" />
+        </svg>
+      );
+
+    case 'kernel_dev':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#141923" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <rect x="15" y="15" width="18" height="18" rx="3" fill="#241B3B" stroke="#A855F7" strokeWidth="2" />
+          <line x1="24" y1="8" x2="24" y2="15" stroke="#C084FC" strokeWidth="2" />
+          <line x1="24" y1="33" x2="24" y2="40" stroke="#C084FC" strokeWidth="2" />
+          <line x1="8" y1="24" x2="15" y2="24" stroke="#C084FC" strokeWidth="2" />
+          <line x1="33" y1="24" x2="40" y2="24" stroke="#C084FC" strokeWidth="2" />
+          <circle cx="24" cy="24" r="3" fill="#38BDF8" />
+        </svg>
+      );
+
+    case 'micropython':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#1E2A38" />
+          <text x="24" y="32" fontFamily="'Inter', sans-serif" fontSize="18" fontWeight="900" fill="#FFE873" textAnchor="middle">μPy</text>
+        </svg>
+      );
+
+    case 'algorithms':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#18132B" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <polyline points="12 34 20 22 28 28 36 14" fill="none" stroke="#C084FC" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="12" cy="34" r="3" fill="#A855F7" />
+          <circle cx="20" cy="22" r="3" fill="#818CF8" />
+          <circle cx="28" cy="28" r="3" fill="#A855F7" />
+          <circle cx="36" cy="14" r="3" fill="#38BDF8" />
+        </svg>
+      );
+
+    case 'api_debugging':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" className={className}>
+          <rect width="48" height="48" rx="8" fill="#120E22" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1.5" />
+          <circle cx="22" cy="22" r="9" fill="none" stroke="#38BDF8" strokeWidth="2.5" />
+          <line x1="28" y1="28" x2="36" y2="36" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
+          <text x="22" y="26" fontFamily="'Inter', monospace" fontSize="9" fontWeight="900" fill="#4ADE80" textAnchor="middle">200</text>
         </svg>
       );
 

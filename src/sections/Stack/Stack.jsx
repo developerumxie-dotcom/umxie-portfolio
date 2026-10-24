@@ -162,47 +162,10 @@ function StarSpike({ size = 20, color = '#C084FC' }) {
   );
 }
 
-const SyntaxCodeViewer = React.memo(function SyntaxCodeViewer({ code, language = 'javascript' }) {
-  const renderedLines = useMemo(() => {
-    const lines = code.split('\n');
-    const tokenRegex = /(\b(?:const|let|var|return|function|import|from|export|default|class|new|if|else|def|public|static|void|int|using|namespace|SELECT|FROM|WHERE|ORDER|BY|CREATE|TABLE|package)\b|`[^`]*`|"[^"]*"|'[^']*'|\/\/[^\n]*|#\s[^\n]*|\b(?:console|log|greet|Math|print|println|System|fmt)\b)/g;
-
-    return lines.map((line, idx) => {
-      const parts = line.split(tokenRegex);
-      return (
-        <div key={idx} className="code-line">
-          {parts.map((part, pIdx) => {
-            if (['const', 'let', 'var', 'return', 'function', 'import', 'from', 'export', 'default', 'class', 'new', 'if', 'else', 'def', 'public', 'static', 'void', 'int', 'using', 'namespace', 'SELECT', 'FROM', 'WHERE', 'ORDER', 'BY', 'CREATE', 'TABLE', 'package'].includes(part)) {
-              return <span key={pIdx} className="code-token-keyword">{part}</span>;
-            }
-            if (part.startsWith('`') || part.startsWith('"') || part.startsWith("'")) {
-              return <span key={pIdx} className="code-token-string">{part}</span>;
-            }
-            if (part.startsWith('//') || part.startsWith('#')) {
-              return <span key={pIdx} className="code-token-comment">{part}</span>;
-            }
-            if (['console', 'log', 'greet', 'print', 'println', 'System', 'fmt'].includes(part)) {
-              return <span key={pIdx} className="code-token-func">{part}</span>;
-            }
-            return part;
-          })}
-        </div>
-      );
-    });
-  }, [code]);
-
-  return (
-    <pre className="code-pre-block">
-      <code>{renderedLines}</code>
-    </pre>
-  );
-});
-
 function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
   const [viewMode, setViewMode] = useState('universe'); // 'universe' | 'module' | 'detail'
   const [selectedModuleId, setSelectedModuleId] = useState('languages');
   const [selectedTechId, setSelectedTechId] = useState('javascript');
-  const [copied, setCopied] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isTabVisible, setIsTabVisible] = useState(true);
 
@@ -264,25 +227,6 @@ function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
     setSelectedTechId(tech.id);
     setViewMode('detail');
     if (onTechHover) onTechHover(tech.id);
-  };
-
-  const handleRelatedSelect = (relatedId) => {
-    if (ALL_TECHNOLOGIES_MAP[relatedId]) {
-      setSelectedTechId(relatedId);
-      const modId = ALL_TECHNOLOGIES_MAP[relatedId].moduleId;
-      if (modId) setSelectedModuleId(modId);
-    }
-  };
-
-  const handleCopyCode = async () => {
-    if (!activeTech?.codeExample) return;
-    try {
-      await navigator.clipboard.writeText(activeTech.codeExample);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Fallback
-    }
   };
 
   const shouldPause = !isVisible || !isTabVisible;
@@ -539,41 +483,49 @@ function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
                   </div>
                 </div>
 
-                {/* 3-Row Technology Grid matching reference image */}
-                <div className="glass-tech-grid-wrapper">
-                  {/* Row 1: 4 Large Featured Cards */}
-                  <div className="glass-tech-grid-featured">
-                    {activeModule.technologies.filter(t => t.isFeatured).map((tech) => (
-                      <button
-                        key={tech.id}
-                        className="glass-tech-card glass-tech-card--featured"
-                        onClick={() => handleTechSelect(tech)}
-                        aria-label={`Explore ${tech.name}`}
-                      >
-                        <div className="glass-tech-card-icon">
-                          <TechIcon id={tech.id} size={44} />
+                {/* 3 Skill-Level Categorized Sections */}
+                <div className="glass-categories-container">
+                  {(activeModule.categories || []).map((cat, catIdx) => (
+                    <section
+                      key={cat.id || cat.title || catIdx}
+                      className={`glass-category-section glass-category--tier-${cat.tier || catIdx + 1}`}
+                      aria-labelledby={`cat-title-${activeModule.id}-${cat.id || catIdx}`}
+                    >
+                      <div className="glass-category-header">
+                        <div className="glass-category-heading-wrap">
+                          <span
+                            className={`glass-category-dot glass-category-dot--tier-${cat.tier || catIdx + 1}`}
+                            aria-hidden="true"
+                          />
+                          <h4
+                            id={`cat-title-${activeModule.id}-${cat.id || catIdx}`}
+                            className="glass-category-title"
+                          >
+                            {cat.title}
+                          </h4>
                         </div>
-                        <span className="glass-tech-card-name">{tech.name}</span>
-                      </button>
-                    ))}
-                  </div>
+                        <span className="glass-category-count" title={`${cat.technologies.length} skills in this category`}>
+                          {cat.technologies.length}
+                        </span>
+                      </div>
 
-                  {/* Secondary Technologies */}
-                  <div className="glass-tech-grid-secondary">
-                    {activeModule.technologies.filter(t => !t.isFeatured).map((tech) => (
-                      <button
-                        key={tech.id}
-                        className="glass-tech-card glass-tech-card--secondary"
-                        onClick={() => handleTechSelect(tech)}
-                        aria-label={`Explore ${tech.name}`}
-                      >
-                        <div className="glass-tech-card-icon">
-                          <TechIcon id={tech.id} size={30} />
-                        </div>
-                        <span className="glass-tech-card-name">{tech.name}</span>
-                      </button>
-                    ))}
-                  </div>
+                      <div className={`glass-tech-grid glass-tech-grid--tier-${cat.tier || catIdx + 1}`}>
+                        {cat.technologies.map((tech) => (
+                          <button
+                            key={tech.id}
+                            className={`glass-tech-card ${cat.tier === 1 ? 'glass-tech-card--tier1' : 'glass-tech-card--compact'}`}
+                            onClick={() => handleTechSelect(tech)}
+                            aria-label={`Explore ${tech.name}`}
+                          >
+                            <div className="glass-tech-card-icon">
+                              <TechIcon id={tech.icon || tech.id} size={cat.tier === 1 ? 34 : 26} />
+                            </div>
+                            <span className="glass-tech-card-name">{tech.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
                 </div>
               </div>
             )}
@@ -581,87 +533,36 @@ function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
             {/* VIEW 3: TECHNOLOGY DETAIL VIEW (Level 2) */}
             {viewMode === 'detail' && (
               <div className="glass-detail-content stack-view-fade">
-                <div className="glass-detail-grid">
-                  <div className="glass-detail-left">
-                    <div className="glass-detail-header-row">
-                      <div className="glass-detail-icon-wrap">
-                        <TechIcon id={activeTech.id} size={40} />
-                      </div>
-                      <div>
-                        <span className="glass-detail-tag">{activeModule.name} / TECHNOLOGY</span>
-                        <h3 className="glass-detail-title">{activeTech.name}</h3>
-                      </div>
-                    </div>
-
-                    <p className="glass-detail-desc">{activeTech.description}</p>
-
-                    {activeTech.badges && (
-                      <div className="glass-detail-badges">
-                        {activeTech.badges.map((b, idx) => (
-                          <span key={idx} className="glass-badge-pill">{b}</span>
-                        ))}
-                      </div>
-                    )}
-
-                    {activeTech.keyConcepts && (
-                      <div className="glass-detail-section">
-                        <div className="glass-detail-section-title">KEY CONCEPTS</div>
-                        <div className="glass-detail-tags">
-                          {activeTech.keyConcepts.map((concept, idx) => (
-                            <span key={idx} className="glass-concept-pill">{concept}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {activeTech.relatedTechs && (
-                      <div className="glass-detail-section">
-                        <div className="glass-detail-section-title">RELATED TECHNOLOGIES</div>
-                        <div className="glass-related-row">
-                          {activeTech.relatedTechs.map((relId) => {
-                            const relTech = ALL_TECHNOLOGIES_MAP[relId];
-                            const relName = relTech ? relTech.name : relId;
-                            return (
-                              <button
-                                key={relId}
-                                className="glass-related-card"
-                                onClick={() => handleRelatedSelect(relId)}
-                              >
-                                <TechIcon id={relId} size={18} />
-                                <span>{relName}</span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
+                <div className="glass-detail-header-row">
+                  <div className="glass-detail-icon-wrap">
+                    <TechIcon id={activeTech.icon || activeTech.id} size={44} />
                   </div>
-
-                  <div className="glass-detail-right">
-                    <div className="glass-code-editor">
-                      <div className="glass-code-topbar">
-                        <span className="glass-code-filename">
-                          {activeTech.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.
-                          {activeTech.id === 'python' ? 'py' : activeTech.id === 'cpp' ? 'cpp' : activeTech.id === 'java' ? 'java' : activeTech.id === 'html' ? 'html' : activeTech.id === 'css' ? 'css' : 'js'}
-                        </span>
-                        <button
-                          className="glass-copy-btn"
-                          onClick={handleCopyCode}
-                        >
-                          {copied ? (
-                            <span style={{ color: '#4ADE80' }}>✓ COPIED!</span>
-                          ) : (
-                            <span>COPY CODE</span>
-                          )}
-                        </button>
-                      </div>
-                      <SyntaxCodeViewer
-                        code={activeTech.codeExample || '// Code snippet available'}
-                        language={activeTech.id === 'python' ? 'python' : 'javascript'}
-                      />
-                    </div>
+                  <div>
+                    <span className="glass-detail-tag">{activeModule.name} / {activeTech.categoryTitle || 'TECHNOLOGY'}</span>
+                    <h3 className="glass-detail-title">{activeTech.name}</h3>
                   </div>
                 </div>
+
+                <p className="glass-detail-desc">{activeTech.description}</p>
+
+                {activeTech.badges && (
+                  <div className="glass-detail-badges">
+                    {activeTech.badges.map((b, idx) => (
+                      <span key={idx} className="glass-badge-pill">{b}</span>
+                    ))}
+                  </div>
+                )}
+
+                {activeTech.keyConcepts && (
+                  <div className="glass-detail-section">
+                    <div className="glass-detail-section-title">KEY CONCEPTS</div>
+                    <div className="glass-detail-tags">
+                      {activeTech.keyConcepts.map((concept, idx) => (
+                        <span key={idx} className="glass-concept-pill">{concept}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>

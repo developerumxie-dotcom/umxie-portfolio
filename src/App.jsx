@@ -58,6 +58,7 @@ export default function App() {
 
       setActiveSection(matchedSection);
     };
+    
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();

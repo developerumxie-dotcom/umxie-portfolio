@@ -536,7 +536,7 @@
 .universe-glass-card {
   position: relative;
   width: min(890px, 94vw);
-  max-height: min(780px, 90vh);
+  max-height: min(620px, 78vh);
   background: rgba(12, 10, 22, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -546,7 +546,7 @@
     0 16px 45px rgba(0, 0, 0, 0.8),
     0 0 35px rgba(168, 85, 247, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  padding: clamp(1.4rem, 2.5vw, 2.2rem);
+  padding: 0 clamp(1.2rem, 2vw, 1.8rem) clamp(2.2rem, 3.2vw, 2.8rem);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -588,13 +588,25 @@
 }
 
 /* --------------------------------------------------------------------------
-   GLASS PANEL TOPBAR (Back Arrow & Circular Close)
+   GLASS PANEL TOPBAR (Sticky Back Arrow & Circular Close)
    -------------------------------------------------------------------------- */
 .glass-card-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% + 2 * clamp(1.2rem, 2vw, 1.8rem));
+  margin-left: calc(-1 * clamp(1.2rem, 2vw, 1.8rem));
+  margin-right: calc(-1 * clamp(1.2rem, 2vw, 1.8rem));
+  padding: clamp(0.9rem, 1.6vw, 1.2rem) clamp(1.2rem, 2vw, 1.8rem) 0.85rem;
+  background: rgba(12, 10, 22, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   margin-bottom: 1.25rem;
 }
 
@@ -750,25 +762,92 @@
 }
 
 /* --------------------------------------------------------------------------
-   TECHNOLOGY GRID (4-Featured Row + Balanced Secondary Rows)
+   CATEGORIZED TECHNOLOGY SECTIONS (3 Skill Tiers per Module)
    -------------------------------------------------------------------------- */
-.glass-tech-grid-wrapper {
+.glass-categories-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.25rem;
   width: 100%;
 }
 
-.glass-tech-grid-featured {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+.glass-category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
 }
 
-.glass-tech-grid-secondary {
+.glass-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.14);
+}
+
+.glass-category-heading-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.glass-category-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.glass-category-dot--tier-1 {
+  background: #C084FC;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.85);
+}
+
+.glass-category-dot--tier-2 {
+  background: #A855F7;
+  opacity: 0.85;
+}
+
+.glass-category-dot--tier-3 {
+  background: #94A3B8;
+  opacity: 0.65;
+}
+
+.glass-category-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E2E8F0;
+  margin: 0;
+  line-height: 1;
+}
+
+.glass-category--tier-1 .glass-category-title {
+  color: #F3E8FF;
+}
+
+.glass-category-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #C084FC;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 999px;
+  padding: 1px 7px;
+  line-height: 1.3;
+}
+
+/* Grids for Cards */
+.glass-tech-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 10px;
+  width: 100%;
 }
 
 .glass-tech-card {
@@ -780,20 +859,54 @@
   border: 1px solid rgba(168, 85, 247, 0.18);
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  padding: 0;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.6rem 0.5rem;
   user-select: none;
   text-align: center;
+  box-sizing: border-box;
 }
 
-.glass-tech-card--featured {
-  height: 114px;
-  gap: 8px;
+/* Subtle Visual Emphasis for Tier 1 (Core / Proficient) */
+.glass-tech-card--tier1 {
+  height: 94px;
+  gap: 7px;
+  background: rgba(22, 16, 38, 0.72);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(168, 85, 247, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.glass-tech-card--secondary {
-  height: 92px;
+.glass-tech-card--tier1:hover {
+  background: rgba(30, 20, 52, 0.9);
+  border-color: rgba(192, 132, 252, 0.8);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(168, 85, 247, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.glass-tech-card--tier1 .glass-tech-card-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* Compact style for Working Knowledge & Exploring */
+.glass-tech-card--compact {
+  height: 84px;
   gap: 6px;
+}
+
+.glass-tech-card--compact:hover {
+  background: rgba(24, 18, 42, 0.82);
+  border-color: rgba(168, 85, 247, 0.65);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 18px rgba(168, 85, 247, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .glass-tech-card-icon {
@@ -803,32 +916,21 @@
   transition: transform 0.2s ease;
 }
 
+.glass-tech-card:hover .glass-tech-card-icon {
+  transform: scale(1.06);
+}
+
 .glass-tech-card-name {
   font-family: var(--font-sans, sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   color: #E2E8F0;
   letter-spacing: 0.01em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
   transition: color 0.18s ease;
-}
-
-.glass-tech-card--featured .glass-tech-card-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.glass-tech-card:hover {
-  background: rgba(24, 18, 42, 0.82);
-  border-color: rgba(168, 85, 247, 0.65);
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 18px rgba(168, 85, 247, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.glass-tech-card:hover .glass-tech-card-icon {
-  transform: scale(1.06);
 }
 
 .glass-tech-card:hover .glass-tech-card-name {
@@ -842,18 +944,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.glass-detail-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 1.8rem;
-  align-items: start;
-}
-
-.glass-detail-left {
-  display: flex;
-  flex-direction: column;
 }
 
 .glass-detail-header-row {
@@ -947,110 +1037,6 @@
   color: #D1D5DB;
 }
 
-.glass-related-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.glass-related-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.8rem;
-  background: rgba(14, 12, 24, 0.65);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  border-radius: 8px;
-  color: #E2E8F0;
-  font-size: 0.76rem;
-  font-family: var(--font-sans, sans-serif);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.glass-related-card:hover {
-  background: rgba(26, 20, 42, 0.9);
-  border-color: rgba(168, 85, 247, 0.6);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
-.glass-detail-right {
-  display: flex;
-  flex-direction: column;
-}
-
-.glass-code-editor {
-  background: #08070D;
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.glass-code-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 1rem;
-  background: rgba(16, 12, 26, 0.85);
-  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
-}
-
-.glass-code-filename {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
-  color: #9CA3AF;
-}
-
-.glass-copy-btn {
-  background: transparent;
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  border-radius: 5px;
-  padding: 0.25rem 0.65rem;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
-  color: #D8B4FE;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.glass-copy-btn:hover {
-  background: rgba(168, 85, 247, 0.2);
-  border-color: #C084FC;
-  color: #FFFFFF;
-}
-
-.code-pre-block {
-  margin: 0;
-  padding: 1.25rem 1.25rem 1.5rem;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.84rem;
-  line-height: 1.65;
-  color: #E2E0EB;
-  overflow-x: auto;
-}
-
-.code-token-keyword {
-  color: #F43F5E;
-  font-weight: 600;
-}
-
-.code-token-func {
-  color: #C084FC;
-}
-
-.code-token-string {
-  color: #4ADE80;
-}
-
-.code-token-comment {
-  color: #7E788F;
-  font-style: italic;
-}
-
 /* --------------------------------------------------------------------------
    RESPONSIVE DESIGN (TABLET & MOBILE)
    -------------------------------------------------------------------------- */
@@ -1098,8 +1084,15 @@
 
   .universe-glass-card {
     width: 90vw;
-    max-height: 85vh;
-    padding: 1.5rem;
+    max-height: 78vh;
+    padding: 0 1.25rem 2.2rem;
+  }
+
+  .glass-card-topbar {
+    width: calc(100% + 2.5rem);
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    padding: 0.9rem 1.25rem 0.75rem;
   }
 
   .glass-tech-grid-featured {
@@ -1287,21 +1280,27 @@
 
   .universe-glass-card {
     width: 95vw;
-    max-height: 90vh;
-    max-height: 90dvh;
-    padding: 1rem;
+    max-height: 80vh;
+    max-height: 80dvh;
+    padding: 0 0.9rem 2rem;
     border-radius: 16px;
   }
 
   .glass-card-topbar {
     position: sticky;
     top: 0;
-    z-index: 25;
+    z-index: 50;
     background: rgba(12, 10, 22, 0.96);
-    padding: 0.5rem 0;
+    width: calc(100% + 1.8rem);
+    margin-left: -0.9rem;
+    margin-right: -0.9rem;
+    padding: 0.75rem 0.9rem 0.65rem;
     margin-bottom: 0.85rem;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
   }
 
   .glass-nav-back-btn {
@@ -1349,25 +1348,28 @@
     font-size: 0.75rem;
   }
 
-  .glass-tech-grid-featured {
+  .glass-categories-container {
+    gap: 1rem;
+  }
+
+  .glass-category-section {
+    gap: 0.5rem;
+  }
+
+  .glass-tech-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  .glass-tech-grid-secondary {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .glass-tech-card--featured {
-    height: 88px;
-    padding: 0.65rem 0.5rem;
+  .glass-tech-card--tier1 {
+    height: 84px;
+    padding: 0.5rem 0.4rem;
     touch-action: manipulation;
   }
 
-  .glass-tech-card--secondary {
+  .glass-tech-card--compact {
     height: 74px;
-    padding: 0.5rem 0.4rem;
+    padding: 0.45rem 0.35rem;
     touch-action: manipulation;
   }
 
@@ -1378,11 +1380,6 @@
   .glass-tech-card-name {
     font-size: 0.66rem;
     letter-spacing: 0.08em;
-  }
-
-  .glass-detail-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
 
   .glass-detail-header-row {
@@ -1408,27 +1405,6 @@
   .glass-badge-pill {
     font-size: 0.65rem;
     padding: 0.25rem 0.55rem;
-  }
-
-  .glass-related-row {
-    gap: 0.5rem;
-  }
-
-  .glass-related-card {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.72rem;
-    touch-action: manipulation;
-  }
-
-  .glass-code-editor {
-    max-height: 280px;
-    border-radius: 10px;
-  }
-
-  .code-pre-block {
-    padding: 0.85rem 0.85rem 1rem;
-    font-size: 0.75rem;
-    line-height: 1.55;
   }
 }
 

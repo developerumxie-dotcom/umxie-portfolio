@@ -1,1736 +1,1124 @@
 /**
- * Exact data specifications for the Coding Universe Stack.
- * 8 Modules with authentic, recognizable tech logos and deep concept details.
- * Matches the floating glass card layout with 4 featured + 12 secondary cards per module.
+ * Professional 8-Module Tech Stack Dataset.
+ * Organized into 3 clear skill-level categories per module.
+ * 
+ * Each module contains:
+ * - id, number, name, subtitle, categoryIcon
+ * - categories: Array of 3 skill-level sections (Tier 1: Core/Proficient, Tier 2: Working Knowledge, Tier 3: Exploring)
+ * - technologies: Flattened array of all tech items for seamless backwards compatibility
  */
 
 export const UNIVERSE_MODULES = [
+  // =========================================================================
+  // 01 — PROGRAMMING LANGUAGES
+  // =========================================================================
   {
     id: 'languages',
     number: '01',
     name: 'LANGUAGES',
-    subtitle: 'Programming languages I know or have studied.',
+    subtitle: 'Programming and query languages across diverse computing paradigms.',
     categoryIcon: 'languages',
-    technologies: [
+    categories: [
       {
-        id: 'javascript',
-        name: 'JavaScript',
-        category: 'Language',
-        isFeatured: true,
-        badges: ['Language', 'Frontend', 'Backend', 'Web Dev'],
-        description: 'The language of the modern web. Dynamic, flexible and powerful for building scalable full-stack applications.',
-        keyConcepts: ['Variables', 'Data Types', 'Functions', 'Objects', 'Arrays', 'Closures', 'Promises', 'Async / Await', 'DOM', 'ES6+'],
-        relatedTechs: ['typescript', 'react', 'nodejs', 'express'],
-        codeExample: `const greet = (name) => {
-  return \`Hello, \${name}!\`;
-};
-
-console.log(greet("UMXIE"));`
+        id: 'proficient',
+        title: 'Proficient',
+        tier: 1,
+        technologies: [
+          {
+            id: 'javascript',
+            icon: 'javascript',
+            name: 'JavaScript',
+            badges: ['Language', 'Frontend', 'Backend', 'Full-Stack'],
+            description: 'Core language of the modern web. Used extensively across client and server environments for asynchronous event-driven applications.',
+            keyConcepts: ['Event Loop & Microtasks', 'Closures & Scope Chain', 'Promises & Async/Await', 'Prototypal Inheritance', 'ES6+ Modules', 'DOM & Fetch API']
+          },
+          {
+            id: 'c',
+            icon: 'c',
+            name: 'C',
+            badges: ['Language', 'Low-Level', 'Systems', 'Performance'],
+            description: 'Procedural systems language offering explicit memory management, deterministic execution speed, and direct pointer arithmetic.',
+            keyConcepts: ['Pointers & Arithmetic', 'Dynamic Memory (malloc/free)', 'Structs & Unions', 'Bitwise Manipulation', 'Header Files & Preprocessor', 'System Calls']
+          },
+          {
+            id: 'python',
+            icon: 'python',
+            name: 'Python',
+            badges: ['Language', 'Backend', 'Automation', 'Data'],
+            description: 'Versatile, high-level language with clear syntax used for server-side logic, automation scripts, data handling, and tooling.',
+            keyConcepts: ['List & Dict Comprehensions', 'Generators & Iterators', 'Decorators & Closures', 'Context Managers (with)', 'Type Hints', 'Virtual Environments']
+          }
+        ]
       },
       {
-        id: 'python',
-        name: 'Python',
-        category: 'Language',
-        isFeatured: true,
-        badges: ['Language', 'Backend', 'Data Science', 'Automation'],
-        description: 'High-level, readable language ideal for backend servers, scripting, automation and data engineering.',
-        keyConcepts: ['Dynamic Typing', 'List Comprehensions', 'Decorators', 'Generators', 'OOP', 'Data Pipelines', 'AsyncIO', 'Virtualenvs'],
-        relatedTechs: ['docker', 'postgresql', 'aws', 'dsa'],
-        codeExample: `def greet(name: str) -> str:
-    return f"Hello, {name}!"
-
-print(greet("UMXIE"))`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'typescript',
+            icon: 'typescript',
+            name: 'TypeScript',
+            badges: ['Language', 'Static Typing', 'Enterprise', 'Tooling'],
+            description: 'Statically typed superset of JavaScript providing interfaces, generics, and compile-time verification for scalable applications.',
+            keyConcepts: ['Generics & Constraints', 'Union & Intersection Types', 'Mapped & Utility Types', 'Type Guards & Narrowing', 'Strict Null Checks', 'TSConfig Optimization']
+          },
+          {
+            id: 'java',
+            icon: 'java',
+            name: 'Java',
+            badges: ['Language', 'OOP', 'Backend', 'JVM'],
+            description: 'Robust, strongly typed object-oriented language running on the JVM with comprehensive multithreading and enterprise frameworks.',
+            keyConcepts: ['JVM & Garbage Collection', 'Encapsulation & Inheritance', 'Streams API & Lambdas', 'Exception Hierarchy', 'Generics & Collections', 'Multithreading']
+          },
+          {
+            id: 'sql',
+            icon: 'sql',
+            name: 'SQL',
+            badges: ['Query Language', 'Relational', 'Data Integrity', 'Analytics'],
+            description: 'Standard declarative query language for defining schemas, indexing data, managing transactions, and querying relational databases.',
+            keyConcepts: ['Complex Joins (INNER, LEFT, FULL)', 'Aggregation & GROUP BY', 'Subqueries & CTEs', 'Indexes & Query Plans', 'ACID Transactions', 'Constraints & Foreign Keys']
+          },
+          {
+            id: 'bash',
+            icon: 'bash',
+            name: 'Bash',
+            badges: ['Scripting', 'CLI', 'Automation', 'Linux'],
+            description: 'Command language and shell scripting for workflow automation, process orchestration, CI runners, and system administration.',
+            keyConcepts: ['Pipes & Redirection', 'Positional Parameters', 'Environment Variables', 'Conditionals & Loops', 'Process Exit Codes', 'Cron Automation']
+          },
+          {
+            id: 'dart',
+            icon: 'dart',
+            name: 'Dart',
+            badges: ['Language', 'Client-Optimized', 'AOT & JIT', 'Mobile'],
+            description: 'Object-oriented, class-based language engineered by Google for fast UI rendering, ahead-of-time compilation, and cross-platform apps.',
+            keyConcepts: ['Null Safety', 'Async / Future API', 'Isolates & Event Loop', 'Mixins & Extension Methods', 'AOT & JIT Compilation', 'Streams']
+          }
+        ]
       },
       {
-        id: 'java',
-        name: 'Java',
-        category: 'Language',
-        isFeatured: true,
-        badges: ['Language', 'Backend', 'Enterprise', 'Android'],
-        description: 'Object-oriented language engineered for high portability, enterprise systems, memory management, and scale.',
-        keyConcepts: ['JVM Architecture', 'Polymorphism', 'Encapsulation', 'Streams API', 'Multithreading', 'Garbage Collection', 'Spring Boot', 'Design Patterns'],
-        relatedTechs: ['oop', 'dsa', 'docker', 'postgresql'],
-        codeExample: `public class Universe {
-    public static void main(String[] args) {
-        String name = "UMXIE";
-        System.out.println("Hello, " + name + "!");
-    }
-}`
-      },
-      {
-        id: 'cpp',
-        name: 'C / C++',
-        category: 'Language',
-        isFeatured: true,
-        badges: ['Language', 'Systems', 'Performance', 'Embedded'],
-        description: 'High-performance systems programming languages giving direct memory control and bare-metal hardware speed.',
-        keyConcepts: ['Manual Memory', 'Pointers & References', 'RAII', 'Templates', 'Cache Locality', 'STL', 'Inline Assembly', 'Zero-Cost Abstractions'],
-        relatedTechs: ['systems_arch', 'memory_mgmt', 'os', 'dsa'],
-        codeExample: `#include <iostream>
-#include <string>
-
-int main() {
-    std::string name = "UMXIE";
-    std::cout << "Hello, " << name << "!\\n";
-    return 0;
-}`
-      },
-      {
-        id: 'typescript',
-        name: 'TypeScript',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Typing', 'Frontend', 'Enterprise'],
-        description: 'Strongly typed superset of JavaScript that compiles to plain JavaScript, enabling robust large-scale web systems.',
-        keyConcepts: ['Interfaces', 'Generics', 'Union Types', 'Utility Types', 'Type Inference', 'Enums', 'Tuples', 'Strict Null Checks'],
-        relatedTechs: ['javascript', 'react', 'nodejs', 'angular'],
-        codeExample: `interface Developer {
-  name: string;
-  role: string;
-  skills: string[];
-}
-
-const dev: Developer = {
-  name: "UMXIE",
-  role: "Software Engineer",
-  skills: ["React", "TypeScript", "Node.js"]
-};`
-      },
-      {
-        id: 'go',
-        name: 'Go',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Concurrency', 'Cloud Native', 'Microservices'],
-        description: 'Open-source compiled language designed by Google for building simple, reliable, and highly concurrent software.',
-        keyConcepts: ['Goroutines', 'Channels', 'Interfaces', 'Structs', 'Memory Model', 'Garbage Collector', 'Go Modules', 'Standard Library'],
-        relatedTechs: ['docker', 'kubernetes', 'rest', 'linux'],
-        codeExample: `package main
-
-import "fmt"
-
-func main() {
-    name := "UMXIE"
-    fmt.Printf("Hello, %s!\\n", name)
-}`
-      },
-      {
-        id: 'rust',
-        name: 'Rust',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Memory Safe', 'Performance', 'Concurrency'],
-        description: 'Systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety without a GC.',
-        keyConcepts: ['Borrow Checker', 'Ownership', 'Lifetimes', 'Traits', 'Pattern Matching', 'Zero-cost Abstractions', 'Cargo', 'Fearless Concurrency'],
-        relatedTechs: ['cpp', 'systems_arch', 'linux', 'embedded'],
-        codeExample: `fn main() {
-    let name = "UMXIE";
-    println!("Hello, {}!", name);
-}`
-      },
-      {
-        id: 'kotlin',
-        name: 'Kotlin',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Android', 'JVM', 'Modern'],
-        description: 'Modern, concise language fully interoperable with Java, prioritizing expressiveness and null-safety.',
-        keyConcepts: ['Null Safety', 'Coroutines', 'Extension Functions', 'Data Classes', 'Smart Casts', 'Higher-Order Functions', 'Interoperability'],
-        relatedTechs: ['java', 'android', 'oop'],
-        codeExample: `fun main() {
-    val name = "UMXIE"
-    println("Hello, $name!")
-}`
-      },
-      {
-        id: 'php',
-        name: 'PHP',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Web Dev', 'Backend', 'Server-Side'],
-        description: 'Widely-used open source general-purpose scripting language especially suited for rapid web development.',
-        keyConcepts: ['Server-Side Scripting', 'PDO', 'Composer', 'Namespaces', 'Traits', 'Superglobals', 'Sessions & Cookies', 'MVC Frameworks'],
-        relatedTechs: ['mysql', 'html', 'css', 'javascript'],
-        codeExample: `<?php
-$name = "UMXIE";
-echo "Hello, " . $name . "!";
-?>`
-      },
-      {
-        id: 'csharp',
-        name: 'C#',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', '.NET', 'Enterprise', 'Object-Oriented'],
-        description: 'Modern, object-oriented language developed by Microsoft as part of the .NET ecosystem for web, desktop, and cloud.',
-        keyConcepts: ['LINQ', 'Async/Await', 'Generics', 'Garbage Collection', 'Attributes', 'Delegates & Events', 'Entity Framework', 'ASP.NET Core'],
-        relatedTechs: ['java', 'oop', 'sql', 'dsa'],
-        codeExample: `using System;
-
-class Program {
-    static void Main() {
-        string name = "UMXIE";
-        Console.WriteLine($"Hello, {name}!");
-    }
-}`
-      },
-      {
-        id: 'swift',
-        name: 'Swift',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Apple', 'iOS', 'Performance'],
-        description: 'Powerful and intuitive programming language for iOS, macOS, watchOS, and tvOS with clean syntax and safety features.',
-        keyConcepts: ['Optionation', 'Protocol-Oriented', 'Automatic Reference Counting (ARC)', 'Closures', 'Generics', 'SwiftUI', 'Value Semantics'],
-        relatedTechs: ['kotlin', 'oop', 'git'],
-        codeExample: `import Foundation
-
-let name = "UMXIE"
-print("Hello, \(name)!")`
-      },
-      {
-        id: 'dart',
-        name: 'Dart',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Flutter', 'Cross-Platform', 'Client'],
-        description: 'Client-optimized language for fast apps on any platform, powering high-performance Flutter mobile and web apps.',
-        keyConcepts: ['Sound Null Safety', 'Async/Await & Streams', 'Isolates', 'Mixins', 'JIT & AOT Compilation', 'Widget Tree', 'Generics'],
-        relatedTechs: ['flutter', 'javascript', 'typescript'],
-        codeExample: `void main() {
-  String name = 'UMXIE';
-  print('Hello, $name!');
-}`
-      },
-      {
-        id: 'ruby',
-        name: 'Ruby',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Web Dev', 'Dynamic', 'Developer Happiness'],
-        description: 'Dynamic, open source programming language with a focus on simplicity, productivity, and elegant syntax.',
-        keyConcepts: ['Everything is an Object', 'Blocks & Procs', 'Metaprogramming', 'Mixins', 'Gems & Bundler', 'ActiveRecord', 'Rails Convention over Config'],
-        relatedTechs: ['postgresql', 'rest', 'git'],
-        codeExample: `def greet(name)
-  "Hello, #{name}!"
-end
-
-puts greet("UMXIE")`
-      },
-      {
-        id: 'sql',
-        name: 'SQL',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'Database', 'Relational', 'Querying'],
-        description: 'Standard domain-specific language for storing, manipulating and retrieving structured data in relational database systems.',
-        keyConcepts: ['SELECT Queries', 'JOIN Operations', 'INDEX Optimization', 'ACID Transactions', 'Aggregations (GROUP BY)', 'Subqueries', 'Constraints & Foreign Keys'],
-        relatedTechs: ['postgresql', 'mysql', 'sqlite', 'redis'],
-        codeExample: `SELECT id, name, role, created_at 
-FROM developers 
-WHERE status = 'ACTIVE' 
-ORDER BY created_at DESC;`
-      },
-      {
-        id: 'bash',
-        name: 'Bash',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Language', 'CLI', 'Automation', 'Linux'],
-        description: 'Unix shell and command language that provides powerful scripting automation and system administration pipelines.',
-        keyConcepts: ['Pipes & Redirection', 'Shell Variables', 'Exit Codes', 'Conditionals & Loops', 'Grep / Sed / Awk', 'Cron Scheduling', 'Environment Variables'],
-        relatedTechs: ['linux', 'git', 'docker', 'cicd'],
-        codeExample: `#!/usr/bin/env bash
-NAME="UMXIE"
-echo "Initializing ecosystem for: $NAME"
-uptime`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'go',
+            icon: 'go',
+            name: 'Go',
+            badges: ['Language', 'Concurrency', 'Microservices', 'Fast Compilation'],
+            description: 'Statically typed compiled language developed by Google with native goroutines and lightweight channels for concurrent networking.',
+            keyConcepts: ['Goroutines & Channels', 'Interfaces & Implicit Implementation', 'Struct Composition', 'Standard Library Networking', 'Pointers & Memory Model']
+          },
+          {
+            id: 'rust',
+            icon: 'rust',
+            name: 'Rust',
+            badges: ['Language', 'Memory Safe', 'Systems', 'Zero-Cost'],
+            description: 'Modern systems language providing bare-metal performance and guaranteed memory safety without requiring a garbage collector.',
+            keyConcepts: ['Ownership & Borrowing', 'Lifetimes', 'Traits & Generics', 'Pattern Matching', 'Zero-Cost Abstractions', 'Cargo Package Manager']
+          },
+          {
+            id: 'kotlin',
+            icon: 'kotlin',
+            name: 'Kotlin',
+            badges: ['Language', 'JVM', 'Concise', 'Android'],
+            description: 'Modern pragmatic language running on the JVM with complete Java interoperability, first-class null safety, and coroutines.',
+            keyConcepts: ['First-Class Null Safety', 'Extension Functions', 'Data Classes', 'Coroutines', 'Smart Casts']
+          },
+          {
+            id: 'php',
+            icon: 'php',
+            name: 'PHP',
+            badges: ['Language', 'Web Dev', 'Server-Side', 'APIs'],
+            description: 'Widely used server-side scripting language powering web APIs, CMS platforms, and modern web application frameworks.',
+            keyConcepts: ['Request Lifecycle', 'Superglobals', 'Object-Oriented PHP 8+', 'Composer Dependency Management', 'PDO Database Access']
+          },
+          {
+            id: 'csharp',
+            icon: 'csharp',
+            name: 'C#',
+            badges: ['Language', '.NET', 'OOP', 'Type-Safe'],
+            description: 'Modern, object-oriented language developed by Microsoft for enterprise services, cross-platform apps via .NET, and game logic.',
+            keyConcepts: ['LINQ Queries', 'Async/Await Pattern', 'Properties & Accessors', 'Dependency Injection', 'Garbage Collection (.NET CLR)']
+          },
+          {
+            id: 'swift',
+            icon: 'swift',
+            name: 'Swift',
+            badges: ['Language', 'Apple Ecosystem', 'Type-Safe', 'Modern'],
+            description: 'Fast, type-safe language engineered by Apple for iOS and macOS applications with concise syntax and modern memory management.',
+            keyConcepts: ['Optionals & Optional Chaining', 'Value Types (Structs) vs Reference Types', 'Protocols & Extensions', 'Automatic Reference Counting (ARC)']
+          },
+          {
+            id: 'ruby',
+            icon: 'ruby',
+            name: 'Ruby',
+            badges: ['Language', 'Dynamic', 'Developer Joy', 'Scripting'],
+            description: 'Dynamic, open-source object-oriented language focused on simplicity and developer productivity through expressive syntax.',
+            keyConcepts: ['Pure Object-Orientation', 'Blocks & Yield', 'Mixins & Modules', 'Metaprogramming Basics', 'Gems & Bundler']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 02 — FRONTEND DEVELOPMENT
+  // =========================================================================
   {
     id: 'frontend',
     number: '02',
     name: 'FRONTEND',
-    subtitle: 'Building beautiful and interactive user interfaces for the web and beyond.',
+    subtitle: 'User interfaces, responsive layouts, web performance, and mobile applications.',
     categoryIcon: 'frontend',
-    technologies: [
+    categories: [
       {
-        id: 'react',
-        name: 'React',
-        category: 'UI Library',
-        isFeatured: true,
-        badges: ['Frontend', 'UI/UX', 'Reactive', 'Components'],
-        description: 'Declarative component-based UI library used to architect resilient, responsive, and high-performance digital interfaces.',
-        keyConcepts: ['Components', 'State', 'Props', 'Hooks', 'Routing', 'Responsive Design', 'API Integration', 'Virtual DOM'],
-        relatedTechs: ['javascript', 'typescript', 'nextjs', 'tailwind'],
-        codeExample: `import React, { useState } from 'react';
-
-export default function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <button onClick={() => setCount(c => c + 1)}>
-      Clicked {count} times
-    </button>
-  );
-}`
+        id: 'core_skills',
+        title: 'Core Skills',
+        tier: 1,
+        technologies: [
+          {
+            id: 'html',
+            icon: 'html',
+            name: 'HTML',
+            badges: ['Markup', 'Structure', 'Accessibility', 'SEO'],
+            description: 'The foundation of modern web documents. Used with semantic tags, accessible ARIA roles, and SEO-friendly document hierarchy.',
+            keyConcepts: ['Semantic Elements (header, main, section)', 'ARIA & Screen Reader Accessibility', 'Meta Tags & OpenGraph', 'Form Validation & Input Types', 'SEO Structure']
+          },
+          {
+            id: 'css',
+            icon: 'css',
+            name: 'CSS',
+            badges: ['Styling', 'Layouts', 'Animations', 'Design System'],
+            description: 'Advanced styling techniques including Flexbox, CSS Grid, Custom Properties, fluid typography, responsive breakpoints, and GPU animations.',
+            keyConcepts: ['Flexbox & Multi-column Grid', 'CSS Custom Properties (Variables)', 'Media & Container Queries', 'Hardware-Accelerated Transforms', 'clamp() Fluid Typography']
+          },
+          {
+            id: 'frontend_js',
+            icon: 'javascript',
+            name: 'JavaScript',
+            badges: ['Browser', 'DOM', 'Event Handling', 'Async'],
+            description: 'Client-side scripting for interactive UI controls, DOM manipulation, asynchronous data fetching, and browser API integrations.',
+            keyConcepts: ['DOM Traversal & Manipulation', 'Event Delegation & Bubbling', 'IntersectionObserver API', 'LocalStorage & SessionStorage', 'Fetch API & JSON Parsing']
+          },
+          {
+            id: 'react',
+            icon: 'react',
+            name: 'React',
+            badges: ['UI Library', 'Component-Based', 'Virtual DOM', 'Hooks'],
+            description: 'Component-driven user interface architecture with declarative state management, custom hooks, and optimized rendering.',
+            keyConcepts: ['Component Lifecycle & Hooks', 'useState, useEffect, useMemo, useRef', 'Custom Hooks Architecture', 'Virtual DOM Reconciliation', 'Context API & Prop Drilling Prevention']
+          },
+          {
+            id: 'flutter',
+            icon: 'flutter',
+            name: 'Flutter',
+            badges: ['Cross-Platform', 'Mobile', 'Widgets', 'Dart'],
+            description: 'Google’s UI toolkit for building natively compiled, visually consistent applications for mobile, web, and desktop from a single codebase.',
+            keyConcepts: ['Widget Tree & Composition', 'Stateless vs StatefulWidget', 'InheritedWidget & Provider', 'Custom Paint & Canvas', 'Hot Reload Workflow']
+          }
+        ]
       },
       {
-        id: 'html',
-        name: 'HTML',
-        category: 'Markup',
-        isFeatured: true,
-        badges: ['Structure', 'Semantic', 'Web Core', 'Accessibility'],
-        description: 'The foundational markup standard for creating structured, accessible, and semantic web layouts.',
-        keyConcepts: ['Semantic Tags', 'DOM Hierarchy', 'SEO Metadata', 'ARIA Attributes', 'Forms & Validation', 'Canvas', 'SVG Elements'],
-        relatedTechs: ['css', 'javascript', 'react'],
-        codeExample: `<section class="coding-universe" aria-label="Ecosystem">
-  <h1>UMXIE STACK</h1>
-  <p>Exploring 8 planetary modules.</p>
-</section>`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'tailwind',
+            icon: 'tailwind',
+            name: 'Tailwind CSS',
+            badges: ['Utility-First', 'Rapid Styling', 'Responsive', 'Modern'],
+            description: 'Utility-first CSS framework enabling rapid styling directly in markup with custom design tokens, arbitrary values, and JIT compilation.',
+            keyConcepts: ['Utility-First Architecture', 'JIT Engine Compilation', 'Responsive Prefix Modifiers', 'Theme Configuration & Tokens', 'Dark Mode Classes']
+          },
+          {
+            id: 'reactnative',
+            icon: 'reactnative',
+            name: 'React Native',
+            badges: ['Mobile', 'iOS & Android', 'Cross-Platform', 'React'],
+            description: 'Framework for writing native mobile applications using React components that bridge directly to iOS and Android native views.',
+            keyConcepts: ['Native Bridges & Fabric Architecture', 'View, Text & ScrollView', 'StyleSheet API', 'Platform Specific Code', 'Mobile Navigation Stacks']
+          },
+          {
+            id: 'bootstrap',
+            icon: 'bootstrap',
+            name: 'Bootstrap',
+            badges: ['UI Framework', 'Grid System', 'Components', 'Responsive'],
+            description: 'Popular responsive front-end toolkit featuring a 12-column flexbox grid system, pre-built components, and utility classes.',
+            keyConcepts: ['12-Column Grid System', 'Responsive Breakpoint Classes', 'Modal & Navbar Components', 'Utility Classes', 'SCSS Customization']
+          },
+          {
+            id: 'redux_toolkit',
+            icon: 'redux',
+            name: 'Redux Toolkit',
+            badges: ['State Management', 'Predictable', 'RTK Query', 'Middleware'],
+            description: 'Standard, opinionated toolset for efficient global state management with createSlice, immutable state updates, and RTK Query.',
+            keyConcepts: ['createSlice & Reducers', 'Immer Immutable Updates', 'Async Thunks & Dispatching', 'Selectors & Memoization', 'Redux DevTools Integration']
+          },
+          {
+            id: 'vite',
+            icon: 'vite',
+            name: 'Vite',
+            badges: ['Build Tool', 'Fast HMR', 'ES Modules', 'Bundler'],
+            description: 'Next-generation frontend tooling offering instant server start, lightning-fast Hot Module Replacement (HMR), and Rollup production builds.',
+            keyConcepts: ['Native ES Modules Dev Server', 'Instant Hot Module Replacement', 'Rollup Production Bundling', 'Environment Variables (.env)', 'Plugin Architecture']
+          },
+          {
+            id: 'nextjs',
+            icon: 'nextjs',
+            name: 'Next.js',
+            badges: ['React Framework', 'SSR & SSG', 'Full-Stack', 'Routing'],
+            description: 'Production React framework offering Server-Side Rendering (SSR), Static Site Generation (SSG), App Router, and server actions.',
+            keyConcepts: ['App Router & File-based Routing', 'Server vs Client Components', 'Static Site Generation (SSG)', 'Server-Side Rendering (SSR)', 'API Route Handlers']
+          }
+        ]
       },
       {
-        id: 'css',
-        name: 'CSS',
-        category: 'Styling & Layout',
-        isFeatured: true,
-        badges: ['Styling', 'Animations', 'Responsive', 'Design Systems'],
-        description: 'Cascading style sheets orchestrating design tokens, responsive typography, glassmorphism, and micro-animations.',
-        keyConcepts: ['Flexbox', 'CSS Grid', 'Custom Variables', 'Keyframe Animations', 'Media Queries', 'Backdrop Blur', 'Transitions'],
-        relatedTechs: ['html', 'react', 'tailwind', 'sass'],
-        codeExample: `.glass-card {
-  background: rgba(10, 10, 20, 0.55);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  border-radius: 20px;
-}`
-      },
-      {
-        id: 'nextjs',
-        name: 'Next.js',
-        category: 'Framework',
-        isFeatured: true,
-        badges: ['Fullstack', 'SSR', 'Server Components', 'Routing'],
-        description: 'The React Framework for the Web with Server-Side Rendering (SSR), Static Site Generation (SSG), and Server Actions.',
-        keyConcepts: ['App Router', 'Server Components', 'SSR vs SSG', 'API Routes', 'Image Optimization', 'Dynamic Imports', 'Edge Runtime'],
-        relatedTechs: ['react', 'typescript', 'tailwind', 'nodejs'],
-        codeExample: `export default async function Page() {
-  return (
-    <main>
-      <h1>CODING UNIVERSE</h1>
-    </main>
-  );
-}`
-      },
-      {
-        id: 'typescript',
-        name: 'TypeScript',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Typing', 'Frontend', 'Safety', 'Developer Experience'],
-        description: 'Guarantees reliable frontend component state, prop contracts, and refactor confidence.',
-        keyConcepts: ['Type Inference', 'Generics', 'Prop Interfaces', 'Utility Types', 'Strict Typing'],
-        relatedTechs: ['react', 'nextjs', 'javascript'],
-        codeExample: `type ButtonProps = {
-  label: string;
-  onClick: () => void;
-};`
-      },
-      {
-        id: 'vue',
-        name: 'Vue.js',
-        category: 'Framework',
-        isFeatured: false,
-        badges: ['Frontend', 'Reactive', 'Single-File', 'Progressive'],
-        description: 'Progressive framework featuring two-way data binding, intuitive Composition API, and single-file components.',
-        keyConcepts: ['Reactivity', 'Composition API', 'Directives (v-model, v-for)', 'Vuex / Pinia', 'Scoped CSS'],
-        relatedTechs: ['javascript', 'typescript', 'html'],
-        codeExample: `<script setup>
-import { ref } from 'vue';
-const count = ref(0);
-</script>`
-      },
-      {
-        id: 'angular',
-        name: 'Angular',
-        category: 'Framework',
-        isFeatured: false,
-        badges: ['Frontend', 'Enterprise', 'TypeScript', 'Reactive'],
-        description: 'Comprehensive opinionated platform providing dependency injection, reactive forms, and end-to-end tooling.',
-        keyConcepts: ['Components', 'Directives', 'Dependency Injection', 'RxJS Observables', 'Signals', 'Routing Guards'],
-        relatedTechs: ['typescript', 'html', 'css'],
-        codeExample: `@Component({
-  selector: 'app-universe',
-  template: '<h1>{{ title }}</h1>'
-})
-export class UniverseComponent {
-  title = 'UMXIE Coding Universe';
-}`
-      },
-      {
-        id: 'tailwind',
-        name: 'Tailwind',
-        category: 'CSS',
-        isFeatured: false,
-        badges: ['Utility-First', 'Styling', 'Modern', 'Responsive'],
-        description: 'Utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup.',
-        keyConcepts: ['Utility Classes', 'JIT Engine', 'Dark Mode Variant', 'Arbitrary Values', 'Custom Themes'],
-        relatedTechs: ['css', 'react', 'nextjs'],
-        codeExample: `<div className="backdrop-blur-md bg-purple-950/40 border border-purple-500/30 rounded-2xl">
-  <span>Cosmic Glass</span>
-</div>`
-      },
-      {
-        id: 'sass',
-        name: 'Sass',
-        category: 'CSS Preprocessor',
-        isFeatured: false,
-        badges: ['Preprocessor', 'Mixins', 'Nesting', 'Variables'],
-        description: 'CSS with superpowers providing nested rules, mixins, functions, and modular design architecture.',
-        keyConcepts: ['Mixins', 'Nesting', 'Partials & Modules', 'Mathematical Operators', 'Functions'],
-        relatedTechs: ['css', 'html', 'react'],
-        codeExample: `@mixin glassmorphic($blur: 20px) {
-  backdrop-filter: blur($blur);
-  background: rgba(10, 10, 20, 0.6);
-}`
-      },
-      {
-        id: 'threejs',
-        name: 'Three.js',
-        category: '3D Graphics',
-        isFeatured: false,
-        badges: ['3D WebGL', 'Canvas', 'Shaders', 'Interactive'],
-        description: 'JavaScript 3D library using WebGL to render complex scenes, geometries, cameras, lights, and materials in browser.',
-        keyConcepts: ['Scene & Camera', 'WebGLRenderer', 'Geometries & Materials', 'OrbitControls', 'Custom GLSL Shaders', 'Animation Loop'],
-        relatedTechs: ['javascript', 'react', 'html'],
-        codeExample: `const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-renderer.render(scene, camera);`
-      },
-      {
-        id: 'vite',
-        name: 'Vite',
-        category: 'Build Tool',
-        isFeatured: false,
-        badges: ['Bundler', 'HMR', 'Fast', 'ES Modules'],
-        description: 'Next generation frontend tooling offering lightning fast HMR and optimized Rollup production builds.',
-        keyConcepts: ['Native ES Modules', 'Lightning HMR', 'Plugin Ecosystem', 'Pre-bundling with esbuild'],
-        relatedTechs: ['react', 'vue', 'typescript'],
-        codeExample: `export default defineConfig({
-  plugins: [react()],
-});`
-      },
-      {
-        id: 'redux',
-        name: 'Redux',
-        category: 'State Management',
-        isFeatured: false,
-        badges: ['State', 'Predictable', 'Global Store', 'Immutability'],
-        description: 'Predictable state container for JavaScript apps using Redux Toolkit, slices, and deterministic reducers.',
-        keyConcepts: ['Store', 'Actions & Reducers', 'Redux Toolkit (RTK)', 'Selectors', 'Immutability'],
-        relatedTechs: ['react', 'typescript', 'javascript'],
-        codeExample: `const counterSlice = createSlice({
-  name: 'counter',
-  initialState: { value: 0 },
-  reducers: { increment: state => { state.value += 1; } }
-});`
-      },
-      {
-        id: 'webpack',
-        name: 'Webpack',
-        category: 'Bundler',
-        isFeatured: false,
-        badges: ['Bundler', 'Asset Pipeline', 'Code Splitting', 'Loaders'],
-        description: 'Static module bundler for modern JavaScript applications compiling codebases into optimized browser packages.',
-        keyConcepts: ['Entry & Output', 'Loaders', 'Plugins', 'Code Splitting', 'Tree Shaking'],
-        relatedTechs: ['javascript', 'react', 'css'],
-        codeExample: `module.exports = {
-  entry: './src/index.js',
-  output: { filename: 'bundle.js' }
-};`
-      },
-      {
-        id: 'figma',
-        name: 'Figma',
-        category: 'Design Tool',
-        isFeatured: false,
-        badges: ['UI/UX', 'Prototyping', 'Design Systems', 'Vector'],
-        description: 'Collaborative cloud interface design tool creating responsive layouts, component libraries, and interactive prototypes.',
-        keyConcepts: ['Auto Layout', 'Component Variants', 'Design Tokens', 'Interactive Prototypes', 'Vector Networks'],
-        relatedTechs: ['css', 'html', 'react'],
-        codeExample: `// Translating Figma token styles directly into CSS variables`
-      },
-      {
-        id: 'bash',
-        name: 'CLI Tools',
-        category: 'Tooling',
-        isFeatured: false,
-        badges: ['Tooling', 'NPM', 'Scripts', 'Automation'],
-        description: 'Command line utilities, package managers, and script runners powering rapid local web development cycles.',
-        keyConcepts: ['npm / pnpm / yarn', 'Package.json scripts', 'Environment Variables', 'Linters'],
-        relatedTechs: ['nodejs', 'git', 'vite'],
-        codeExample: `npm run dev`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'angular',
+            icon: 'angular',
+            name: 'Angular',
+            badges: ['Framework', 'Enterprise', 'TypeScript', 'RxJS'],
+            description: 'Comprehensive, opinionated TypeScript-based application framework providing dependency injection, two-way binding, and RxJS observables.',
+            keyConcepts: ['Dependency Injection', 'Component & Module System', 'RxJS Observables & Pipes', 'Directives & Two-way Binding', 'Angular CLI']
+          },
+          {
+            id: 'sass',
+            icon: 'sass',
+            name: 'Sass',
+            badges: ['CSS Preprocessor', 'Mixins', 'Nesting', 'Variables'],
+            description: 'Mature CSS preprocessor adding nested rules, variables, mixins, functions, and modular file imports to standard stylesheets.',
+            keyConcepts: ['Selector Nesting', 'Mixins & Functions', 'SCSS Variables & Math', 'Modular @use and @forward', 'Color Manipulations']
+          },
+          {
+            id: 'threejs',
+            icon: 'threejs',
+            name: 'Three.js',
+            badges: ['3D Graphics', 'WebGL', 'Shaders', 'Creative Dev'],
+            description: 'JavaScript 3D library used to create interactive WebGL scenes, orbital camera controls, custom geometric meshes, and particle systems.',
+            keyConcepts: ['Scene, Camera & Renderer', 'Meshes, Geometries & Materials', 'Point & Ambient Lighting', 'Animation Tick Loop', 'WebGL Buffer Geometries']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 03 — BACKEND DEVELOPMENT
+  // =========================================================================
   {
     id: 'backend',
     number: '03',
     name: 'BACKEND',
-    subtitle: 'Powering the logic, data and business rules behind the applications.',
+    subtitle: 'APIs, server architecture, business logic, security, and server-side systems.',
     categoryIcon: 'backend',
-    technologies: [
+    categories: [
       {
-        id: 'nodejs',
-        name: 'Node.js',
-        category: 'Runtime',
-        isFeatured: true,
-        badges: ['Backend', 'Runtime', 'Event-Driven', 'Microservices'],
-        description: 'Event-driven, asynchronous I/O JavaScript runtime environment built on Chrome V8 engine.',
-        keyConcepts: ['Event Loop', 'Non-blocking I/O', 'Streams', 'Cluster Module', 'Buffer API', 'Worker Threads', 'Async Hooks'],
-        relatedTechs: ['javascript', 'express', 'mongodb', 'rest'],
-        codeExample: `import http from 'node:http';
-
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ status: 'ONLINE', node: 'UMXIE' }));
-});
-
-server.listen(4000);`
+        id: 'core_skills',
+        title: 'Core Skills',
+        tier: 1,
+        technologies: [
+          {
+            id: 'nodejs',
+            icon: 'nodejs',
+            name: 'Node.js',
+            badges: ['Runtime', 'V8 Engine', 'Event-Driven', 'Non-Blocking'],
+            description: 'Asynchronous event-driven JavaScript runtime built on Chrome’s V8 engine, designed for high-concurrency networked server applications.',
+            keyConcepts: ['Event Loop & Libuv Thread Pool', 'Non-blocking Asynchronous I/O', 'Buffer & Stream Pipelines', 'Cluster & Worker Threads', 'CommonJS & ES Modules']
+          },
+          {
+            id: 'express',
+            icon: 'express',
+            name: 'Express.js',
+            badges: ['Framework', 'Routing', 'Middleware', 'Minimalist'],
+            description: 'Fast, unopinionated, minimalist web framework for Node.js, providing essential routing and middleware composition for HTTP services.',
+            keyConcepts: ['Routing (GET, POST, PUT, DELETE)', 'Middleware Chain Execution', 'Error Handling Middleware', 'Request & Response Lifecycle', 'Static Asset Serving']
+          },
+          {
+            id: 'rest',
+            icon: 'rest',
+            name: 'REST APIs',
+            badges: ['Architecture', 'HTTP', 'Stateless', 'Design'],
+            description: 'Representational State Transfer architectural pattern for designing scalable, stateless web services using standard HTTP verbs.',
+            keyConcepts: ['HTTP Verbs & Status Codes', 'Stateless Client-Server Contract', 'Uniform Resource Identifiers (URIs)', 'Idempotent Operations', 'Pagination, Filtering & Sorting']
+          },
+          {
+            id: 'auth',
+            icon: 'auth',
+            name: 'Authentication and Authorization',
+            badges: ['Security', 'RBAC', 'Session/Token', 'Permissions'],
+            description: 'Security architecture ensuring verified user identity and role-based access control across protected server routes and resources.',
+            keyConcepts: ['Role-Based Access Control (RBAC)', 'Password Hashing (bcrypt / Argon2)', 'Session vs Token Auth', 'CSRF & XSS Defenses', 'OAuth2 & Third-party Handshakes']
+          },
+          {
+            id: 'middleware',
+            icon: 'middleware',
+            name: 'Middleware',
+            badges: ['Pipeline', 'Interceptors', 'Logging', 'Security'],
+            description: 'Software functions that have access to the request and response objects to execute code, transform payloads, and terminate cycles.',
+            keyConcepts: ['Next() Function Propagation', 'Request Body Parsers', 'CORS & Security Headers (Helmet)', 'Rate Limiting Interceptors', 'Centralized Logging']
+          }
+        ]
       },
       {
-        id: 'express',
-        name: 'Express',
-        category: 'Framework',
-        isFeatured: true,
-        badges: ['Backend', 'REST', 'Middleware', 'APIs'],
-        description: 'Fast, unopinionated, minimalist web framework for Node.js powering flexible routing and middleware chains.',
-        keyConcepts: ['Middleware Chains', 'Route Handlers', 'Error Handling', 'Request Validation', 'CORS', 'Rate Limiting', 'Auth Interceptors'],
-        relatedTechs: ['nodejs', 'javascript', 'rest', 'mongodb'],
-        codeExample: `import express from 'express';
-const app = express();
-
-app.use(express.json());
-
-app.get('/api/stack', (req, res) => {
-  res.json({ name: 'UMXIE', modules: 8 });
-});`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'mongodb_integration',
+            icon: 'mongodb',
+            name: 'MongoDB Integration',
+            badges: ['Database', 'NoSQL', 'Document Store', 'Driver'],
+            description: 'Connecting, querying, and managing scalable document data pipelines from backend Node.js applications.',
+            keyConcepts: ['Connection Pool Management', 'CRUD Query Operations', 'Aggregation Pipelines', 'Replica Sets & Failover', 'Index Utilization']
+          },
+          {
+            id: 'mongoose_backend',
+            icon: 'mongoose',
+            name: 'Mongoose',
+            badges: ['ODM', 'Schema Validation', 'Models', 'Middleware'],
+            description: 'Object Data Modeling (ODM) library for MongoDB providing schema validation, type casting, middleware hooks, and business logic methods.',
+            keyConcepts: ['Strict Schema Definitions', 'Validation Rules & Defaults', 'Pre/Post Save Hooks', 'Virtual Properties', 'Population / Relational References']
+          },
+          {
+            id: 'api_validation',
+            icon: 'api_validation',
+            name: 'API Validation',
+            badges: ['Sanitization', 'Schema Verification', 'Data Integrity', 'Defensive'],
+            description: 'Defensive schema verification ensuring incoming request payloads, query parameters, and headers conform to strict specifications.',
+            keyConcepts: ['Schema Validation (Zod, Joi)', 'Type Coercion & Stripping', 'Custom Error Messages', 'Request Body Sanitization', 'SQL/NoSQL Injection Prevention']
+          },
+          {
+            id: 'error_handling',
+            icon: 'error_handling',
+            name: 'Error Handling',
+            badges: ['Reliability', 'Observability', 'Graceful Fallback', 'Architecture'],
+            description: 'Structured error handling architecture providing centralized logging, standardized error responses, and process stability.',
+            keyConcepts: ['Custom Error Classes', 'Centralized Error Middleware', 'Operational vs Programmer Errors', 'UnhandleRejection Handlers', 'Safe Client Payloads']
+          },
+          {
+            id: 'jwt',
+            icon: 'jwt',
+            name: 'JWT',
+            badges: ['Tokens', 'Stateless Auth', 'Cryptography', 'Claims'],
+            description: 'JSON Web Tokens for compact, URL-safe transmission of cryptographically signed claims between client and server.',
+            keyConcepts: ['Header, Payload & Signature', 'HMAC SHA256 & RSA Signing', 'Access vs Refresh Token Pairs', 'Expiration & Revocation Strategies', 'Token Decoding & Verification']
+          },
+          {
+            id: 'websockets',
+            icon: 'websockets',
+            name: 'WebSockets',
+            badges: ['Real-Time', 'Full-Duplex', 'Events', 'Low-Latency'],
+            description: 'Persistent, full-duplex communication channel over a single TCP connection for low-latency live events and notifications.',
+            keyConcepts: ['HTTP Handshake Upgrade', 'Bidirectional Message Frames', 'Heartbeat & Ping/Pong', 'Connection State Management', 'Broadcast & Room Topologies']
+          }
+        ]
       },
       {
-        id: 'rest',
-        name: 'REST APIs',
-        category: 'Architecture',
-        isFeatured: true,
-        badges: ['Architecture', 'HTTP', 'API Design', 'Contracts'],
-        description: 'Standardized architectural style for networked systems, deterministic status codes, and JSON payloads.',
-        keyConcepts: ['Statelessness', 'HTTP Verbs', 'Status Codes', 'Resource Endpoints', 'Pagination', 'API Versioning', 'Idempotency'],
-        relatedTechs: ['express', 'nodejs', 'postman', 'mongodb'],
-        codeExample: `app.get('/api/v1/modules/:id', async (req, res) => {
-  const { id } = req.params;
-  const data = await getModule(id);
-  res.status(200).json({ success: true, data });
-});`
-      },
-      {
-        id: 'python',
-        name: 'Python / Django',
-        category: 'Framework',
-        isFeatured: true,
-        badges: ['Backend', 'ORM', 'Batteries-Included', 'Security'],
-        description: 'High-level Python web framework encouraging rapid development and clean, pragmatic design.',
-        keyConcepts: ['Django ORM', 'MVT Architecture', 'Admin Dashboard', 'Authentication System', 'Django REST Framework (DRF)', 'Middleware'],
-        relatedTechs: ['python', 'postgresql', 'docker'],
-        codeExample: `from django.http import JsonResponse
-
-def stack_view(request):
-    return JsonResponse({"status": "active", "universe": "coding"})`
-      },
-      {
-        id: 'typescript',
-        name: 'TypeScript',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Backend', 'Typing', 'Type-Safety', 'Architecture'],
-        description: 'Enforces compile-time type safety across database entities, DTOs, controllers, and services.',
-        keyConcepts: ['DTOs', 'TypeORM / Prisma Models', 'Validation Pipes', 'Strict Domain Entities'],
-        relatedTechs: ['nodejs', 'express', 'prisma'],
-        codeExample: `interface CreateUserDTO {
-  email: string;
-  name: string;
-}`
-      },
-      {
-        id: 'go',
-        name: 'Go Microservices',
-        category: 'Microservices',
-        isFeatured: false,
-        badges: ['High-Performance', 'gRPC', 'Low Latency', 'Concurrency'],
-        description: 'Lightning-fast microservices with minimal memory footprints and effortless concurrent goroutine scaling.',
-        keyConcepts: ['HTTP net/http', 'Gin Framework', 'gRPC & Protocol Buffers', 'Connection Pools', 'Context Propagation'],
-        relatedTechs: ['docker', 'kubernetes', 'rest'],
-        codeExample: `r := gin.Default()
-r.GET("/ping", func(c *gin.Context) {
-    c.JSON(200, gin.H{"message": "pong"})
-})`
-      },
-      {
-        id: 'java',
-        name: 'Spring Boot',
-        category: 'Framework',
-        isFeatured: false,
-        badges: ['Enterprise', 'Dependency Injection', 'Scalable', 'Java'],
-        description: 'Enterprise-grade Java framework providing production-ready microservices, metrics, and security.',
-        keyConcepts: ['Dependency Injection', 'Spring Data JPA', 'Spring Security', 'Actuator', 'REST Controllers'],
-        relatedTechs: ['java', 'postgresql', 'docker'],
-        codeExample: `@RestController
-@RequestMapping("/api")
-public class ApiController {
-    @GetMapping("/hello")
-    public String hello() { return "Hello UMXIE"; }
-}`
-      },
-      {
-        id: 'sql',
-        name: 'SQL Engines',
-        category: 'Database',
-        isFeatured: false,
-        badges: ['Relational', 'ACID', 'Queries', 'Transactions'],
-        description: 'Architecting relational schemas, indexes, foreign key constraints, and normalized tables.',
-        keyConcepts: ['ACID Guarantees', 'Complex Joins', 'Isolation Levels', 'Query Optimization'],
-        relatedTechs: ['postgresql', 'mysql', 'prisma'],
-        codeExample: `BEGIN TRANSACTION;
-UPDATE accounts SET balance = balance - 100 WHERE id = 1;
-UPDATE accounts SET balance = balance + 100 WHERE id = 2;
-COMMIT;`
-      },
-      {
-        id: 'redis',
-        name: 'Redis',
-        category: 'Caching',
-        isFeatured: false,
-        badges: ['In-Memory', 'Cache', 'Pub/Sub', 'Rate-Limiting'],
-        description: 'Blazing in-memory key-value data structure store used for caching, pub/sub messaging, and distributed locks.',
-        keyConcepts: ['In-memory caching', 'TTL expiration', 'Pub/Sub', 'Rate-limiting', 'Session stores'],
-        relatedTechs: ['nodejs', 'express', 'postgresql'],
-        codeExample: `await redis.set('session:token', userId, 'EX', 3600);`
-      },
-      {
-        id: 'mongodb',
-        name: 'MongoDB',
-        category: 'NoSQL',
-        isFeatured: false,
-        badges: ['Document Store', 'NoSQL', 'Scalable', 'BSON'],
-        description: 'Flexible document database enabling high-velocity iteration with JSON-like schemas and horizontal sharding.',
-        keyConcepts: ['Aggregation Pipelines', 'Schema Flexibility', 'Secondary Indexes', 'Replica Sets'],
-        relatedTechs: ['nodejs', 'express'],
-        codeExample: `await User.find({ role: 'admin' }).limit(10);`
-      },
-      {
-        id: 'docker',
-        name: 'Docker Containers',
-        category: 'DevOps',
-        isFeatured: false,
-        badges: ['Containers', 'Isolation', 'Portability', 'Microservices'],
-        description: 'Packaging backend runtimes, database services, and dependencies into isolated lightweight containers.',
-        keyConcepts: ['Dockerfiles', 'Multi-stage Builds', 'Docker Compose', 'Volume Mounts', 'Container Networking'],
-        relatedTechs: ['linux', 'aws', 'cicd'],
-        codeExample: `FROM node:20-alpine
-WORKDIR /app
-COPY . .
-RUN npm ci --production
-CMD ["node", "server.js"]`
-      },
-      {
-        id: 'bash',
-        name: 'Shell Ops',
-        category: 'System',
-        isFeatured: false,
-        badges: ['CLI', 'Automation', 'Cron', 'Servers'],
-        description: 'Automating deployment pipelines, log rotation, database backups, and health monitoring scripts.',
-        keyConcepts: ['Process Management (PM2 / Systemd)', 'Log Tailing', 'Cron Jobs', 'Environment Configuration'],
-        relatedTechs: ['linux', 'git'],
-        codeExample: `pm2 start server.js -i max --name "umxie-api"`
-      },
-      {
-        id: 'aws',
-        name: 'AWS Cloud',
-        category: 'Infrastructure',
-        isFeatured: false,
-        badges: ['Cloud', 'EC2', 'S3', 'Lambda'],
-        description: 'Hosting scalable backend services across Amazon Web Services compute, serverless, and storage.',
-        keyConcepts: ['EC2 Instances', 'S3 Object Storage', 'AWS Lambda', 'API Gateway', 'CloudFront CDN'],
-        relatedTechs: ['docker', 'linux'],
-        codeExample: `// AWS SDK S3 client upload pipeline`
-      },
-      {
-        id: 'linux',
-        name: 'Linux Servers',
-        category: 'OS',
-        isFeatured: false,
-        badges: ['Server OS', 'Security', 'Performance', 'POSIX'],
-        description: 'Production server operations on Ubuntu/Debian/Alpine with systemd services, firewall configuration, and permissions.',
-        keyConcepts: ['Systemd Daemons', 'SSH Key Auth', 'UFW Firewall', 'Nginx Reverse Proxy', 'File Permissions'],
-        relatedTechs: ['bash', 'docker'],
-        codeExample: `sudo systemctl status nginx`
-      },
-      {
-        id: 'php',
-        name: 'PHP APIs',
-        category: 'Backend',
-        isFeatured: false,
-        badges: ['Web', 'APIs', 'Composer', 'Laravel'],
-        description: 'Building robust APIs with modern PHP 8 attributes, strict typing, and Composer package dependencies.',
-        keyConcepts: ['RESTful Routing', 'Dependency Injection', 'Eloquent ORM', 'JWT Authentication'],
-        relatedTechs: ['mysql', 'sql'],
-        codeExample: `Route::get('/api/status', function () {
-    return response()->json(['status' => 'online']);
-});`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'django',
+            icon: 'python',
+            name: 'Python/Django',
+            badges: ['Framework', 'Batteries-Included', 'ORM', 'Python'],
+            description: 'High-level Python web framework encouraging rapid development and clean, pragmatic design with a powerful built-in ORM.',
+            keyConcepts: ['Model-View-Template (MVT)', 'Django ORM & Migrations', 'Built-in Admin Panel', 'URL Routing & Middleware', 'Authentication System']
+          },
+          {
+            id: 'spring_boot',
+            icon: 'java',
+            name: 'Java/Spring Boot',
+            badges: ['Framework', 'Enterprise', 'Inversion of Control', 'Microservices'],
+            description: 'Convention-over-configuration Java framework designed to simplify the bootstrapping and development of enterprise microservices.',
+            keyConcepts: ['Dependency Injection & IoC Container', 'Spring Data JPA & Repositories', 'REST Controller Annotations', 'Actuator Health Metrics', 'Embedded Tomcat Server']
+          },
+          {
+            id: 'go_backend',
+            icon: 'go',
+            name: 'Go Backend Development',
+            badges: ['Compiled', 'High Concurrency', 'Microservices', 'Fast'],
+            description: 'Constructing lightweight, performant HTTP microservices using Go’s built-in net/http package and idiomatic concurrent patterns.',
+            keyConcepts: ['net/http Standard Library', 'Routing with Chi or Gin', 'JSON Struct Tags', 'Context Propagation & Timeouts', 'Database Drivers (pgx/sqlx)']
+          },
+          {
+            id: 'php_backend',
+            icon: 'php',
+            name: 'PHP Backend Development',
+            badges: ['APIs', 'Routing', 'MVC', 'Composer'],
+            description: 'Developing REST endpoints and server-side data models using modern PHP patterns, PDO interfaces, and framework components.',
+            keyConcepts: ['MVC Architectural Pattern', 'Composer Autoloading', 'PDO Parameterized Queries', 'JSON API Responses', 'Environment Configuration']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 04 — DATABASES & DATA STORAGE
+  // =========================================================================
   {
     id: 'databases',
     number: '04',
     name: 'DATABASES',
-    subtitle: 'Storing, managing and retrieving data efficiently and securely.',
+    subtitle: 'Relational, document, caching, and key-value persistence architectures.',
     categoryIcon: 'databases',
-    technologies: [
+    categories: [
       {
-        id: 'mongodb',
-        name: 'MongoDB',
-        category: 'NoSQL',
-        isFeatured: true,
-        badges: ['Database', 'NoSQL', 'Document Store', 'Scalable'],
-        description: 'Document-oriented database utilizing JSON-like BSON schemas, flexible indexing, and horizontal scalability.',
-        keyConcepts: ['Documents & Collections', 'Aggregation Pipelines', 'Compound Indexes', 'Replica Sets', 'Sharding', 'Mongoose Models', 'Atlas Cloud'],
-        relatedTechs: ['nodejs', 'express', 'redis', 'postgresql'],
-        codeExample: `const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  handle: { type: String, unique: true },
-  createdAt: { type: Date, default: Date.now }
-});`
+        id: 'core_skills',
+        title: 'Core Skills',
+        tier: 1,
+        technologies: [
+          {
+            id: 'mongodb',
+            icon: 'mongodb',
+            name: 'MongoDB',
+            badges: ['NoSQL', 'Document Database', 'JSON/BSON', 'Flexible'],
+            description: 'Leading document-oriented NoSQL database that stores data in flexible, JSON-like BSON documents with powerful query capabilities.',
+            keyConcepts: ['BSON Document Model', 'Collections & Databases', 'Aggregation Pipeline Stages ($match, $group)', 'Index Types (Compound, TTL, Text)', 'Replica Set Clustering']
+          },
+          {
+            id: 'mongoose',
+            icon: 'mongoose',
+            name: 'Mongoose',
+            badges: ['ODM', 'Schema Definition', 'Type Safety', 'Modeling'],
+            description: 'Node.js ODM providing strict modeling, automated type casting, built-in validation, and query building for MongoDB.',
+            keyConcepts: ['Schema Constraints & Types', 'Model Instantiation', 'Query Population (.populate())', 'Virtual Getters & Setters', 'Pre/Post Execution Middleware']
+          },
+          {
+            id: 'mysql',
+            icon: 'mysql',
+            name: 'MySQL',
+            badges: ['Relational', 'RDBMS', 'ACID', 'Structured'],
+            description: 'Established open-source relational database management system using structured query language and InnoDB ACID engine.',
+            keyConcepts: ['InnoDB Storage Engine', 'ACID Transaction Guarantees', 'Foreign Key Constraints', 'Primary & Unique Keys', 'EXPLAIN Query Optimization']
+          }
+        ]
       },
       {
-        id: 'postgresql',
-        name: 'PostgreSQL',
-        category: 'Relational SQL',
-        isFeatured: true,
-        badges: ['Database', 'SQL', 'ACID', 'Enterprise'],
-        description: 'Advanced open-source relational database supporting ACID transactions, JSONB document storage, and complex queries.',
-        keyConcepts: ['ACID Compliance', 'Relational Schemas', 'Foreign Key Constraints', 'JSONB Document Support', 'Indexing (B-Tree, GIN)', 'Window Functions'],
-        relatedTechs: ['sql', 'redis', 'nodejs', 'python'],
-        codeExample: `CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'postgresql',
+            icon: 'postgresql',
+            name: 'PostgreSQL',
+            badges: ['RDBMS', 'Extensible', 'JSONB', 'Advanced SQL'],
+            description: 'Advanced, enterprise-grade open-source object-relational database system known for reliability, data integrity, and JSONB support.',
+            keyConcepts: ['JSONB Document Storage & Indexing', 'Full-Text Search (tsvector)', 'Window Functions & CTEs', 'Row-Level Security (RLS)', 'Partial & GiST Indexes']
+          },
+          {
+            id: 'sqlite',
+            icon: 'sqlite',
+            name: 'SQLite',
+            badges: ['Serverless', 'Embedded', 'Zero-Config', 'Lightweight'],
+            description: 'Self-contained, serverless, zero-configuration transactional SQL database engine stored entirely in a single disk file.',
+            keyConcepts: ['Single-File Database Architecture', 'Serverless Embedded Engine', 'WAL (Write-Ahead Logging) Mode', 'In-Memory Testing (:memory:)', 'ACID Transactions']
+          },
+          {
+            id: 'db_indexing',
+            icon: 'db_indexing',
+            name: 'Database Indexing',
+            badges: ['Performance', 'B-Trees', 'Query Optimization', 'Lookups'],
+            description: 'Designing and optimizing database index structures to accelerate lookup times and prevent costly full table/collection scans.',
+            keyConcepts: ['B-Tree Index Data Structure', 'Single-Field vs Compound Indexes', 'Covering Indexes', 'Query Execution Plans (EXPLAIN ANALYZE)', 'Write Overhead Tradeoffs']
+          },
+          {
+            id: 'db_modeling',
+            icon: 'db_modeling',
+            name: 'Database Modeling',
+            badges: ['Schema Design', 'Normalization', 'ERD', 'Integrity'],
+            description: 'Architecting relational and document data schemas, defining entity relationships, and choosing between normalization and denormalization.',
+            keyConcepts: ['1st, 2nd, and 3rd Normal Forms (3NF)', 'Entity Relationship Diagrams (ERD)', 'One-to-One, One-to-Many, Many-to-Many', 'Referential Integrity Cascades', 'Denormalization Strategies']
+          },
+          {
+            id: 'db_migrations',
+            icon: 'db_migrations',
+            name: 'Database Migrations',
+            badges: ['Versioning', 'Evolution', 'Rollbacks', 'CI/CD'],
+            description: 'Managing programmatic, version-controlled schema transformations and seed data changes reliably across deployment environments.',
+            keyConcepts: ['Version-Controlled Migration Scripts', 'Up / Down Rollback Functions', 'Zero-Downtime Schema Changes', 'Data Seeding Scripts', 'Continuous Deployment Integration']
+          }
+        ]
       },
       {
-        id: 'redis',
-        name: 'Redis',
-        category: 'In-Memory',
-        isFeatured: true,
-        badges: ['Database', 'Cache', 'Key-Value', 'Fast'],
-        description: 'Blazing in-memory data store used as a database, cache, streaming engine, and message broker.',
-        keyConcepts: ['In-Memory Speed', 'Strings, Hashes, Lists, Sets', 'Key Expiration (TTL)', 'Pub/Sub Messaging', 'Redis Sentinel', 'Persistence (RDB/AOF)'],
-        relatedTechs: ['nodejs', 'postgresql', 'mongodb'],
-        codeExample: `import { createClient } from 'redis';
-const client = createClient();
-await client.connect();
-
-await client.set('key', 'value', { EX: 60 });
-const value = await client.get('key');`
-      },
-      {
-        id: 'mysql',
-        name: 'MySQL',
-        category: 'Relational',
-        isFeatured: true,
-        badges: ['Database', 'SQL', 'Standard', 'Popular'],
-        description: 'Widely used relational database management system powering millions of enterprise and web workloads globally.',
-        keyConcepts: ['InnoDB Engine', 'Primary & Foreign Keys', 'B-Tree Indexes', 'Transactions & Locking', 'Replication'],
-        relatedTechs: ['sql', 'php', 'postgresql'],
-        codeExample: `SELECT * FROM modules 
-WHERE active = 1 
-LIMIT 8;`
-      },
-      {
-        id: 'sqlite',
-        name: 'SQLite',
-        category: 'Embedded DB',
-        isFeatured: false,
-        badges: ['Serverless', 'Embedded', 'Zero-Config', 'Lightweight'],
-        description: 'Self-contained, serverless, zero-configuration SQL database engine embedded directly into applications.',
-        keyConcepts: ['Single File Storage', 'Zero Configuration', 'ACID Compliance', 'In-Memory Mode', 'Mobile/Desktop Storage'],
-        relatedTechs: ['sql', 'python', 'cpp'],
-        codeExample: `ATTACH DATABASE 'universe.db' AS universe;`
-      },
-      {
-        id: 'prisma',
-        name: 'Prisma',
-        category: 'ORM',
-        isFeatured: false,
-        badges: ['ORM', 'Type-Safe', 'Migrations', 'Productive'],
-        description: 'Next-generation Node.js and TypeScript ORM with auto-generated queries, migrations, and type-safety.',
-        keyConcepts: ['Schema Definition', 'Prisma Client', 'Prisma Migrate', 'Type-Safety', 'Relation Queries'],
-        relatedTechs: ['postgresql', 'typescript', 'nodejs'],
-        codeExample: `const user = await prisma.user.create({
-  data: { name: 'UMXIE', email: 'dev@umxie.com' }
-});`
-      },
-      {
-        id: 'firebase',
-        name: 'Firebase',
-        category: 'Cloud DB',
-        isFeatured: false,
-        badges: ['NoSQL', 'Realtime', 'Cloud', 'Google'],
-        description: 'Cloud-hosted NoSQL Firestore database with real-time listeners and seamless offline client persistence.',
-        keyConcepts: ['Cloud Firestore', 'Realtime Listeners', 'Security Rules', 'Cloud Functions', 'Offline Sync'],
-        relatedTechs: ['react', 'javascript', 'gcp'],
-        codeExample: `const docRef = doc(db, "modules", "languages");
-const docSnap = await getDoc(docRef);`
-      },
-      {
-        id: 'supabase',
-        name: 'Supabase',
-        category: 'BaaS / Postgres',
-        isFeatured: false,
-        badges: ['Postgres', 'Open Source', 'Auth', 'Realtime'],
-        description: 'Open-source Firebase alternative built on dedicated PostgreSQL with auto-generated REST APIs and Auth.',
-        keyConcepts: ['PostgreSQL Engine', 'Row-Level Security (RLS)', 'Realtime Subscriptions', 'Storage & Auth'],
-        relatedTechs: ['postgresql', 'typescript', 'react'],
-        codeExample: `const { data, error } = await supabase
-  .from('modules')
-  .select('*');`
-      },
-      {
-        id: 'sql',
-        name: 'Relational Design',
-        category: 'Architecture',
-        isFeatured: false,
-        badges: ['Schema', 'Normalization', 'Indexes', 'Design'],
-        description: 'Database normalization up to 3NF, ER modeling, query profiling, and index strategies (B-Tree, Hash).',
-        keyConcepts: ['1NF / 2NF / 3NF', 'Composite Indexes', 'Explain Analyze', 'Deadlock Avoidance'],
-        relatedTechs: ['postgresql', 'mysql'],
-        codeExample: `EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'dev@umxie.com';`
-      },
-      {
-        id: 'nodejs',
-        name: 'Mongoose ODM',
-        category: 'ODM',
-        isFeatured: false,
-        badges: ['Node.js', 'Schema', 'Validation', 'ODM'],
-        description: 'Elegant MongoDB object modeling for Node.js with built-in validation, hooks, and virtual properties.',
-        keyConcepts: ['Schema Types', 'Pre/Post Hooks', 'Population (Virtual Joins)', 'Custom Validators'],
-        relatedTechs: ['mongodb', 'nodejs'],
-        codeExample: `userSchema.pre('save', async function() {
-  if (this.isModified('password')) this.password = await hash(this.password);
-});`
-      },
-      {
-        id: 'python',
-        name: 'Data Pipelines',
-        category: 'Data',
-        isFeatured: false,
-        badges: ['ETL', 'Analytics', 'Pandas', 'Processing'],
-        description: 'Extracting, transforming, and loading structured datasets across databases and analytic warehouses.',
-        keyConcepts: ['Pandas DataFrames', 'SQLAlchemy', 'Batch Processing', 'CSV/JSON ETL'],
-        relatedTechs: ['python', 'postgresql'],
-        codeExample: `import pandas as pd
-df = pd.read_sql('SELECT * FROM metrics', connection)`
-      },
-      {
-        id: 'docker',
-        name: 'Container DBs',
-        category: 'DevOps',
-        isFeatured: false,
-        badges: ['Containers', 'Isolation', 'Compose', 'Local Dev'],
-        description: 'Spinning up containerized database clusters with persistent volume mounts and replica testing.',
-        keyConcepts: ['Volume Persistence', 'Healthchecks', 'Network Isolation', 'Seed Scripts'],
-        relatedTechs: ['docker', 'postgresql', 'redis'],
-        codeExample: `services:
-  db:
-    image: postgres:16-alpine
-    volumes:
-      - pgdata:/var/lib/postgresql/data`
-      },
-      {
-        id: 'aws',
-        name: 'Cloud DynamoDB',
-        category: 'Cloud NoSQL',
-        isFeatured: false,
-        badges: ['AWS', 'NoSQL', 'Serverless', 'Key-Value'],
-        description: 'Fully managed NoSQL database service providing single-digit millisecond latency at any scale.',
-        keyConcepts: ['Partition Keys & Sort Keys', 'Global Secondary Indexes', 'TTL', 'DynamoDB Streams'],
-        relatedTechs: ['aws', 'nodejs'],
-        codeExample: `// DynamoDB PutItemCommand client execution`
-      },
-      {
-        id: 'bash',
-        name: 'DB Migrations',
-        category: 'Tooling',
-        isFeatured: false,
-        badges: ['Migrations', 'Backups', 'CLI', 'Automation'],
-        description: 'Automating database dump, pg_dump backups, schema migrations, and point-in-time recovery scripts.',
-        keyConcepts: ['pg_dump / pg_restore', 'Database Seeding', 'Rollback Strategies'],
-        relatedTechs: ['bash', 'postgresql'],
-        codeExample: `pg_dump -U postgres -d universe > backup.sql`
-      },
-      {
-        id: 'rust',
-        name: 'Embedded Engines',
-        category: 'Low-Level',
-        isFeatured: false,
-        badges: ['Rust', 'LSM-Tree', 'Key-Value', 'Fast'],
-        description: 'Exploring embedded storage engines like RocksDB, Sled, and LSM-tree persistence mechanics.',
-        keyConcepts: ['Log-Structured Merge-Tree (LSM)', 'Write-Ahead Log (WAL)', 'MemTable & SSTable'],
-        relatedTechs: ['rust', 'cpp'],
-        codeExample: `// Low-level LSM-tree write path`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'redis',
+            icon: 'redis',
+            name: 'Redis',
+            badges: ['In-Memory', 'Cache', 'Key-Value', 'Pub/Sub'],
+            description: 'In-memory data structure store used as a high-speed database, cache, session coordinator, and message broker.',
+            keyConcepts: ['In-Memory Key-Value Storage', 'Data Structures (Strings, Hashes, Sets)', 'TTL Expiration & Eviction Policies', 'Pub/Sub Messaging Channel', 'Atomic Operations']
+          },
+          {
+            id: 'dynamodb',
+            icon: 'dynamodb',
+            name: 'Amazon DynamoDB',
+            badges: ['Cloud NoSQL', 'Key-Value', 'Serverless', 'AWS'],
+            description: 'Fully managed, serverless, key-value NoSQL database designed by AWS for single-digit millisecond performance at any scale.',
+            keyConcepts: ['Partition Keys & Sort Keys', 'Global Secondary Indexes (GSI)', 'Single-Table Design Pattern', 'On-Demand Capacity Mode', 'DynamoDB Streams']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 05 — CLOUD & DEVOPS
+  // =========================================================================
   {
     id: 'cloud',
     number: '05',
     name: 'CLOUD & DEVOPS',
-    subtitle: 'Deploying, automating, scaling and monitoring resilient infrastructure.',
+    subtitle: 'Cloud hosting, containerization, deployment pipelines, and infrastructure automation.',
     categoryIcon: 'cloud',
-    technologies: [
+    categories: [
       {
-        id: 'aws',
-        name: 'AWS',
-        category: 'Cloud Platform',
-        isFeatured: true,
-        badges: ['Cloud', 'Infrastructure', 'Hosting', 'Scalability'],
-        description: 'Industry-standard cloud platform providing compute, object storage, serverless, and content delivery network infrastructure.',
-        keyConcepts: ['EC2 Virtual Servers', 'S3 Object Storage', 'Lambda Serverless', 'CloudFront CDN', 'IAM Security & Roles', 'VPC Networking', 'Route 53 DNS'],
-        relatedTechs: ['docker', 'linux', 'cicd', 'nodejs'],
-        codeExample: `// AWS S3 bucket upload policy
-{
-  "Version": "2012-10-17",
-  "Statement": [{
-    "Effect": "Allow",
-    "Action": ["s3:GetObject"],
-    "Resource": ["arn:aws:s3:::umxie-universe/*"]
-  }]
-}`
+        id: 'core_skills',
+        title: 'Core Skills',
+        tier: 1,
+        technologies: [
+          {
+            id: 'aws',
+            icon: 'aws',
+            name: 'AWS',
+            badges: ['Cloud Platform', 'Infrastructure', 'Hosting', 'Scalability'],
+            description: 'Amazon Web Services cloud computing ecosystem used for provisioning compute instances, object storage, and secure server networking.',
+            keyConcepts: ['Amazon S3 Object Storage', 'EC2 Virtual Compute', 'IAM Roles & Policies', 'CloudFront Content Delivery (CDN)', 'Route 53 DNS Configuration']
+          },
+          {
+            id: 'linux',
+            icon: 'linux',
+            name: 'Linux',
+            badges: ['Operating System', 'Servers', 'CLI', 'Administration'],
+            description: 'Unix-like operating system powering production servers, container hosts, and developer workstations with secure permission models.',
+            keyConcepts: ['Filesystem Hierarchy (FHS)', 'File Permissions (chmod, chown)', 'Process Monitoring (top, htop, systemctl)', 'SSH Keys & Remote Access', 'Package Management (apt, yum)']
+          },
+          {
+            id: 'git_cloud',
+            icon: 'git',
+            name: 'Git',
+            badges: ['Version Control', 'Distributed', 'Collaboration', 'History'],
+            description: 'Distributed version control system for tracking source code revisions, managing feature branches, and facilitating collaborative code reviews.',
+            keyConcepts: ['Branching Workflows (feature/bugfix)', 'Staging & Atomic Commits', 'Merge vs Rebase Strategies', 'Resolving Merge Conflicts', 'Tagging Release Milestones']
+          },
+          {
+            id: 'app_deployment',
+            icon: 'app_deployment',
+            name: 'Application Deployment',
+            badges: ['Production', 'Zero-Downtime', 'SSL/TLS', 'Hosting'],
+            description: 'Orchestrating end-to-end production deployments, environment configuration, SSL/TLS termination, and live process supervisors.',
+            keyConcepts: ['Production Environment Variables (.env)', 'Process Managers (PM2, systemd)', 'SSL/TLS Certificates (Let’s Encrypt)', 'Zero-Downtime Rolling Releases', 'Health Check Endpoints']
+          }
+        ]
       },
       {
-        id: 'docker',
-        name: 'Docker',
-        category: 'Containerization',
-        isFeatured: true,
-        badges: ['DevOps', 'Containers', 'Microservices', 'Portability'],
-        description: 'Open platform for developing, shipping, and running applications inside standardized, isolated containers.',
-        keyConcepts: ['Images & Containers', 'Dockerfile Instructions', 'Multi-Stage Builds', 'Docker Compose', 'Container Networking', 'Volume Mounts', 'Image Optimization'],
-        relatedTechs: ['linux', 'aws', 'cicd', 'nodejs'],
-        codeExample: `FROM node:20-alpine AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'docker',
+            icon: 'docker',
+            name: 'Docker',
+            badges: ['Containers', 'Isolation', 'Reproducibility', 'DevOps'],
+            description: 'Container platform for packaging applications and their complete dependencies into portable, isolated containers running anywhere.',
+            keyConcepts: ['Multi-Stage Dockerfiles', 'Docker Compose Orchestration', 'Image Layers & Caching', 'Port Forwarding & Volumes', 'Container Networking']
+          },
+          {
+            id: 'cicd',
+            icon: 'cicd',
+            name: 'CI/CD',
+            badges: ['Automation', 'Pipelines', 'Testing', 'Continuous Delivery'],
+            description: 'Continuous Integration and Continuous Deployment pipelines that automate code linting, test suites, container builds, and deployment.',
+            keyConcepts: ['Automated Build Pipelines', 'Unit & Integration Test Gates', 'Staging vs Production Environments', 'Artifact Versioning & Storage', 'Rollback Triggers']
+          },
+          {
+            id: 'githubactions',
+            icon: 'githubactions',
+            name: 'GitHub Actions',
+            badges: ['Automation', 'Workflows', 'CI/CD', 'GitHub'],
+            description: 'Workflow automation built directly into GitHub for triggering automated tasks, test suites, and deployments on repository events.',
+            keyConcepts: ['Workflow YAML Syntax', 'Event Triggers (push, pull_request)', 'Secrets Management', 'Matrix Builds across Node/OS', 'Community Action Marketplace']
+          },
+          {
+            id: 'nginx',
+            icon: 'nginx',
+            name: 'Nginx',
+            badges: ['Web Server', 'Reverse Proxy', 'Load Balancer', 'SSL'],
+            description: 'High-performance HTTP server, reverse proxy, and load balancer handling static asset caching, request routing, and SSL termination.',
+            keyConcepts: ['Reverse Proxy to Node/Python Servers', 'SSL/TLS Termination', 'Gzip & Brotli Compression', 'Upstream Load Balancing', 'Static File Caching Directives']
+          }
+        ]
       },
       {
-        id: 'linux',
-        name: 'Linux',
-        category: 'Operating System',
-        isFeatured: true,
-        badges: ['OS', 'Server', 'Kernel', 'Terminal'],
-        description: 'Unix-like open-source operating system kernel powering virtually all enterprise servers, cloud instances, and containers.',
-        keyConcepts: ['Bash Shell & Scripting', 'File Permissions & Sudo', 'Process Management', 'Systemd Daemons', 'SSH Key Authentication', 'Package Managers', 'Cron Automation'],
-        relatedTechs: ['docker', 'aws', 'cicd', 'git'],
-        codeExample: `#!/bin/bash
-echo "Monitoring system health..."
-df -h
-free -m
-uptime`
-      },
-      {
-        id: 'cicd',
-        name: 'CI / CD',
-        category: 'Automation',
-        isFeatured: true,
-        badges: ['DevOps', 'Pipelines', 'Automation', 'Testing'],
-        description: 'Continuous Integration & Continuous Deployment workflows ensuring code quality, automated testing, and zero-downtime releases.',
-        keyConcepts: ['Automated Testing', 'Build Pipelines', 'Deployment Triggers', 'Environment Secrets', 'Artifact Storage', 'Rollback Strategies', 'Zero-Downtime Releases'],
-        relatedTechs: ['docker', 'git', 'aws', 'linux'],
-        codeExample: `name: CI Pipeline
-on: [push]
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm ci
-      - run: npm test`
-      },
-      {
-        id: 'kubernetes',
-        name: 'Kubernetes',
-        category: 'Orchestration',
-        isFeatured: false,
-        badges: ['Container Orchestration', 'K8s', 'Scalability', 'Cloud'],
-        description: 'Automating deployment, scaling, and management of containerized applications across cluster nodes.',
-        keyConcepts: ['Pods & Deployments', 'Services & Ingress', 'ConfigMaps & Secrets', 'Horizontal Pod Autoscaling (HPA)', 'Namespaces'],
-        relatedTechs: ['docker', 'linux', 'aws'],
-        codeExample: `apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: umxie-stack
-spec:
-  replicas: 3`
-      },
-      {
-        id: 'githubactions',
-        name: 'GitHub Actions',
-        category: 'CI/CD',
-        isFeatured: false,
-        badges: ['Automation', 'Workflows', 'Testing', 'Deployment'],
-        description: 'Native workflow automation built into GitHub for building, testing, linting, and releasing codebases.',
-        keyConcepts: ['Workflow YAML', 'Matrix Builds', 'GitHub Secrets', 'Action Marketplace', 'Self-Hosted Runners'],
-        relatedTechs: ['git', 'cicd', 'docker'],
-        codeExample: `name: Deploy to Production
-on:
-  push:
-    branches: [main]`
-      },
-      {
-        id: 'terraform',
-        name: 'Terraform',
-        category: 'IaC',
-        isFeatured: false,
-        badges: ['Infrastructure as Code', 'HCL', 'Cloud', 'Automation'],
-        description: 'Declarative infrastructure as code tool to provision and manage cloud resources across providers.',
-        keyConcepts: ['HCL Syntax', 'State Management', 'Plan & Apply', 'Modules', 'Cloud Providers'],
-        relatedTechs: ['aws', 'linux', 'cicd'],
-        codeExample: `resource "aws_s3_bucket" "universe" {
-  bucket = "umxie-universe-bucket"
-}`
-      },
-      {
-        id: 'nginx',
-        name: 'Nginx',
-        category: 'Web Server',
-        isFeatured: false,
-        badges: ['Reverse Proxy', 'Load Balancing', 'SSL', 'High Performance'],
-        description: 'High-performance HTTP server, reverse proxy, and load balancer handling thousands of concurrent connections.',
-        keyConcepts: ['Reverse Proxy', 'Load Balancing', 'SSL/TLS Termination', 'Gzip/Brotli Compression', 'Caching'],
-        relatedTechs: ['linux', 'docker'],
-        codeExample: `server {
-    listen 80;
-    location / {
-        proxy_pass http://localhost:3000;
-    }
-}`
-      },
-      {
-        id: 'gcp',
-        name: 'Google Cloud',
-        category: 'Cloud',
-        isFeatured: false,
-        badges: ['GCP', 'Cloud', 'Kubernetes', 'Storage'],
-        description: 'Suite of cloud computing services running on the same infrastructure that Google uses internally.',
-        keyConcepts: ['Google Compute Engine (GCE)', 'GKE Kubernetes', 'Cloud Run', 'BigQuery', 'Cloud Storage'],
-        relatedTechs: ['docker', 'kubernetes', 'aws'],
-        codeExample: `gcloud run deploy umxie-api --image gcr.io/umxie/api`
-      },
-      {
-        id: 'bash',
-        name: 'Shell Pipelines',
-        category: 'Scripting',
-        isFeatured: false,
-        badges: ['Automation', 'Bash', 'Linux', 'Scripts'],
-        description: 'Automating remote server setup, log inspection, automated backups, and health alerts.',
-        keyConcepts: ['Cron Jobs', 'SSH Tunneling', 'Curl & Jq', 'System Logging'],
-        relatedTechs: ['linux', 'git'],
-        codeExample: `curl -s http://localhost:3000/health | jq .status`
-      },
-      {
-        id: 'git',
-        name: 'Git Versioning',
-        category: 'VCS',
-        isFeatured: false,
-        badges: ['VCS', 'Git', 'Branches', 'Collaboration'],
-        description: 'Distributed version control tracking every commit, branch merge, tag, and deployment hash.',
-        keyConcepts: ['Commit Hashes', 'Branching & Merging', 'Rebase vs Merge', 'Git Hooks'],
-        relatedTechs: ['githubactions', 'cicd'],
-        codeExample: `git commit -m "feat(universe): deploy floating glassmorphic card"`
-      },
-      {
-        id: 'python',
-        name: 'Cloud Automation',
-        category: 'Automation',
-        isFeatured: false,
-        badges: ['Python', 'Boto3', 'Scripts', 'APIs'],
-        description: 'Scripting cloud resource creation, auditing permissions, and triggering event pipelines using Boto3.',
-        keyConcepts: ['Boto3 SDK', 'Automation Scripts', 'Lambda Handlers', 'CloudWatch Triggers'],
-        relatedTechs: ['aws', 'python'],
-        codeExample: `import boto3
-s3 = boto3.client('s3')
-s3.list_buckets()`
-      },
-      {
-        id: 'go',
-        name: 'Cloud Native',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Cloud Native', 'Go', 'Lightweight', 'Speed'],
-        description: 'Building ultra-lightweight Docker images containing single compiled static binaries with zero dependencies.',
-        keyConcepts: ['Scratch Containers', 'Static Compilation (CGO_ENABLED=0)', 'Microsecond Boot Time'],
-        relatedTechs: ['docker', 'go'],
-        codeExample: `CGO_ENABLED=0 GOOS=linux go build -o server .`
-      },
-      {
-        id: 'nodejs',
-        name: 'Serverless Functions',
-        category: 'Serverless',
-        isFeatured: false,
-        badges: ['Serverless', 'Lambda', 'Node.js', 'Event-Driven'],
-        description: 'Event-driven serverless functions executing on-demand with automatic scaling and zero idle cost.',
-        keyConcepts: ['AWS Lambda', 'Event Payload', 'Cold Starts', 'Edge Functions'],
-        relatedTechs: ['aws', 'nodejs'],
-        codeExample: `export const handler = async (event) => {
-  return { statusCode: 200, body: JSON.stringify('Cosmic status OK') };
-};`
-      },
-      {
-        id: 'redis',
-        name: 'Distributed Cache',
-        category: 'Cache',
-        isFeatured: false,
-        badges: ['Caching', 'Redis', 'Cluster', 'High Speed'],
-        description: 'Shared cache layer across horizontally scaled web containers ensuring sub-millisecond data reads.',
-        keyConcepts: ['Redis Cluster', 'Cache Aside Pattern', 'Connection Pooling'],
-        relatedTechs: ['redis', 'docker'],
-        codeExample: `// Shared distributed session state`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'kubernetes',
+            icon: 'kubernetes',
+            name: 'Kubernetes',
+            badges: ['Orchestration', 'Scaling', 'Cloud-Native', 'Containers'],
+            description: 'Production-grade container orchestration system for automating application deployment, horizontal scaling, and container operations.',
+            keyConcepts: ['Pods, Deployments & Services', 'Cluster Control Plane Architecture', 'ConfigMaps & Secrets', 'Ingress Controllers', 'Horizontal Pod Autoscaling (HPA)']
+          },
+          {
+            id: 'terraform',
+            icon: 'terraform',
+            name: 'Terraform',
+            badges: ['IaC', 'Infrastructure as Code', 'Declarative', 'Multi-Cloud'],
+            description: 'Infrastructure as Code (IaC) tool by HashiCorp for safely and predictably creating, changing, and versioning cloud infrastructure.',
+            keyConcepts: ['HCL (HashiCorp Configuration Language)', 'Terraform State Management', 'Providers & Modules', 'Plan & Apply Workflow', 'Idempotent Resource Management']
+          },
+          {
+            id: 'gcp',
+            icon: 'gcp',
+            name: 'Google Cloud',
+            badges: ['Cloud Platform', 'GCP', 'BigQuery', 'Compute'],
+            description: 'Google’s suite of cloud computing services providing scalable compute, cloud run containers, cloud storage, and IAM security.',
+            keyConcepts: ['Cloud Run Serverless Containers', 'Compute Engine (VMs)', 'Google Cloud Storage (GCS)', 'Cloud IAM Roles', 'BigQuery Analytics Basics']
+          },
+          {
+            id: 'serverless',
+            icon: 'serverless',
+            name: 'Serverless Architecture',
+            badges: ['FaaS', 'Event-Driven', 'Pay-per-use', 'Auto-scaling'],
+            description: 'Cloud execution model where cloud providers automatically manage machine resources, executing stateless code in response to events.',
+            keyConcepts: ['Function as a Service (FaaS)', 'Cold Starts & Concurrency', 'Event Triggers (HTTP, S3, Queues)', 'Stateless Function Design', 'Zero Server Management']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 06 — CORE COMPUTER SCIENCE
+  // =========================================================================
   {
     id: 'core_cs',
     number: '06',
     name: 'CORE CS',
-    subtitle: 'Algorithmic thinking, architectural patterns and core computing theory.',
+    subtitle: 'Foundational computing theory, algorithmics, architecture, and engineering principles.',
     categoryIcon: 'core_cs',
-    technologies: [
+    categories: [
       {
-        id: 'dsa',
-        name: 'Data Structures',
-        category: 'Theory',
-        isFeatured: true,
-        badges: ['CS Core', 'Data Structures', 'Performance', 'Foundation'],
-        description: 'Optimal organization and storage formats enabling efficient data access and modification across memory.',
-        keyConcepts: ['Arrays & Hash Maps', 'Linked Lists', 'Trees (BST, AVL, Red-Black)', 'Graphs (Adjacency Matrix/List)', 'Heaps & Priority Queues', 'Tries & Disjoint Sets', 'Bitwise Operations'],
-        relatedTechs: ['cpp', 'java', 'python', 'javascript'],
-        codeExample: `class Node {
-  constructor(val) {
-    this.val = val;
-    this.next = null;
-  }
-}`
+        id: 'core_fundamentals',
+        title: 'Core Fundamentals',
+        tier: 1,
+        technologies: [
+          {
+            id: 'dsa',
+            icon: 'dsa',
+            name: 'Data Structures',
+            badges: ['CS Theory', 'Memory Layout', 'Abstract Types', 'Core'],
+            description: 'Foundational data organization models providing efficient access, insertion, and manipulation tailored to computational problems.',
+            keyConcepts: ['Arrays, Linked Lists & Dynamic Buffers', 'Stacks & Queues', 'Hash Tables & Hash Collision Resolution', 'Binary Trees & BSTs', 'Heaps & Priority Queues']
+          },
+          {
+            id: 'algorithms',
+            icon: 'algorithms',
+            name: 'Algorithms',
+            badges: ['Complexity', 'Big-O', 'Searching', 'Sorting'],
+            description: 'Step-by-step computational procedures analyzed for time and space complexity using asymptotic Big-O notation.',
+            keyConcepts: ['Asymptotic Analysis (Big-O, Big-Omega)', 'Sorting (Quicksort, Mergesort)', 'Binary Search', 'Graph Traversal (BFS & DFS)', 'Recursion & Dynamic Programming']
+          },
+          {
+            id: 'oop',
+            icon: 'oop',
+            name: 'Object-Oriented Programming',
+            badges: ['Paradigms', 'Design', 'Encapsulation', 'SOLID'],
+            description: 'Software engineering paradigm centered on objects containing data fields and procedures, emphasizing modularity and code reuse.',
+            keyConcepts: ['Encapsulation & Data Hiding', 'Abstraction & Interfaces', 'Inheritance Hierarchies', 'Polymorphism (Static vs Dynamic)', 'SOLID Engineering Principles']
+          },
+          {
+            id: 'os',
+            icon: 'os',
+            name: 'Operating Systems',
+            badges: ['Low-Level', 'Kernel', 'Scheduling', 'Hardware'],
+            description: 'Core concepts governing hardware resource allocation, process scheduling, memory virtualization, and file systems.',
+            keyConcepts: ['Process vs Thread Life Cycles', 'CPU Scheduling Algorithms', 'Virtual Memory & Page Tables', 'Inter-Process Communication (IPC)', 'Deadlocks & Race Conditions']
+          }
+        ]
       },
       {
-        id: 'algorithms',
-        name: 'Algorithms',
-        category: 'Theory',
-        isFeatured: true,
-        badges: ['CS Core', 'Optimization', 'Complexity', 'Big-O'],
-        description: 'Computational problem-solving methodologies evaluated by time and space asymptotic complexity bounds.',
-        keyConcepts: ['Time & Space Complexity (Big-O)', 'Sorting & Searching (Quick, Merge, Binary)', 'Divide & Conquer', 'Dynamic Programming & Memoization', 'Greedy Techniques', 'Backtracking', 'Graph Traversal (BFS / DFS)'],
-        relatedTechs: ['dsa', 'cpp', 'python', 'java'],
-        codeExample: `function binarySearch(arr, target) {
-  let l = 0, r = arr.length - 1;
-  while (l <= r) {
-    const mid = (l + r) >> 1;
-    if (arr[mid] === target) return mid;
-    if (arr[mid] < target) l = mid + 1;
-    else r = mid - 1;
-  }
-  return -1;
-}`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'networks',
+            icon: 'networks',
+            name: 'Computer Networks',
+            badges: ['Protocols', 'TCP/IP', 'OSI Layers', 'Packets'],
+            description: 'Principles governing distributed communication across computer networks, protocol stacks, routing, and data transmission.',
+            keyConcepts: ['OSI 7-Layer & TCP/IP Stack', 'TCP Three-Way Handshake & Reliability', 'UDP Datagrams & Latency Tradeoffs', 'DNS Resolution Hierarchy', 'HTTP/1.1, HTTP/2 & WebSockets']
+          },
+          {
+            id: 'db_fundamentals',
+            icon: 'databases',
+            name: 'Database Fundamentals',
+            badges: ['Storage Engines', 'ACID', 'Transactions', 'Theory'],
+            description: 'Theoretical foundations of database systems including transaction processing, consistency models, and storage representations.',
+            keyConcepts: ['ACID Properties Explained', 'Transaction Isolation Levels', 'Write-Ahead Logging (WAL)', 'Locking & Concurrency Control', 'CAP Theorem Foundations']
+          },
+          {
+            id: 'concurrency',
+            icon: 'concurrency',
+            name: 'Concurrency',
+            badges: ['Parallelism', 'Threads', 'Synchronization', 'Safety'],
+            description: 'Executing multiple execution sequences simultaneously while preventing race conditions, deadlocks, and corrupted states.',
+            keyConcepts: ['Concurrency vs True Parallelism', 'Mutexes, Semaphores & Locks', 'Race Conditions & Critical Sections', 'Thread Pools & Workers', 'Atomic Memory Operations']
+          },
+          {
+            id: 'memory_mgmt_cs',
+            icon: 'memory_mgmt',
+            name: 'Memory Management',
+            badges: ['Virtual Memory', 'Stack & Heap', 'Paging', 'Allocation'],
+            description: 'How systems structure, allocate, track, and reclaim memory across hardware RAM, the CPU cache, stack, and heap.',
+            keyConcepts: ['Stack Frames vs Heap Allocations', 'Pointers & Pointer Arithmetic', 'Memory Leaks & Dangling References', 'Garbage Collection Algorithms', 'Virtual Memory Paging']
+          }
+        ]
       },
       {
-        id: 'oop',
-        name: 'OOP',
-        category: 'Paradigm',
-        isFeatured: true,
-        badges: ['Architecture', 'Design', 'Clean Code', 'Patterns'],
-        description: 'Object-oriented programming structuring robust software around interacting classes, interfaces, and encapsulated data.',
-        keyConcepts: ['Encapsulation & Data Hiding', 'Inheritance & Subtyping', 'Polymorphism (Dynamic & Static)', 'Abstraction & Interfaces', 'SOLID Principles', 'Creational Patterns', 'Structural & Behavioral Patterns'],
-        relatedTechs: ['java', 'cpp', 'typescript', 'python'],
-        codeExample: `abstract class UniverseEntity {
-  abstract describe(): string;
-}
-
-class Planet extends UniverseEntity {
-  constructor(private name: string) { super(); }
-  describe(): string { return \`Planet: \${this.name}\`; }
-}`
-      },
-      {
-        id: 'os',
-        name: 'OS Concepts',
-        category: 'Systems',
-        isFeatured: true,
-        badges: ['Systems', 'Kernel', 'Memory', 'Concurrency'],
-        description: 'Software managing computer hardware and software resources, providing common services for computer programs.',
-        keyConcepts: ['Processes vs Threads', 'Context Switching & Scheduling', 'Virtual Memory & Paging', 'Deadlocks & Race Conditions', 'Semaphores & Mutexes', 'Inter-Process Communication (IPC)', 'File Systems & Inodes'],
-        relatedTechs: ['linux', 'cpp', 'systems_arch', 'memory_mgmt'],
-        codeExample: `#include <pthread.h>
-pthread_mutex_t lock;
-
-void* critical_section(void* arg) {
-    pthread_mutex_lock(&lock);
-    // Safe access
-    pthread_mutex_unlock(&lock);
-    return NULL;
-}`
-      },
-      {
-        id: 'networks',
-        name: 'Computer Networks',
-        category: 'Networking',
-        isFeatured: false,
-        badges: ['Protocols', 'TCP/IP', 'HTTP', 'Security'],
-        description: 'Understanding the layers of data transmission across the OSI and TCP/IP protocol stacks.',
-        keyConcepts: ['OSI 7-Layer Model', 'TCP 3-Way Handshake vs UDP', 'IP Addressing & Subnetting', 'DNS Resolution', 'TLS/SSL Handshake', 'HTTP/1.1 vs HTTP/2 & HTTP/3'],
-        relatedTechs: ['os', 'linux', 'rest'],
-        codeExample: `// TCP Connection lifecycle: SYN -> SYN-ACK -> ACK`
-      },
-      {
-        id: 'systems_arch',
-        name: 'System Design',
-        category: 'Architecture',
-        isFeatured: false,
-        badges: ['Architecture', 'Scalability', 'Reliability', 'Tradeoffs'],
-        description: 'Architecting high-scale distributed systems balancing availability, consistency, and partition tolerance.',
-        keyConcepts: ['CAP Theorem', 'Load Balancing & Reverse Proxies', 'Horizontal vs Vertical Scaling', 'Database Sharding', 'Message Queues'],
-        relatedTechs: ['dsa', 'os', 'aws'],
-        codeExample: `[Client] -> [Load Balancer] -> [API Cluster] -> [Cache / DB]`
-      },
-      {
-        id: 'memory_mgmt',
-        name: 'Memory Models',
-        category: 'Systems',
-        isFeatured: false,
-        badges: ['Memory', 'Stack', 'Heap', 'Pointers'],
-        description: 'Internal mechanics of stack allocation, heap management, memory alignment, and garbage collection algorithms.',
-        keyConcepts: ['Stack vs Heap', 'Memory Fragmentation', 'Mark & Sweep GC', 'Reference Counting', 'Pointer Arithmetic'],
-        relatedTechs: ['cpp', 'rust', 'csharp'],
-        codeExample: `// Stack allocation vs dynamic Heap allocation`
-      },
-      {
-        id: 'cpp',
-        name: 'Low-Level C',
-        category: 'Systems',
-        isFeatured: false,
-        badges: ['C', 'Memory', 'Pointers', 'Hardware'],
-        description: 'Direct memory addressing, bitmasking, pointer dereferencing, and deterministic resource allocation.',
-        keyConcepts: ['Pointers to Pointers', 'Bitwise Operations', 'Struct Padding', 'Volatile Keyword'],
-        relatedTechs: ['cpp', 'systems_arch'],
-        codeExample: `int *ptr = (int*)malloc(sizeof(int));
-*ptr = 42;
-free(ptr);`
-      },
-      {
-        id: 'python',
-        name: 'Algorithmic Scripting',
-        category: 'Language',
-        isFeatured: false,
-        badges: ['Python', 'DSA', 'Math', 'Rapid Prototyping'],
-        description: 'Prototyping recursive solutions, graph algorithms, and combinatorial search trees with Python.',
-        keyConcepts: ['Collections (deque, Counter)', 'Heaqp Priority Queue', 'itertools & functools', 'Recursion Limit'],
-        relatedTechs: ['python', 'algorithms'],
-        codeExample: `from collections import deque
-def bfs(graph, start):
-    q = deque([start])`
-      },
-      {
-        id: 'java',
-        name: 'Enterprise Patterns',
-        category: 'Patterns',
-        isFeatured: false,
-        badges: ['Design Patterns', 'GoF', 'Architecture', 'Java'],
-        description: 'Gang of Four design patterns: Singleton, Factory, Observer, Strategy, Decorator, and Adapter.',
-        keyConcepts: ['Factory Pattern', 'Observer Pattern', 'Strategy Pattern', 'Dependency Inversion'],
-        relatedTechs: ['java', 'oop'],
-        codeExample: `public class Singleton {
-    private static Singleton instance;
-    private Singleton() {}
-}`
-      },
-      {
-        id: 'sql',
-        name: 'Relational Theory',
-        category: 'Database Theory',
-        isFeatured: false,
-        badges: ['Relational Algebra', 'Tuple Calculus', 'ACID', 'Math'],
-        description: 'Mathematical foundation of relational algebra, set theory, projections, joins, and integrity constraints.',
-        keyConcepts: ['Relational Algebra', 'Functional Dependencies', 'Lossless Joins', 'B-Trees'],
-        relatedTechs: ['sql', 'postgresql'],
-        codeExample: `π (name, role) (σ (active=1) (Developers))`
-      },
-      {
-        id: 'csharp',
-        name: 'Clean Architecture',
-        category: 'Architecture',
-        isFeatured: false,
-        badges: ['Clean Code', 'Domain Driven', 'SOLID', 'Onion'],
-        description: 'Decoupling business logic from infrastructure using Hexagonal and Clean Architecture principles.',
-        keyConcepts: ['Entities & Use Cases', 'Interface Adapters', 'Repository Pattern', 'Dependency Rule'],
-        relatedTechs: ['csharp', 'oop'],
-        codeExample: `public interface IRepository<T> {
-    Task<T> GetByIdAsync(int id);
-}`
-      },
-      {
-        id: 'rust',
-        name: 'Concurrency Models',
-        category: 'Concurrency',
-        isFeatured: false,
-        badges: ['Concurrency', 'Thread Safety', 'Channels', 'Atomics'],
-        description: 'Race-condition prevention via Rust ownership, atomic variables, and message passing channels.',
-        keyConcepts: ['Send & Sync Traits', 'Arc & Mutex', 'MPSC Channels', 'Atomic Operations'],
-        relatedTechs: ['rust', 'os'],
-        codeExample: `let (tx, rx) = std::sync::mpsc::channel();`
-      },
-      {
-        id: 'go',
-        name: 'CSP & Goroutines',
-        category: 'Concurrency',
-        isFeatured: false,
-        badges: ['Concurrency', 'CSP', 'Channels', 'Go'],
-        description: 'Communicating Sequential Processes (CSP) concurrency through lightweight green threads and channels.',
-        keyConcepts: ['Goroutines', 'Channel Select', 'WaitGroups', 'Context Cancellation'],
-        relatedTechs: ['go', 'os'],
-        codeExample: `go func() {
-    ch <- "completed"
-}()`
-      },
-      {
-        id: 'bash',
-        name: 'Unix Philosophy',
-        category: 'Philosophy',
-        isFeatured: false,
-        badges: ['Unix', 'Composability', 'Pipes', 'Text Streams'],
-        description: 'Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams.',
-        keyConcepts: ['Text as Universal Interface', 'Pipes as Dataflow', 'Exit Status Codes', 'Separation of Mechanism & Policy'],
-        relatedTechs: ['linux', 'bash'],
-        codeExample: `cat logs.txt | grep ERROR | wc -l`
+        id: 'exploring',
+        title: 'Exploring / Advanced Concepts',
+        tier: 3,
+        technologies: [
+          {
+            id: 'system_design',
+            icon: 'system_design',
+            name: 'System Design',
+            badges: ['Architecture', 'Scalability', 'Load Balancing', 'High Availability'],
+            description: 'Designing large-scale software systems considering throughput, low latency, caching tiers, database sharding, and resilience.',
+            keyConcepts: ['Horizontal vs Vertical Scaling', 'Reverse Proxies & Load Balancers', 'Distributed Caching Layers (Redis)', 'Database Sharding & Replication', 'Rate Limiting & Message Queues']
+          },
+          {
+            id: 'clean_arch',
+            icon: 'clean_arch',
+            name: 'Clean Architecture',
+            badges: ['Architecture', 'Separation of Concerns', 'Domain-Driven', 'Testable'],
+            description: 'Software design pattern where domain logic remains independent of frameworks, databases, and user interfaces via inversion of control.',
+            keyConcepts: ['Dependency Rule (Inside-Out)', 'Entities & Domain Models', 'Use Cases / Application Services', 'Interface Adapters & Controllers', 'Testability without External Services']
+          },
+          {
+            id: 'distributed_sys',
+            icon: 'distributed_sys',
+            name: 'Distributed Systems',
+            badges: ['Consensus', 'Fault Tolerance', 'Network Partitions', 'Scale'],
+            description: 'Computing systems whose components are located on networked computers that coordinate actions by passing messages.',
+            keyConcepts: ['CAP Theorem (Consistency, Availability, Partitioning)', 'Eventual Consistency vs Strong Consistency', 'Consensus Algorithms (Raft, Paxos)', 'Idempotency in Distributed Calls', 'Vector Clocks & Logical Timestamps']
+          },
+          {
+            id: 'design_patterns',
+            icon: 'design_patterns',
+            name: 'Design Patterns',
+            badges: ['Best Practices', 'GoF', 'Creational', 'Structural'],
+            description: 'Time-tested reusable architectural solutions to common recurring problems in object-oriented software engineering.',
+            keyConcepts: ['Singleton & Factory Method', 'Observer & Event-Driven Patterns', 'Strategy Pattern', 'Adapter & Facade Patterns', 'Decorator Pattern']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 07 — DEVELOPER TOOLS & TESTING
+  // =========================================================================
   {
     id: 'tools',
     number: '07',
     name: 'TOOLS & TESTING',
-    subtitle: 'Tooling, automated testing suites, version control and developer workflows.',
+    subtitle: 'Engineering workflows, IDEs, version control, API testing, and test automation.',
     categoryIcon: 'tools',
-    technologies: [
+    categories: [
       {
-        id: 'git',
-        name: 'Git',
-        category: 'VCS',
-        isFeatured: true,
-        badges: ['Tooling', 'VCS', 'Collaboration', 'History'],
-        description: 'Distributed version control system tracking source code modifications, branch merges, and collaborative pull requests.',
-        keyConcepts: ['Git Internals (Blobs, Trees, Commits)', 'Branching, Merging & Fast-Forward', 'Interactive Rebase & Squash', 'Cherry-Picking & Stashing', 'Merge Conflict Resolution', 'Git Hooks & Pre-Commit', 'Semantic Versioning (SemVer)'],
-        relatedTechs: ['vscode', 'cicd', 'linux'],
-        codeExample: `git checkout -b feature/cosmic-glass
-git add .
-git commit -m "feat(stack): implement floating transparent glass card"
-git push origin feature/cosmic-glass`
+        id: 'everyday_tools',
+        title: 'Everyday Tools',
+        tier: 1,
+        technologies: [
+          {
+            id: 'git',
+            icon: 'git',
+            name: 'Git',
+            badges: ['Version Control', 'CLI', 'Diffs', 'Branches'],
+            description: 'Daily version control command-line interface for staging, committing, branching, stashing, and inspecting repository histories.',
+            keyConcepts: ['Git Status, Diff & Log', 'Interactive Staging (git add -p)', 'Stashing Uncommitted Changes', 'Cherry-Picking Commits', 'Git Reflog Disaster Recovery']
+          },
+          {
+            id: 'github',
+            icon: 'github',
+            name: 'GitHub',
+            badges: ['Collaboration', 'Code Review', 'CI/CD', 'Open Source'],
+            description: 'Cloud platform hosting Git repositories, providing pull requests, code reviews, issue tracking, and automation pipelines.',
+            keyConcepts: ['Pull Requests & Code Reviews', 'Issue Tracking & Milestones', 'Branch Protection Rules', 'Fork & Upstream Workflow', 'GitHub Pages & Releases']
+          },
+          {
+            id: 'vscode',
+            icon: 'vscode',
+            name: 'Visual Studio Code',
+            badges: ['Editor', 'Extensions', 'Debugging', 'Productivity'],
+            description: 'Extensible code editor featuring integrated debugging, terminal sessions, language server protocols, and Git management.',
+            keyConcepts: ['Integrated Terminal & Split Panes', 'Interactive Debugger & Breakpoints', 'Language Server Protocol (LSP)', 'Keybindings & Multi-cursor Editing', 'Workspace Settings & Extensions']
+          },
+          {
+            id: 'figma',
+            icon: 'figma',
+            name: 'Figma',
+            badges: ['UI/UX', 'Design Systems', 'Prototyping', 'Vector'],
+            description: 'Collaborative vector design and prototyping tool used for translating wireframes and design systems into code components.',
+            keyConcepts: ['Auto-Layout Frames', 'Design Component Variants', 'Color & Typography Tokens', 'Interactive Prototyping', 'CSS Property Inspection for Developers']
+          },
+          {
+            id: 'npm',
+            icon: 'npm',
+            name: 'npm',
+            badges: ['Package Manager', 'Registry', 'Scripts', 'Node.js'],
+            description: 'Default package manager and repository registry for the JavaScript runtime environment, managing dependencies and lifecycle scripts.',
+            keyConcepts: ['package.json & package-lock.json', 'npm Scripts Execution (npm run dev)', 'Semantic Versioning (SemVer)', 'Dependency vs DevDependency Scopes', 'npm audit Security Checks']
+          },
+          {
+            id: 'postman',
+            icon: 'postman',
+            name: 'Postman',
+            badges: ['API Testing', 'HTTP Client', 'Collections', 'Environments'],
+            description: 'API development and testing platform for constructing HTTP requests, automating test scripts, and inspecting payload responses.',
+            keyConcepts: ['Request Building (Headers, Body, Auth)', 'Environment & Global Variables', 'Collection Runner & Automated Tests', 'Mock Servers', 'API Documentation Generation']
+          }
+        ]
       },
       {
-        id: 'jest',
-        name: 'Jest',
-        category: 'Testing',
-        isFeatured: true,
-        badges: ['Testing', 'Unit Testing', 'JavaScript', 'Mocking'],
-        description: 'Delightful JavaScript testing framework with a focus on simplicity, zero-config test runners, and snapshot testing.',
-        keyConcepts: ['Unit & Integration Testing', 'Test Suites & Assertions (expect)', 'Mocking Functions & Modules (jest.fn)', 'Asynchronous Testing', 'Snapshot Testing', 'Code Coverage Reports', 'Watch Mode & Filtering'],
-        relatedTechs: ['javascript', 'typescript', 'react', 'nodejs'],
-        codeExample: `describe('Coding Universe', () => {
-  test('initializes with 8 celestial modules', () => {
-    expect(UNIVERSE_MODULES.length).toBe(8);
-  });
-});`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'jest',
+            icon: 'jest',
+            name: 'Jest',
+            badges: ['Testing', 'Unit Tests', 'Assertions', 'Mocks'],
+            description: 'Comprehensive JavaScript testing framework with built-in test runner, assertion library, and mock functions.',
+            keyConcepts: ['Test Suites (describe, it, test)', 'Expect Assertions & Matchers', 'Function & Module Mocking (jest.fn)', 'Snapshot Testing', 'Code Coverage Reporting']
+          },
+          {
+            id: 'pytest',
+            icon: 'pytest',
+            name: 'PyTest',
+            badges: ['Testing', 'Python', 'Fixtures', 'Automation'],
+            description: 'Mature Python testing framework making it easy to write small, readable tests, scaling to complex functional testing.',
+            keyConcepts: ['Test Discovery Conventions', 'Plain assert Statements', 'Test Fixtures (@pytest.fixture)', 'Parametrized Testing (@pytest.mark.parametrize)', 'Coverage Plugins']
+          },
+          {
+            id: 'pnpm',
+            icon: 'pnpm',
+            name: 'pnpm',
+            badges: ['Package Manager', 'Fast', 'Disk Efficient', 'Hard Links'],
+            description: 'Fast, disk space efficient package manager using a content-addressable storage mechanism and hard links to prevent duplicate modules.',
+            keyConcepts: ['Content-Addressable Global Store', 'Hard Links & Symlinks Architecture', 'Monorepo Workspace Support (pnpm-workspace.yaml)', 'Strict Dependency Isolation', 'Fast Installation Speeds']
+          },
+          {
+            id: 'devtools',
+            icon: 'devtools',
+            name: 'Browser Developer Tools',
+            badges: ['Debugging', 'Profiling', 'DOM Inspector', 'Network Tab'],
+            description: 'In-browser diagnostic suite for inspecting DOM trees, modifying CSS live, profiling JavaScript execution, and analyzing network requests.',
+            keyConcepts: ['Elements & Box Model Inspection', 'Console API & Breakpoint Debugging', 'Network Tab & Waterfall Timings', 'Lighthouse Performance Audits', 'Memory Heap Snapshots']
+          },
+          {
+            id: 'api_debugging',
+            icon: 'api_debugging',
+            name: 'API Debugging',
+            badges: ['Diagnostics', 'HTTP Codes', 'Payloads', 'Tracing'],
+            description: 'Diagnosing API request and response failures, verifying HTTP status codes, tracing request latency, and validating payload structures.',
+            keyConcepts: ['HTTP Status Diagnostics (4xx vs 5xx)', 'Inspecting Request Headers & CORS Preflight', 'cURL Command Line Reproductions', 'Payload Validation Checks', 'Network Latency Analysis']
+          }
+        ]
       },
       {
-        id: 'postman',
-        name: 'Postman',
-        category: 'API Tooling',
-        isFeatured: true,
-        badges: ['APIs', 'Testing', 'Documentation', 'Debugging'],
-        description: 'Collaborative API platform for building, testing, documenting, and monitoring RESTful and GraphQL endpoints.',
-        keyConcepts: ['HTTP Request Crafting', 'Environment & Global Variables', 'Pre-Request Scripts & Tests', 'Collection Runners', 'Mock Servers', 'Automated API Monitoring', 'OpenAPI / Swagger Export'],
-        relatedTechs: ['rest', 'express', 'nodejs'],
-        codeExample: `pm.test("Status code is 200", function () {
-    pm.response.to.have.status(200);
-});`
-      },
-      {
-        id: 'vscode',
-        name: 'VS Code',
-        category: 'IDE / Editor',
-        isFeatured: true,
-        badges: ['IDE', 'Editor', 'Extensions', 'Debugging'],
-        description: 'Highly extensible code editor with integrated terminal, Git integration, intelligent code completion, and debugging.',
-        keyConcepts: ['IntelliSense & Language Servers', 'Integrated Terminal & Tasks', 'Debugger Breakpoints & Call Stack', 'Custom Snippets & Keybindings', 'Remote Development (SSH / Containers)', 'Multi-Cursor Editing', 'Extension Ecosystem'],
-        relatedTechs: ['git', 'typescript', 'javascript'],
-        codeExample: `// settings.json
-{
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}`
-      },
-      {
-        id: 'figma',
-        name: 'Figma',
-        category: 'Design Tool',
-        isFeatured: false,
-        badges: ['UI/UX', 'Design', 'Prototyping', 'Components'],
-        description: 'Collaborative cloud interface design tool creating vector UI components, design tokens, and prototypes.',
-        keyConcepts: ['Auto Layout', 'Component Sets & Variants', 'Color & Typography Styles', 'Interactive Prototypes', 'Inspect & CSS Export'],
-        relatedTechs: ['css', 'html', 'react'],
-        codeExample: `// Figma Design Systems -> React Component Props`
-      },
-      {
-        id: 'docker',
-        name: 'Docker Desktop',
-        category: 'Container Tool',
-        isFeatured: false,
-        badges: ['Containers', 'Local Dev', 'Microservices', 'Tooling'],
-        description: 'Desktop application providing local container orchestration, image inspection, and volume debugging.',
-        keyConcepts: ['Local Image Registry', 'Container Logs Inspection', 'Exec Shell into Container', 'Resource Allocation'],
-        relatedTechs: ['docker', 'linux'],
-        codeExample: `docker ps -a`
-      },
-      {
-        id: 'vite',
-        name: 'Vite Dev Server',
-        category: 'Build Tool',
-        isFeatured: false,
-        badges: ['Dev Server', 'Fast', 'HMR', 'Build'],
-        description: 'Ultra-fast local development server with instant Hot Module Replacement powered by native browser ES modules.',
-        keyConcepts: ['Instant Server Start', 'Hot Module Replacement (HMR)', 'Rollup Bundler', 'Optimized Assets'],
-        relatedTechs: ['react', 'typescript'],
-        codeExample: `vite --port 5173 --host`
-      },
-      {
-        id: 'bash',
-        name: 'Terminal & Zsh',
-        category: 'Shell',
-        isFeatured: false,
-        badges: ['CLI', 'Terminal', 'Zsh', 'Productivity'],
-        description: 'Custom shell environments with syntax highlighting, auto-suggestions, fuzzy file searching, and aliases.',
-        keyConcepts: ['Oh My Zsh', 'Fzf Fuzzy Finder', 'Custom Aliases', 'Tmux Terminal Multiplexer'],
-        relatedTechs: ['linux', 'bash'],
-        codeExample: `alias gs="git status"`
-      },
-      {
-        id: 'linux',
-        name: 'POSIX Utilities',
-        category: 'System Tools',
-        isFeatured: false,
-        badges: ['Linux', 'Grep', 'Sed', 'Awk'],
-        description: 'Command line stream editors, search tools, and filters: grep, sed, awk, find, xargs, and curl.',
-        keyConcepts: ['Regular Expressions in Grep', 'Stream Editing with Sed', 'Text Processing with Awk', 'Pipes'],
-        relatedTechs: ['linux', 'bash'],
-        codeExample: `grep -rn "CODING UNIVERSE" src/`
-      },
-      {
-        id: 'cicd',
-        name: 'Automated CI/CD',
-        category: 'Testing Pipeline',
-        isFeatured: false,
-        badges: ['CI/CD', 'Automated Tests', 'Pipelines', 'Quality'],
-        description: 'Enforcing automated linting, type checks, and unit tests before merging pull requests into main.',
-        keyConcepts: ['Lint Checks', 'Test Coverage Thresholds', 'Status Checks', 'Automated Semantic Releases'],
-        relatedTechs: ['git', 'jest'],
-        codeExample: `npm run lint && npm run test`
-      },
-      {
-        id: 'typescript',
-        name: 'TSC Type Checker',
-        category: 'Linter / Types',
-        isFeatured: false,
-        badges: ['Compiler', 'Type Check', 'Quality', 'Safety'],
-        description: 'Running the TypeScript compiler in no-emit mode to catch potential runtime bugs before deployment.',
-        keyConcepts: ['tsc --noEmit', 'tsconfig.json Config', 'Strict Flag', 'Type Checking in Pre-Commit'],
-        relatedTechs: ['typescript', 'javascript'],
-        codeExample: `npx tsc --noEmit`
-      },
-      {
-        id: 'python',
-        name: 'PyTest Suites',
-        category: 'Testing',
-        isFeatured: false,
-        badges: ['Testing', 'Python', 'Fixtures', 'Coverage'],
-        description: 'Robust testing framework for Python featuring powerful fixtures, parameterization, and assertion introspection.',
-        keyConcepts: ['PyTest Fixtures', 'Parameterized Tests', 'Mocking with unittest.mock', 'Coverage.py'],
-        relatedTechs: ['python', 'backend'],
-        codeExample: `def test_planet_count():
-    assert len(universe_modules) == 8`
-      },
-      {
-        id: 'nodejs',
-        name: 'NPM & PNPM',
-        category: 'Package Manager',
-        isFeatured: false,
-        badges: ['Package Manager', 'Dependencies', 'Semver', 'Node'],
-        description: 'Managing third-party dependencies, lockfile security, workspace monorepos, and script orchestration.',
-        keyConcepts: ['Package.json & Package-lock.json', 'PNPM Hard Links', 'Semantic Version Ranges (^ / ~)', 'npm audit'],
-        relatedTechs: ['nodejs', 'javascript'],
-        codeExample: `pnpm install`
-      },
-      {
-        id: 'webpack',
-        name: 'Bundlers',
-        category: 'Tooling',
-        isFeatured: false,
-        badges: ['Bundlers', 'Asset Pipeline', 'Optimization', 'Build'],
-        description: 'Analyzing bundle sizes, configuring code splitting, lazy loading, and asset minification.',
-        keyConcepts: ['Webpack Bundle Analyzer', 'Dynamic Imports', 'Terser Minification', 'Source Maps'],
-        relatedTechs: ['javascript', 'react'],
-        codeExample: `const Component = React.lazy(() => import('./Component'));`
-      },
-      {
-        id: 'nginx',
-        name: 'Network Debugging',
-        category: 'Diagnostics',
-        isFeatured: false,
-        badges: ['DevTools', 'Network', 'Headers', 'CORS'],
-        description: 'Inspecting browser network waterfall, response headers, CORS preflights, and WebSocket frames.',
-        keyConcepts: ['Browser Network Tab', 'CORS Headers', 'Payload Inspection', 'Performance Waterfall'],
-        relatedTechs: ['rest', 'postman'],
-        codeExample: `Access-Control-Allow-Origin: *`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'terminal',
+            icon: 'terminal',
+            name: 'Linux Terminal',
+            badges: ['CLI', 'Text Processing', 'Utilities', 'Navigation'],
+            description: 'Standard Linux command-line environment using shell utilities for text parsing, process inspection, and server operations.',
+            keyConcepts: ['Filesystem Navigation (ls, cd, pwd)', 'Text Processing (grep, sed, awk)', 'Permissions & Ownership (chmod, chown)', 'Archiving & Compression (tar, gzip)', 'Job Control (fg, bg, kill)']
+          },
+          {
+            id: 'network_debug',
+            icon: 'network_debug',
+            name: 'Network Debugging Tools',
+            badges: ['Networking', 'Diagnostics', 'Packets', 'Connectivity'],
+            description: 'Using standard network utilities to inspect connectivity, query DNS records, test open ports, and trace network routes.',
+            keyConcepts: ['Ping & ICMP Diagnostics', 'Traceroute Path Analysis', 'DNS Lookup Tools (dig, nslookup)', 'Port Scanning & Testing (nc, telnet)', 'HTTP Header Inspection (curl -I)']
+          }
+        ]
       }
     ]
   },
+
+  // =========================================================================
+  // 08 — SYSTEMS & HARDWARE
+  // =========================================================================
   {
     id: 'hardware',
     number: '08',
     name: 'SYSTEMS & HARDWARE',
-    subtitle: 'Low-level computing, memory management, microcontrollers and buses.',
+    subtitle: 'Computer architecture, embedded microcontrollers, memory hierarchy, and low-level engineering.',
     categoryIcon: 'hardware',
-    technologies: [
+    categories: [
       {
-        id: 'systems_arch',
-        name: 'Architecture',
-        category: 'Hardware',
-        isFeatured: true,
-        badges: ['Hardware', 'CPU', 'Von Neumann', 'Microarchitecture'],
-        description: 'Conceptual design and fundamental operational structure of modern computer microprocessor systems.',
-        keyConcepts: ['Von Neumann vs Harvard', 'Arithmetic Logic Unit (ALU)', 'Instruction Register & PC', 'Pipelining & Hazards', 'Instruction Set (RISC vs CISC)', 'Clock Cycles & CPI', 'Branch Prediction'],
-        relatedTechs: ['memory_mgmt', 'system_bus', 'os', 'cpp'],
-        codeExample: `[Fetch] -> [Decode] -> [Execute] -> [Memory Access] -> [Write Back]`
+        id: 'core_fundamentals',
+        title: 'Core Fundamentals',
+        tier: 1,
+        technologies: [
+          {
+            id: 'systems_arch',
+            icon: 'systems_arch',
+            name: 'Computer Architecture',
+            badges: ['Hardware', 'Von Neumann', 'Buses', 'Digital Logic'],
+            description: 'Structural design of computer hardware components, data buses, memory interfaces, and the fundamental Von Neumann architecture.',
+            keyConcepts: ['Von Neumann Architecture', 'System Buses (Address, Data, Control)', 'Memory Hierarchy (Registers to Disk)', 'I/O Interfacing & DMA', 'Digital Logic & Gates']
+          },
+          {
+            id: 'cpu_arch',
+            icon: 'cpu_arch',
+            name: 'CPU Architecture',
+            badges: ['Processors', 'Registers', 'Instruction Pipeline', 'ALU'],
+            description: 'Internal organization of central processing units, instruction execution cycles, arithmetic logic units, and pipeline optimization.',
+            keyConcepts: ['Instruction Fetch-Decode-Execute Cycle', 'Registers & Program Counter (PC)', 'Instruction Pipelining & Hazard Stalls', 'ALU & Control Unit', 'RISC vs CISC Philosophies']
+          },
+          {
+            id: 'memory_mgmt',
+            icon: 'memory_mgmt',
+            name: 'Memory Management',
+            badges: ['RAM', 'Caches', 'Hierarchy', 'Hardware'],
+            description: 'Physical and virtual memory hierarchy organization, cache coherency, address translation, and hardware memory access speeds.',
+            keyConcepts: ['L1, L2, and L3 Cache Hierarchies', 'Cache Lines & Locality of Reference', 'Memory Management Unit (MMU)', 'RAM Timing & Latency', 'Direct Memory Access (DMA)']
+          }
+        ]
       },
       {
-        id: 'memory_mgmt',
-        name: 'Memory Mgmt',
-        category: 'Hardware',
-        isFeatured: true,
-        badges: ['Hardware', 'RAM', 'Cache', 'Memory Hierarchy'],
-        description: 'Hardware hierarchy handling fast volatile memory, cache locality, and DRAM timing cycles.',
-        keyConcepts: ['Cache Hierarchy (L1-L3)', 'Spatial Locality', 'Temporal Locality', 'Memory Controller (MMU)', 'Page Tables & TLB', 'DRAM Timing Cycles', 'Virtual Addressing'],
-        relatedTechs: ['systems_arch', 'os', 'cpp', 'linux'],
-        codeExample: `// Cache-friendly row-major matrix scan
-for (int i = 0; i < ROWS; i++) {
-    for (int j = 0; j < COLS; j++) {
-        matrix[i][j] *= 2; // High L1 cache hit rate
-    }
-}`
+        id: 'working_knowledge',
+        title: 'Working Knowledge',
+        tier: 2,
+        technologies: [
+          {
+            id: 'embedded',
+            icon: 'embedded',
+            name: 'Embedded Systems',
+            badges: ['Microcontrollers', 'Peripherals', 'Hardware', 'Sensors'],
+            description: 'Dedicated computing systems engineered to perform specific dedicated tasks within hardware enclosures using low-power chips.',
+            keyConcepts: ['Microcontrollers (MCU) vs Microprocessors (MPU)', 'GPIO (General Purpose Input/Output)', 'Hardware Interrupts (ISR)', 'Communication Protocols (I2C, SPI, UART)', 'ADC & DAC Conversion']
+          },
+          {
+            id: 'arduino',
+            icon: 'arduino',
+            name: 'Arduino',
+            badges: ['Prototyping', 'AVR / ARM', 'Hardware', 'C++'],
+            description: 'Open-source electronics prototyping platform based on flexible, easy-to-use microcontrollers and software libraries.',
+            keyConcepts: ['setup() and loop() Lifecycle', 'digitalRead / digitalWrite', 'analogRead (10-bit ADC)', 'Serial Communication Monitor', 'Sensor & Actuator Interfacing']
+          },
+          {
+            id: 'raspberrypi',
+            icon: 'raspberrypi',
+            name: 'Raspberry Pi',
+            badges: ['SBC', 'Single-Board Computer', 'Linux', 'IoT'],
+            description: 'Credit-card sized single-board computer running Linux, used for hardware interfacing, edge computing, and local network servers.',
+            keyConcepts: ['Single Board Computer (SBC) Architecture', 'Raspberry Pi OS (Debian-based)', '40-Pin GPIO Header Interfacing', 'Headless SSH Configuration', 'Camera & Display Interfaces (CSI/DSI)']
+          },
+          {
+            id: 'assembly',
+            icon: 'assembly',
+            name: 'Assembly Language',
+            badges: ['Bare-Metal', 'Low-Level', 'x86 / ARM', 'Opcodes'],
+            description: 'Human-readable symbolic representation of machine code specific to a particular computer architecture such as x86-64 or ARM.',
+            keyConcepts: ['General Purpose Registers (RAX, RBX, RCX)', 'Data Movement (MOV, PUSH, POP)', 'Arithmetic Operations (ADD, SUB, MUL)', 'Conditional Jumps (CMP, JE, JNE)', 'Stack Frame Calling Conventions']
+          }
+        ]
       },
       {
-        id: 'system_bus',
-        name: 'System Bus',
-        category: 'Interconnects',
-        isFeatured: true,
-        badges: ['Hardware', 'PCIe', 'Buses', 'Bandwidth'],
-        description: 'Communication channels interconnecting CPU, memory controllers, PCIe lanes, and peripheral devices.',
-        keyConcepts: ['Data & Address Buses', 'PCIe Lanes (Gen 4/5)', 'Bus Arbitration', 'Direct Memory Access (DMA)', 'Throughput & Clock', 'Latency Bounds', 'I/O Controllers'],
-        relatedTechs: ['systems_arch', 'memory_mgmt', 'os', 'embedded'],
-        codeExample: `[CPU Core] <---> [L1/L2/L3 Cache] <---> [Memory Controller]
-                        |                      |
-                   [PCIe Root]            [System Bus]
-                        |                      |
-                 [NVMe / GPU]              [DDR5 RAM]`
-      },
-      {
-        id: 'embedded',
-        name: 'Embedded',
-        category: 'Systems',
-        isFeatured: true,
-        badges: ['Hardware', 'Microcontrollers', 'IoT', 'Firmware'],
-        description: 'Dedicated computing systems with real-time constraints, microcontrollers, and bus protocols.',
-        keyConcepts: ['Microcontrollers', 'GPIO Pins', 'UART, SPI & I2C', 'Hardware Interrupts (ISR)', 'Watchdog Timers', 'Pulse Width Modulation (PWM)', 'RTOS'],
-        relatedTechs: ['cpp', 'systems_arch', 'memory_mgmt', 'os'],
-        codeExample: `// Embedded C: Interrupt Service Routine
-void IRAM_ATTR onTimerInterrupt() {
-    uint32_t pinState = GPIO.in & BIT(LED_PIN);
-    GPIO.out_w1ts = (pinState == 0) ? BIT(LED_PIN) : 0;
-    GPIO.out_w1tc = (pinState != 0) ? BIT(LED_PIN) : 0;
-}`
-      },
-      {
-        id: 'arduino',
-        name: 'Arduino',
-        category: 'Microcontroller',
-        isFeatured: false,
-        badges: ['Embedded', 'Prototyping', 'C++', 'AVR'],
-        description: 'Open-source electronics platform based on easy-to-use hardware and software for building interactive physical projects.',
-        keyConcepts: ['Setup() & Loop()', 'Analog & Digital I/O', 'PWM Signal Output', 'Serial Communication (UART)', 'External Sensor Libraries'],
-        relatedTechs: ['embedded', 'cpp'],
-        codeExample: `void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
-}
-void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
-}`
-      },
-      {
-        id: 'raspberrypi',
-        name: 'Raspberry Pi',
-        category: 'SBC',
-        isFeatured: false,
-        badges: ['SBC', 'ARM', 'Linux', 'GPIO'],
-        description: 'Credit-card-sized single-board computer running full Linux distributions with direct hardware GPIO pins.',
-        keyConcepts: ['ARM Cortex Architecture', 'Linux Kernel on ARM', 'Hardware GPIO Control', 'I2C / SPI Sensors', 'Headless Server Setup'],
-        relatedTechs: ['linux', 'python', 'bash'],
-        codeExample: `import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT)
-GPIO.output(18, GPIO.HIGH)`
-      },
-      {
-        id: 'assembly',
-        name: 'Assembly (ASM)',
-        category: 'Low-Level',
-        isFeatured: false,
-        badges: ['Assembly', 'x86_64', 'ARM', 'Registers'],
-        description: 'Low-level programming language with direct one-to-one correspondence between instructions and machine code.',
-        keyConcepts: ['CPU Registers (RAX, RBX, RSP)', 'Instruction Pointers', 'Stack Frame (Push/Pop)', 'Syscall Conventions', 'Memory Addressing Modes'],
-        relatedTechs: ['cpp', 'systems_arch'],
-        codeExample: `section .data
-    msg db "Hello UMXIE", 10
-section .text
-    global _start
-_start:
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, msg
-    mov rdx, 12
-    syscall`
-      },
-      {
-        id: 'cpu_arch',
-        name: 'CPU Architecture',
-        category: 'Silicon',
-        isFeatured: false,
-        badges: ['Microarchitecture', 'Silicon', 'Cores', 'Threads'],
-        description: 'Instruction sets, superscalar execution, branch predictors, cache coherency, and SIMD vector processing.',
-        keyConcepts: ['Superscalar Execution', 'Out-of-Order Execution', 'SIMD & AVX Extensions', 'MESI Cache Coherency', 'Hyper-Threading'],
-        relatedTechs: ['systems_arch', 'memory_mgmt'],
-        codeExample: `// Vector SIMD parallel instruction dispatch`
-      },
-      {
-        id: 'cpp',
-        name: 'Embedded C++',
-        category: 'Firmware',
-        isFeatured: false,
-        badges: ['Embedded C++', 'No-Exceptions', 'No-RTTI', 'Real-time'],
-        description: 'Writing zero-overhead embedded firmware avoiding dynamic allocations, exceptions, and non-deterministic latencies.',
-        keyConcepts: ['No Heap Allocation', 'Static Constexpr Buffers', 'Volatile Hardware Registers', 'Bit Fields'],
-        relatedTechs: ['cpp', 'embedded'],
-        codeExample: `constexpr size_t BUFFER_SIZE = 256;
-static volatile uint8_t ringBuffer[BUFFER_SIZE];`
-      },
-      {
-        id: 'rust',
-        name: 'Embedded Rust',
-        category: 'Firmware',
-        isFeatured: false,
-        badges: ['no_std', 'Memory Safety', 'Embedded', 'Bare Metal'],
-        description: 'Building bare-metal micro-controller firmware without the standard library (#![no_std]) using memory safety guarantees.',
-        keyConcepts: ['#![no_std] Environment', 'Peripheral Access Crates (PAC)', 'Hardware Abstraction Layer (HAL)', 'Zero-Cost Pin Modes'],
-        relatedTechs: ['rust', 'embedded'],
-        codeExample: `#![no_std]
-#![no_main]
-use panic_halt as _;`
-      },
-      {
-        id: 'linux',
-        name: 'Kernel Modules',
-        category: 'Kernel',
-        isFeatured: false,
-        badges: ['Kernel', 'Drivers', 'Linux', 'C'],
-        description: 'Interacting with the Linux kernel via character device drivers, memory mapping (mmap), and kernel sysfs.',
-        keyConcepts: ['Kernel Space vs User Space', 'Character Devices', 'mmap Direct Hardware Access', '/sys & /proc Interfaces'],
-        relatedTechs: ['linux', 'cpp', 'os'],
-        codeExample: `int init_module(void) {
-    printk(KERN_INFO "UMXIE Driver Loaded\\n");
-    return 0;
-}`
-      },
-      {
-        id: 'bash',
-        name: 'Firmware Flashers',
-        category: 'Tooling',
-        isFeatured: false,
-        badges: ['Tooling', 'Flashing', 'UART', 'CLI'],
-        description: 'Automating microcontroller flashing and serial monitoring with esptool, avrdude, and minicom.',
-        keyConcepts: ['Baud Rate Configuration', 'Flashing Hex Binaries', 'UART Serial Output', 'JTAG / SWD Debugging'],
-        relatedTechs: ['bash', 'embedded'],
-        codeExample: `esptool.py --chip esp32 write_flash 0x1000 firmware.bin`
-      },
-      {
-        id: 'python',
-        name: 'MicroPython',
-        category: 'Firmware',
-        isFeatured: false,
-        badges: ['MicroPython', 'IoT', 'Rapid Prototyping', 'Hardware'],
-        description: 'Full Python 3 implementation optimized to run on microcontrollers like ESP32 and RP2040.',
-        keyConcepts: ['Machine Module', 'Pin & ADC Classes', 'I2C & SPI Drivers', 'REPL Live Console'],
-        relatedTechs: ['python', 'embedded'],
-        codeExample: `from machine import Pin
-led = Pin(2, Pin.OUT)
-led.value(1)`
-      },
-      {
-        id: 'os',
-        name: 'RTOS Systems',
-        category: 'Operating System',
-        isFeatured: false,
-        badges: ['Real-Time', 'FreeRTOS', 'Deterministic', 'Scheduling'],
-        description: 'Real-Time Operating Systems ensuring deterministic task scheduling, preemptive priorities, and inter-task queues.',
-        keyConcepts: ['Deterministic Preemption', 'Task Queues & Semaphores', 'Task Notification', 'Tick Interrupts'],
-        relatedTechs: ['os', 'embedded'],
-        codeExample: `xTaskCreate(vTaskCode, "TASK", 1000, NULL, 1, NULL);`
-      },
-      {
-        id: 'dsa',
-        name: 'Ring Buffers',
-        category: 'Data Structure',
-        isFeatured: false,
-        badges: ['CircBuffer', 'Lock-Free', 'DMA', 'Low-Level'],
-        description: 'Implementing circular lock-free ring buffers for streaming UART sensor telemetry without buffer overruns.',
-        keyConcepts: ['Head & Tail Pointers', 'Lock-Free Single-Producer Single-Consumer', 'Modulo Arithmetic'],
-        relatedTechs: ['dsa', 'embedded'],
-        codeExample: `tail = (tail + 1) % BUFFER_CAPACITY;`
+        id: 'exploring',
+        title: 'Exploring / Basic Knowledge',
+        tier: 3,
+        technologies: [
+          {
+            id: 'embedded_cpp',
+            icon: 'cpp',
+            name: 'Embedded C++',
+            badges: ['Systems', 'Zero-Cost', 'Microcontrollers', 'Hardware'],
+            description: 'Writing memory-constrained embedded software using clean C++ abstractions, templates, and avoiding dynamic heap allocations.',
+            keyConcepts: ['Zero-Cost Abstractions', 'Constexpr & Compile-Time Evaluation', 'Avoiding Dynamic Heap Memory (no new/delete)', 'Hardware Register Mapping Classes', 'Static Polymorphism (CRTP)']
+          },
+          {
+            id: 'embedded_rust',
+            icon: 'rust',
+            name: 'Embedded Rust',
+            badges: ['Bare-Metal', 'no_std', 'Memory Safety', 'Embedded'],
+            description: 'Developing bare-metal firmware for microcontrollers using Rust’s compile-time memory safety guarantees without the standard library.',
+            keyConcepts: ['#![no_std] Environment', 'Peripheral Access Crates (PAC)', 'Hardware Abstraction Layer (HAL)', 'Zero-Cost Pin Typestates', 'Memory-Safe Concurrency in Firmware']
+          },
+          {
+            id: 'micropython',
+            icon: 'micropython',
+            name: 'MicroPython',
+            badges: ['Firmware', 'IoT', 'Microcontrollers', 'Python'],
+            description: 'Lean and efficient implementation of the Python 3 language optimized to run directly on microcontrollers like ESP32 and RP2040.',
+            keyConcepts: ['machine Module (Pin, PWM, ADC)', 'I2C and SPI Hardware Drivers', 'REPL Interactive Console over Serial', 'File System on Flash Memory', 'Rapid Prototyping Workflows']
+          },
+          {
+            id: 'rtos',
+            icon: 'rtos',
+            name: 'Real-Time Operating Systems (RTOS)',
+            badges: ['Real-Time', 'FreeRTOS', 'Deterministic', 'Scheduling'],
+            description: 'Operating systems designed to serve real-time applications that process data as it comes in, typically without buffer delays.',
+            keyConcepts: ['Deterministic Preemptive Scheduling', 'Task Prioritization', 'Inter-Task Queues & Semaphores', 'Software Timers & Watchdogs', 'Tick Interrupts & Context Switching']
+          },
+          {
+            id: 'kernel_dev',
+            icon: 'kernel_dev',
+            name: 'Kernel Development',
+            badges: ['Kernel', 'Drivers', 'Linux', 'Low-Level'],
+            description: 'Understanding operating system kernel architecture, character device drivers, kernel space vs user space, and system calls.',
+            keyConcepts: ['Kernel Space vs User Space Separation', 'Loadable Kernel Modules (LKM)', 'Character Device Drivers', 'Direct Hardware Memory Mapping (mmap)', 'printk Logging & dmesg Output']
+          }
+        ]
       }
     ]
   }
 ];
 
+// Flatten all technologies into mod.technologies and populate ALL_TECHNOLOGIES_MAP
 export const ALL_TECHNOLOGIES_MAP = {};
+
 UNIVERSE_MODULES.forEach((mod) => {
-  mod.technologies.forEach((t) => {
-    ALL_TECHNOLOGIES_MAP[t.id] = { ...t, moduleId: mod.id, moduleName: mod.name };
+  mod.technologies = [];
+  mod.categories.forEach((cat) => {
+    cat.technologies.forEach((tech) => {
+      tech.categoryTitle = cat.title;
+      tech.tier = cat.tier;
+      tech.moduleId = mod.id;
+      tech.moduleName = mod.name;
+      mod.technologies.push(tech);
+      ALL_TECHNOLOGIES_MAP[tech.id] = tech;
+    });
   });
 });

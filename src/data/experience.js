@@ -1,3 +1,5 @@
+import { defaultBuildStages } from "three/webgpu";
+
 export const EXPERIENCES = [
   {
     year: "2026",
@@ -36,6 +38,7 @@ export const PHILOSOPHY_PRINCIPLES = [
     headline: "Understand the problem before solving it.",
     details: "Great software starts with conceptual clarity. Diving into code without dissecting root constraints leads to technical debt. I map the domain, invariants, and edge cases first."
   },
+
   {
     id: "02",
     title: "STRUCTURE",

@@ -34,5 +34,6 @@ export const FAQ_DATA = [
     number: '06',
     question: 'Can you develop REST APIs?',
     answer: 'Yes. I develop REST APIs using Node.js and Express.js, including CRUD operations, authentication, authorization, database integration, validation, and file handling.'
-  }
+  },
+ 
 ];

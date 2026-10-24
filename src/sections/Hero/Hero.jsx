@@ -17,7 +17,12 @@ export default function Hero({ mousePosition }) {
     }
   };
 
-  const coreSkills = ["JAVASCRIPT", "NODE.JS", "REACT", "MONGODB"];
+  const coreSkills = [
+    "BACKEND ENGINEERING",
+    "SYSTEM ARCHITECTURE",
+    "DATABASE DESIGN",
+    "PROBLEM SOLVING"
+  ];
 
   return (
     <section id="hero" className="hero-section">
