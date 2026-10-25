@@ -29,6 +29,16 @@ export default function About() {
           {/* Right Column: Statement, Story, Metadata */}
           <div className="about-content-col">
             <div className="about-statement">
+              <span>BUILDING</span>
+              <span>SOLUTIONS</span>
+              <span>WITH CODE.</span>
+            </div>
+
+            <p className="about-description">
+              I approach software development as a way to solve real-world problems through logic, creativity, and thoughtful engineering. From designing reliable backend systems to building practical digital products, I focus on turning ideas into efficient, scalable, and maintainable solutions.
+            </p>
+
+            <div className="about-statement">
               <span>I BUILD WITH</span>
               <span>CURIOSITY,</span>
               <span>LOGIC AND</span>
@@ -52,12 +62,12 @@ export default function About() {
 
               <div className="about-metadata-item">
                 <span className="mono-label">LOCATION</span>
-                <span className="mono-value">India</span>
+                <span className="mono-value">Kerala, India</span>
               </div>
 
               <div className="about-metadata-item">
                 <span className="mono-label">STATUS</span>
-                <span className="mono-value">Available // 2026</span>
+                <span className="mono-value">Available.</span>
               </div>
             </div>
           </div>

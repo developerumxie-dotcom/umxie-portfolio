@@ -30,7 +30,7 @@ export default function Hero({ mousePosition }) {
         <div className="hero-content hero-interactive-layer">
           <div className="hero-eyebrow">
             <span className="hero-eyebrow-line" />
-            <span>HELLO, I'M UMXIE.</span>
+            <span>hello, i'm muhammed umair</span>
           </div>
 
           <h1 className="hero-title">

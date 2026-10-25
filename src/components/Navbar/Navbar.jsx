@@ -62,7 +62,7 @@ export default function Navbar({ activeSection = 'hero' }) {
             onMouseEnter={() => setCursor('hover')}
             onMouseLeave={resetCursor}
           >
-            <span className="nav-brand-title">UMXIE</span>
+            <span className="nav-brand-title">DEV.UMXIE</span>
             <span className="nav-brand-sub">SOFTWARE ENGINEER</span>
           </a>
         </MagneticElement>

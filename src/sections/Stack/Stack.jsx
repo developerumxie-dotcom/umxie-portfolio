@@ -20,8 +20,7 @@ const PLANET_NODES = [
     mobX: 50,
     mobY: 13,
     bobClass: 'planet-bob-1',
-    labelStyle: { top: '-46px', left: '50%', transform: 'translateX(-50%)' },
-    leader: { x1: 0, y1: -26, x2: 0, y2: -15, dotX: 0, dotY: -15 }
+    labelStyle: { top: '-34px', left: '50%', transform: 'translateX(-50%)' }
   },
   {
     id: 'frontend',
@@ -33,8 +32,7 @@ const PLANET_NODES = [
     mobX: 79,
     mobY: 25,
     bobClass: 'planet-bob-2',
-    labelStyle: { top: '-28px', left: '56px' },
-    leader: { x1: 52, y1: -18, x2: 26, y2: -8, dotX: 26, dotY: -8 }
+    labelStyle: { top: '-24px', left: '38px' }
   },
   {
     id: 'backend',
@@ -46,8 +44,7 @@ const PLANET_NODES = [
     mobX: 83,
     mobY: 50,
     bobClass: 'planet-bob-3',
-    labelStyle: { top: '50%', left: '64px', transform: 'translateY(-50%)' },
-    leader: { x1: 60, y1: 0, x2: 34, y2: 0, dotX: 34, dotY: 0 }
+    labelStyle: { top: '50%', left: '46px', transform: 'translateY(-50%)' }
   },
   {
     id: 'databases',
@@ -59,8 +56,7 @@ const PLANET_NODES = [
     mobX: 79,
     mobY: 75,
     bobClass: 'planet-bob-4',
-    labelStyle: { top: '50%', left: '64px', transform: 'translateY(-50%)' },
-    leader: { x1: 60, y1: 0, x2: 34, y2: 0, dotX: 34, dotY: 0 }
+    labelStyle: { top: '50%', left: '46px', transform: 'translateY(-50%)' }
   },
   {
     id: 'cloud',
@@ -72,8 +68,7 @@ const PLANET_NODES = [
     mobX: 50,
     mobY: 87,
     bobClass: 'planet-bob-5',
-    labelStyle: { top: '48px', left: '24px' },
-    leader: { x1: 22, y1: 44, x2: 10, y2: 15, dotX: 10, dotY: 15 }
+    labelStyle: { bottom: '-30px', left: '50%', transform: 'translateX(-50%)' }
   },
   {
     id: 'core_cs',
@@ -85,8 +80,7 @@ const PLANET_NODES = [
     mobX: 21,
     mobY: 75,
     bobClass: 'planet-bob-6',
-    labelStyle: { top: '50%', right: '64px', transform: 'translateY(-50%)' },
-    leader: { x1: -60, y1: 0, x2: -34, y2: 0, dotX: -34, dotY: 0 }
+    labelStyle: { top: '50%', right: '46px', transform: 'translateY(-50%)' }
   },
   {
     id: 'tools',
@@ -98,8 +92,7 @@ const PLANET_NODES = [
     mobX: 17,
     mobY: 50,
     bobClass: 'planet-bob-7',
-    labelStyle: { top: '50%', right: '64px', transform: 'translateY(-50%)' },
-    leader: { x1: -60, y1: 0, x2: -34, y2: 0, dotX: -34, dotY: 0 }
+    labelStyle: { top: '50%', right: '46px', transform: 'translateY(-50%)' }
   },
   {
     id: 'hardware',
@@ -111,8 +104,7 @@ const PLANET_NODES = [
     mobX: 21,
     mobY: 25,
     bobClass: 'planet-bob-8',
-    labelStyle: { top: '-28px', right: '56px' },
-    leader: { x1: -52, y1: -18, x2: -26, y2: -8, dotX: -26, dotY: -8 }
+    labelStyle: { top: '-24px', right: '38px' }
   }
 ];
 
@@ -244,11 +236,9 @@ function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
           PERMANENT CODING UNIVERSE BACKGROUND (Always Visible & Preserved!)
           ==================================================================== */}
       <div className="stack-main-wrapper">
-        {/* Header Block (Upper-Left) */}
+        {/* Header Block (Upper-Left) - Exact match to reference image */}
         <header className="stack-header-block">
-          <div className="stack-index-tag">
-            02 <span className="stack-index-tag-sub">/ TECH STACK</span>
-          </div>
+          <span className="stack-header-line" aria-hidden="true" />
           <h2 className="stack-main-title">
             CODING <span className="stack-title-purple">UNIVERSE</span>
           </h2>
@@ -352,74 +342,61 @@ function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
             </div>
           </div>
 
-          {/* The 8 Module Planet Nodes (Sphere + Ring + Leader Line + Label Locked Together!) */}
-          {PLANET_NODES.map((cfg) => {
-            return (
-              <div
-                key={cfg.id}
-                className={`planet-node ${cfg.bobClass} planet-node--${cfg.id}`}
-                style={{
-                  '--desk-x': `${cfg.x}%`,
-                  '--desk-y': `${cfg.y}%`,
-                  '--mob-x': `${cfg.mobX}%`,
-                  '--mob-y': `${cfg.mobY}%`,
-                  left: `${cfg.x}%`,
-                  top: `${cfg.y}%`
-                }}
-                onMouseEnter={() => setCursor('open', 'OPEN ↗')}
-                onMouseLeave={resetCursor}
-              >
-                {/* Planet's Tilted Ring */}
-                <div className="planet-ring" aria-hidden="true" />
-
-                {/* 3D Planet Sphere */}
-                <button
-                  className="planet-sphere"
-                  onClick={() => handlePlanetSelect(cfg.id)}
-                  aria-label={`Module ${cfg.num}: ${cfg.name}`}
-                >
-                  <CategoryIcon id={cfg.icon} size={24} />
-                </button>
-
-                {/* Locked Leader Line from Label to Ring */}
-                <svg
-                  className="node-leader-svg"
-                  width="300"
-                  height="300"
-                  viewBox="-150 -150 300 300"
-                  style={{ position: 'absolute', top: -150, left: -150, pointerEvents: 'none', overflow: 'visible' }}
-                  aria-hidden="true"
-                >
-                  <line
-                    x1={cfg.leader.x1}
-                    y1={cfg.leader.y1}
-                    x2={cfg.leader.x2}
-                    y2={cfg.leader.y2}
-                    className="node-leader-line"
-                  />
-                  <circle
-                    cx={cfg.leader.dotX}
-                    cy={cfg.leader.dotY}
-                    r="2"
-                    className="node-leader-dot"
-                  />
-                </svg>
-
-                {/* Label: 0X / NAME */}
+          {/* The 8 Module Planet Nodes (Sphere + Ring + Label Locked Together!) */}
+          <div className="planets-orbit-container">
+            {PLANET_NODES.map((cfg) => {
+              const isSelected = selectedModuleId === cfg.id;
+              return (
                 <div
-                  className="node-label-container"
-                  style={cfg.labelStyle}
-                  onClick={() => handlePlanetSelect(cfg.id)}
-                  role="button"
-                  tabIndex={0}
+                  key={cfg.id}
+                  className={`planet-node ${cfg.bobClass} planet-node--${cfg.id} ${isSelected ? 'planet-node--selected' : ''}`}
+                  style={{
+                    '--desk-x': `${cfg.x}%`,
+                    '--desk-y': `${cfg.y}%`,
+                    '--mob-x': `${cfg.mobX}%`,
+                    '--mob-y': `${cfg.mobY}%`,
+                    left: `${cfg.x}%`,
+                    top: `${cfg.y}%`
+                  }}
+                  onMouseEnter={() => setCursor('open', 'OPEN ↗')}
+                  onMouseLeave={resetCursor}
                 >
-                  <span className="node-num">{cfg.num}</span>
-                  <span className="node-slash">/</span>
-                  <span className="node-name">{cfg.name}</span>
+                  {/* Planet's Tilted Ring */}
+                  <div className="planet-ring" aria-hidden="true" />
+
+                  {/* 3D Planet Sphere */}
+                  <button
+                    className={`planet-sphere ${isSelected ? 'planet-sphere--selected' : ''}`}
+                    onClick={() => handlePlanetSelect(cfg.id)}
+                    aria-label={`Module ${cfg.num}: ${cfg.name}`}
+                    aria-pressed={isSelected}
+                  >
+                    <CategoryIcon id={cfg.icon} size={24} />
+                  </button>
+
+                  {/* Label: 0X / NAME */}
+                  <div
+                    className={`node-label-container ${isSelected ? 'node-label--selected' : ''}`}
+                    style={cfg.labelStyle}
+                    onClick={() => handlePlanetSelect(cfg.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handlePlanetSelect(cfg.id);
+                      }
+                    }}
+                    aria-label={`Select ${cfg.name}`}
+                  >
+                    <span className="node-num">{cfg.num}</span>
+                    <span className="node-slash">/</span>
+                    <span className="node-name">{cfg.name}</span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 

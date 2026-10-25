@@ -56,7 +56,9 @@ export default function Projects() {
                   {/* Left Column: Editorial Information */}
                   <div className="project-info-side">
                     <div className="project-meta-top">
-                      <span className="project-num">{project.num} // 03</span>
+                      <span className="project-num">
+                        {project.num} // {String(PROJECTS.length).padStart(2, '0')}
+                      </span>
                       <span className="project-category-badge">
                         {project.stats[0]?.label}: {project.stats[0]?.value}
                       </span>
@@ -74,15 +76,31 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <Button
-                      variant="dark"
-                      arrow={true}
-                      onClick={() => handleOpenProject(project)}
-                      cursorType="hover"
-                      ariaLabel={`View project architecture for ${project.title}`}
-                    >
-                      VIEW PROJECT
-                    </Button>
+                    <div className="project-cta-group">
+                      <Button
+                        variant="dark"
+                        arrow={true}
+                        onClick={() => handleOpenProject(project)}
+                        cursorType="hover"
+                        ariaLabel={`View project architecture for ${project.title}`}
+                      >
+                        VIEW PROJECT
+                      </Button>
+
+                      {project.liveUrl && (
+                        <Button
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="secondary"
+                          cursorType="open"
+                          cursorText="OPEN ↗"
+                          ariaLabel={`Visit live website for ${project.title}`}
+                        >
+                          VISIT WEBSITE ↗
+                        </Button>
+                      )}
+                    </div>
                   </div>
 
                   {/* Right Column: Visual Mockup with 3D Parallax Tilt */}
@@ -176,27 +194,31 @@ export default function Projects() {
             </div>
 
             <div className="project-modal-actions">
-              <Button
-                href={activeModalProject.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-                cursorType="open"
-                cursorText="OPEN ↗"
-              >
-                LIVE DEMO ↗
-              </Button>
+              {activeModalProject.liveUrl && (
+                <Button
+                  href={activeModalProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="primary"
+                  cursorType="open"
+                  cursorText="OPEN ↗"
+                >
+                  VISIT WEBSITE ↗
+                </Button>
+              )}
 
-              <Button
-                href={activeModalProject.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                cursorType="open"
-                cursorText="OPEN ↗"
-              >
-                SOURCE CODE
-              </Button>
+              {activeModalProject.githubUrl && (
+                <Button
+                  href={activeModalProject.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="secondary"
+                  cursorType="open"
+                  cursorText="OPEN ↗"
+                >
+                  SOURCE CODE
+                </Button>
+              )}
             </div>
           </div>
         )}

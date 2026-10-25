@@ -2,11 +2,33 @@ export const PROJECTS = [
   {
     id: "01",
     num: "01",
+    title: "VIDYA HOSPITAL WEBSITE",
+    tagline: "Live healthcare platform featuring dynamic blog content powered by WordPress REST API.",
+    description: "A comprehensive, responsive healthcare web platform developed for Vidya Hospital & Kidney Centre. Features an integrated WordPress REST API pipeline for dynamic medical articles, responsive consultation and department booking flows, and high-availability deployment on a custom domain with full HTTPS security.",
+    extendedDetails: "Architected as a production digital platform for Vidya Hospital & Kidney Centre, serving patients with real-time department discovery, doctor directories, and emergency contact routing. Built with clean, responsive front-end engineering coupled with headless WordPress REST API endpoints for seamless dynamic health article management. Deployed to production under custom domain with strict HTTPS/SSL compliance and cross-device optimization.",
+    theme: "light",
+    technologies: ["HTML", "CSS", "JavaScript", "WordPress REST API"],
+    image: "/assets/projects/vidya-hospital-mobile-showcase.png",
+    liveUrl: "https://vidyahospital.in",
+    stats: [
+      { label: "STATUS", value: "Live Production" },
+      { label: "INTEGRATION", value: "WP REST API" },
+      { label: "SECURITY", value: "Custom Domain HTTPS" }
+    ],
+    architectureHighlights: [
+      "Dynamic blog and healthcare content management via headless WordPress REST API integration",
+      "Fully responsive healthcare portal optimized for mobile navigation, emergency response, and patient inquiries",
+      "Production deployment on custom domain with secure HTTPS protocol and high-performance asset delivery"
+    ]
+  },
+  {
+    id: "02",
+    num: "02",
     title: "NEWCOMER PLATFORM",
     tagline: "Helping newcomers discover accommodation, food, jobs, and local services in a new city.",
     description: "A centralized platform engineered to eliminate relocation friction. Features intelligent search filters, verified accommodation listings, local employment discovery, and community guides.",
     extendedDetails: "Architected with a decoupled Node.js and Express backend providing sub-200ms latency queries across multi-faceted geo-filters. Implemented MongoDB geospatial indexing ($nearSphere) for instant proximity calculations, complete with role-based JWT auth for verified hosts and newcomers.",
-    theme: "light", // Featured Light section as in creative direction & reference mockup
+    theme: "light",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     image: "/assets/projects/newcomer-platform.jpg",
     liveUrl: "https://newcomer-platform.demo",
@@ -23,13 +45,13 @@ export const PROJECTS = [
     ]
   },
   {
-    id: "02",
-    num: "02",
+    id: "03",
+    num: "03",
     title: "UMXIE'S STORE",
     tagline: "Modern e-commerce experience with smooth, clean UI and high-throughput backend architecture.",
     description: "A luxury minimalist commerce engine designed for technical apparel and design hardware. Features seamless product browsing, atomic cart interactions, and instant checkout flows.",
     extendedDetails: "Built around an event-driven inventory tracking system on Node.js and Express. Leveraged advanced MongoDB pipelines for dynamic attribute filtering, client-side optimistic cart mutations, and server-side webhook validation for secure payments.",
-    theme: "dark", // Featured Dark section
+    theme: "dark",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     image: "/assets/projects/umxies-store.jpg",
     liveUrl: "https://store.umxie.dev",
@@ -46,13 +68,13 @@ export const PROJECTS = [
     ]
   },
   {
-    id: "03",
-    num: "03",
+    id: "04",
+    num: "04",
     title: "CRUD MANAGEMENT SYSTEM",
     tagline: "Full-stack developer admin portal with secure auth, image upload pipelines, and REST API telemetry.",
     description: "An enterprise administrative interface providing end-to-end data lifecycle control, live endpoint status monitoring, Multer-driven asset pipelines, and granular permission controls.",
     extendedDetails: "Features a robust REST API layer with automated request validation, multipart file processing via Multer into secure storage buffers, and MongoDB aggregation pipelines. Includes real-time database collection telemetry and audit log tracking.",
-    theme: "dark", // Featured Dark section
+    theme: "dark",
     technologies: ["Node.js", "Express", "MongoDB", "JWT", "Multer", "React"],
     image: "/assets/projects/crud-system.jpg",
     liveUrl: "https://crud-system.demo",

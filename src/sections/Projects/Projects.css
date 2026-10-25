@@ -113,6 +113,14 @@
   color: var(--text-dark);
 }
 
+/* Action Buttons Group */
+.project-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* Visual Mockup Frame with Parallax Mouse effect */
 .project-visual-side {
   position: relative;

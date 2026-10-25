@@ -1,8 +1,27 @@
 /* ==========================================================================
    CODING UNIVERSE STACK — EXACT MATCH TO REFERENCE IMAGE
+   Theme: Deep Pitch-Black Atmosphere with Very Slow Planetary Rotation
+   Palette: #020204, #06050A, #09070F, #0E0B16, #A855F7, #8B5CF6
    ========================================================================== */
 
-/* Main Section Container */
+:root {
+  --stack-bg: #030205;
+  --stack-bg-sec: #07050B;
+  --stack-card-bg: #0A0812;
+  --stack-card-elevated: #0F0C1B;
+  --stack-purple-primary: #A855F7;
+  --stack-purple-secondary: #8B5CF6;
+  --stack-purple-glow: rgba(168, 85, 247, 0.12);
+  --stack-purple-border: rgba(168, 85, 247, 0.22);
+  --stack-orbit-line: rgba(168, 85, 247, 0.16);
+  --stack-text-primary: #F5F3FA;
+  --stack-text-secondary: #9B94A6;
+  --stack-text-muted: #655F70;
+}
+
+/* --------------------------------------------------------------------------
+   1. MAIN SECTION CONTAINER & DEEP PITCH-BLACK VOID
+   -------------------------------------------------------------------------- */
 .stack-section {
   position: relative;
   min-height: 100vh;
@@ -11,69 +30,117 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #050609;
-  color: #F5F5F7;
+  background-color: var(--stack-bg);
+  color: var(--stack-text-primary);
   padding: 0;
   overflow: hidden;
   z-index: 10;
   box-sizing: border-box;
 }
 
-/* Very subtle purple nebula glow concentrated directly behind the central planet */
+/* Deep-black ambient gradient matching the reference image */
 .stack-universe-ambient {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 53%, rgba(168, 85, 247, 0.16) 0%, rgba(126, 34, 206, 0.04) 28%, transparent 58%),
-    #050609;
+    radial-gradient(circle at 50% 53.5%, rgba(168, 85, 247, 0.07) 0%, rgba(139, 92, 246, 0.02) 28%, transparent 56%),
+    radial-gradient(circle at 50% 50%, var(--stack-bg-sec) 0%, var(--stack-bg) 68%);
   z-index: 0;
-  opacity: 0.95;
 }
 
-/* Full-height viewport wrapper with generous top & bottom breathing room */
+/* Distant celestial bodies in corners matching the reference image */
+.ambient-planet {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Lower-left celestial crescent / moon */
+.ambient-planet--bottom-left {
+  bottom: -45px;
+  left: -40px;
+  width: 210px;
+  height: 210px;
+  background: radial-gradient(circle at 75% 25%, rgba(168, 85, 247, 0.14) 0%, rgba(10, 8, 14, 0.98) 45%, #020204 80%);
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.06);
+  opacity: 0.40;
+}
+
+/* Lower-right large dark celestial sphere */
+.ambient-planet--bottom-right {
+  bottom: -70px;
+  right: -60px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.16) 0%, rgba(12, 10, 18, 0.98) 45%, #020204 85%);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.08);
+  opacity: 0.45;
+}
+
+/* Right-edge small distant orb */
+.ambient-planet--far-right {
+  top: 58%;
+  right: 7%;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 35% 35%, rgba(168, 85, 247, 0.18) 0%, #06050A 70%);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.08);
+  opacity: 0.35;
+}
+
+/* Main Viewport Wrapper */
 .stack-main-wrapper {
   position: relative;
   width: 100%;
-  min-height: 860px;
+  min-height: 840px;
   height: 100vh;
-  max-height: 980px;
+  max-height: 960px;
   max-width: 1480px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(5rem, 6.5vh, 6rem) clamp(2.5rem, 4.5vw, 5rem) clamp(3.5rem, 5vh, 4.5rem);
+  padding: clamp(4.5rem, 6vh, 5.5rem) clamp(2.5rem, 4.5vw, 5rem) clamp(3.5rem, 5vh, 4.5rem);
   box-sizing: border-box;
   z-index: 1;
 }
 
 /* --------------------------------------------------------------------------
-   HEADER BLOCK (Upper-Left Corner)
+   2. TOP ROW: HEADER (LEFT) + INTERACTIVE PREVIEW CARD (RIGHT)
    -------------------------------------------------------------------------- */
+.stack-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+  gap: 1.5rem;
+}
+
+/* Upper-Left Header Block */
 .stack-header-block {
   position: relative;
-  z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   text-align: left;
   user-select: none;
-  max-width: 440px;
+  max-width: 460px;
   pointer-events: none;
 }
 
-.stack-index-tag {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  color: #A855F7;
-  text-transform: uppercase;
-}
-
-.stack-index-tag-sub {
-  color: #7E788F;
+/* Purple horizontal bar above heading matching reference image */
+.stack-header-line {
+  width: 32px;
+  height: 3px;
+  background: var(--stack-purple-primary);
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--stack-purple-primary);
+  margin-bottom: 0.75rem;
+  display: inline-block;
 }
 
 .stack-main-title {
@@ -82,32 +149,166 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  color: #FFFFFF;
+  color: var(--stack-text-primary);
   text-transform: uppercase;
-  margin: 0.1rem 0;
+  margin: 0 0 0.35rem 0;
 }
 
 .stack-title-purple {
-  color: #A855F7;
-  text-shadow: 0 0 24px rgba(168, 85, 247, 0.45);
+  color: var(--stack-purple-primary);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.45);
 }
 
 .stack-sub-tagline {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(0.72rem, 0.82vw, 0.78rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #9A94A6;
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   TOP-RIGHT INTERACTIVE PREVIEW CARD (EXACT MATCH TO REFERENCE IMAGE!)
+   -------------------------------------------------------------------------- */
+.stack-preview-card {
+  width: clamp(250px, 20vw, 290px);
+  background: var(--stack-card-bg);
+  border: 1px solid var(--stack-purple-border);
+  border-radius: 14px;
+  padding: 0.95rem 1.1rem 0.8rem;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.85),
+    0 0 20px var(--stack-purple-glow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.22s ease;
+  user-select: none;
+  outline: none;
+  animation: stackViewFadeIn 0.25s ease forwards;
+}
+
+.stack-preview-card:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.9),
+    0 0 26px rgba(168, 85, 247, 0.22);
+}
+
+.stack-preview-card:focus-visible {
+  border-color: var(--stack-purple-primary);
+  outline: 2px solid var(--stack-purple-primary);
+  outline-offset: 2px;
+}
+
+.preview-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.preview-card-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--stack-card-elevated);
+  border: 1px solid var(--stack-purple-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--stack-text-primary);
+  box-shadow: 0 0 10px var(--stack-purple-glow);
+  flex-shrink: 0;
+}
+
+.preview-card-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stack-text-primary);
+}
+
+.preview-card-arrow {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--stack-purple-primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.18s ease;
+}
+
+.stack-preview-card:hover .preview-card-arrow {
+  transform: translateX(3px);
+  color: #FFFFFF;
+}
+
+.preview-card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.85rem 0 0.85rem;
+}
+
+.preview-tech-pill {
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  border-radius: 9999px;
+  padding: 0.24rem 0.65rem;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.72rem;
+  color: var(--stack-text-primary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  outline: none;
+}
+
+.preview-tech-pill:hover {
+  background: var(--stack-card-elevated);
+  border-color: var(--stack-purple-primary);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.preview-card-divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(168, 85, 247, 0.15);
+  margin-bottom: 0.65rem;
+}
+
+.preview-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  color: #7E788F;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--stack-text-secondary);
   text-transform: uppercase;
 }
 
-
+.preview-footer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--stack-purple-primary);
+  box-shadow: 0 0 8px var(--stack-purple-primary);
+}
 
 /* --------------------------------------------------------------------------
-   THE UNIVERSE STAGE & ORBITS
+   3. UNIVERSE STAGE & ORBIT DESIGN
    -------------------------------------------------------------------------- */
 .universe-stage {
   position: absolute;
-  top: 52%;
+  top: 53.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -120,7 +321,6 @@
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* SVG Concentric Tilted Orbits & Starfield */
 .universe-orbits-svg {
   position: absolute;
   inset: 0;
@@ -133,20 +333,20 @@
 
 .orbit-svg-ellipse {
   fill: none;
-  stroke: rgba(168, 85, 247, 0.16);
+  stroke: var(--stack-orbit-line);
   stroke-width: 1px;
 }
 
 .orbit-svg-ellipse-fine {
   fill: none;
-  stroke: rgba(168, 85, 247, 0.11);
+  stroke: rgba(168, 85, 247, 0.10);
   stroke-width: 0.8px;
 }
 
 .orbit-svg-ellipse-highlight {
   fill: none;
-  stroke: rgba(168, 85, 247, 0.28);
-  stroke-width: 1.1px;
+  stroke: var(--stack-purple-border);
+  stroke-width: 1px;
 }
 
 .orbits-desktop {
@@ -157,16 +357,24 @@
   display: none;
 }
 
+.star-spike-wrap {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.50;
+}
+
 /* --------------------------------------------------------------------------
-   CENTRAL UMXIE STACK VISUAL — SIMPLE CELESTIAL PLANET (PLUTO STYLE)
+   4. CENTRAL UMXIE STACK PLANET
    -------------------------------------------------------------------------- */
 .central-planet-wrapper {
   position: absolute;
   top: 53.5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(165px, 15vw, 195px);
-  height: clamp(165px, 15vw, 195px);
+  width: clamp(155px, 14vw, 185px);
+  height: clamp(155px, 14vw, 185px);
   pointer-events: none;
   user-select: none;
   z-index: 8;
@@ -181,12 +389,12 @@
   height: 100%;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.16) 0%, rgba(192, 132, 252, 0.08) 28%, transparent 58%),
-    radial-gradient(circle at 48% 48%, #140824 0%, #0c0516 60%, #050209 100%);
-  border: 1px solid rgba(168, 85, 247, 0.35);
+    radial-gradient(circle at 35% 28%, rgba(245, 243, 250, 0.08) 0%, rgba(168, 85, 247, 0.04) 30%, transparent 60%),
+    radial-gradient(circle at 50% 50%, var(--stack-card-elevated) 0%, var(--stack-bg-sec) 65%, var(--stack-bg) 100%);
+  border: 1px solid var(--stack-purple-border);
   box-shadow:
-    0 0 24px rgba(168, 85, 247, 0.2),
-    inset 0 0 20px rgba(168, 85, 247, 0.22);
+    0 0 28px var(--stack-purple-glow),
+    inset 0 0 22px rgba(168, 85, 247, 0.14);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,62 +402,67 @@
   cursor: default;
   pointer-events: none;
   user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .central-planet-title {
   font-family: var(--font-sans, sans-serif);
-  font-size: clamp(1.2rem, 1.45vw, 1.45rem);
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  color: #FFFFFF;
-  opacity: 0.5;
+  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--stack-text-primary);
+  opacity: 0.95;
   line-height: 1.2;
   z-index: 2;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
 }
 
 .central-planet-sub {
   font-family: var(--font-sans, sans-serif);
-  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+  font-size: clamp(0.72rem, 0.88vw, 0.86rem);
   font-weight: 600;
   letter-spacing: 0.36em;
-  color: #D8B4FE;
-  opacity: 0.5;
+  color: var(--stack-purple-primary);
+  opacity: 0.90;
   line-height: 1.2;
   z-index: 2;
   margin-top: 4px;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.45);
 }
 
-/* Central Planet Equatorial Ring with subtle glow */
 .central-ring {
   position: absolute;
-  width: 148%;
-  height: 52%;
+  width: 146%;
+  height: 50%;
   border-radius: 50%;
   pointer-events: none;
-  border: 1px solid rgba(192, 132, 252, 0.32);
+  border: 1px solid var(--stack-orbit-line);
   transform: rotate(-16deg);
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.08);
   z-index: 4;
 }
 
-/* Glowing Satellite Beacon on the far-left curve apex */
 .central-ring-beacon {
   position: absolute;
   top: 48%;
-  left: -3px;
+  left: -2px;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 8px #A855F7;
+  background-color: var(--stack-text-primary);
+  box-shadow: 0 0 8px var(--stack-purple-primary);
   z-index: 5;
 }
 
 /* --------------------------------------------------------------------------
-   THE 8 MODULE PLANET NODES (Performance-Engineered 2D Transforms)
+   5. ORIGINAL GENTLE CELESTIAL DRIFT ANIMATION (SMOOTH CLOCKWISE DRIFT)
    -------------------------------------------------------------------------- */
+.planets-orbit-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .planet-node {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -258,6 +471,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: z-index 0.2s ease;
+  will-change: transform;
 }
 
 /* Smooth Clockwise Drift */
@@ -265,19 +480,15 @@
   0% {
     transform: translate(-50%, calc(-50% - 6px));
   }
-
   25% {
     transform: translate(calc(-50% + 8px), -50%);
   }
-
   50% {
     transform: translate(-50%, calc(-50% + 6px));
   }
-
   75% {
     transform: translate(calc(-50% - 8px), -50%);
   }
-
   100% {
     transform: translate(-50%, calc(-50% - 6px));
   }
@@ -315,80 +526,99 @@
   animation: smoothClockwiseDrift 18s ease-in-out infinite -15.75s;
 }
 
-/* Smooth pause on hover so user can easily click any revolving planet */
+/* Smooth pause on hover so user can easily click any drifting planet */
 .planet-node:hover {
   animation-play-state: paused;
 }
 
 /* Pause animations when section is off-screen or tab is hidden */
 .stack-paused .planet-node,
-.stack-paused .central-planet-sphere,
-.stack-has-modal .planet-node,
-.stack-has-modal .central-planet-sphere {
+.stack-has-modal .planet-node {
   animation-play-state: paused !important;
 }
 
-/* Sphere of each Module Planet: Clean Dark Glass */
+.planet-node--selected {
+  z-index: 25;
+}
+
+/* Planet Sphere */
 .planet-sphere {
   position: relative;
-  width: clamp(54px, 4.6vw, 64px);
-  height: clamp(54px, 4.6vw, 64px);
+  width: clamp(46px, 4.2vw, 54px);
+  height: clamp(46px, 4.2vw, 54px);
   border-radius: 50%;
   background:
-    radial-gradient(circle at 40% 25%, rgba(255, 255, 255, 0.22) 0%, rgba(192, 132, 252, 0.08) 35%, transparent 65%),
-    radial-gradient(circle at 50% 50%, #150a26 0%, #0c0517 65%, #05020a 100%);
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  box-shadow: 0 0 16px rgba(168, 85, 247, 0.18);
+    radial-gradient(circle at 35% 28%, rgba(245, 243, 250, 0.12) 0%, rgba(168, 85, 247, 0.05) 32%, transparent 65%),
+    radial-gradient(circle at 50% 50%, var(--stack-card-elevated) 0%, var(--stack-card-bg) 70%, var(--stack-bg) 100%);
+  border: 1px solid var(--stack-purple-border);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.7),
+    0 0 14px rgba(168, 85, 247, 0.10),
+    inset 0 0 10px rgba(168, 85, 247, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #D8B4FE;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  color: var(--stack-text-primary);
   padding: 0;
-  user-select: none;
-  z-index: 3;
+  outline: none;
+  z-index: 2;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
 }
 
-.planet-node:hover .planet-sphere {
+.planet-sphere:hover {
   transform: scale(1.08);
-  border-color: #C084FC;
-  box-shadow: 0 0 24px rgba(168, 85, 247, 0.45);
-  color: #FFFFFF;
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(168, 85, 247, 0.22),
+    inset 0 0 12px rgba(168, 85, 247, 0.18);
 }
 
-/* Planet Tilted Planetary Ring */
+.planet-sphere:focus-visible {
+  border-color: var(--stack-purple-primary);
+  outline: 2px solid var(--stack-purple-primary);
+  outline-offset: 3px;
+}
+
+/* Selected Planet Highlight matching reference image (Backend highlighted) */
+.planet-sphere--selected {
+  transform: scale(1.1);
+  border-color: var(--stack-purple-primary);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.9),
+    0 0 26px rgba(168, 85, 247, 0.45),
+    inset 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
+/* Subtle ring spin on planet axis */
 .planet-ring {
   position: absolute;
-  width: 144%;
-  height: 48%;
+  width: 148%;
+  height: 52%;
   border-radius: 50%;
-  border: 1px solid rgba(192, 132, 252, 0.38);
-  transform: rotate(-22deg);
+  border: 1px solid var(--stack-orbit-line);
+  transform: rotate(-18deg);
   pointer-events: none;
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.12);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-  z-index: 2;
+  z-index: 1;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+  animation: planetRingSpin 24s ease-in-out infinite alternate;
 }
 
-.planet-node:hover .planet-ring {
-  border-color: rgba(216, 180, 254, 0.7);
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
-  transform: rotate(-22deg) scale(1.06);
+@keyframes planetRingSpin {
+  0% { transform: rotate(-22deg) scale(0.98); }
+  100% { transform: rotate(-14deg) scale(1.02); }
 }
 
-.planet-sphere svg {
-  position: relative;
-  z-index: 4;
-  transition: transform 0.25s ease;
-}
-
-.planet-node:hover .planet-sphere svg {
-  transform: scale(1.12);
+.planet-node--selected .planet-ring {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
 }
 
 /* --------------------------------------------------------------------------
-   INTEGRATED LEADER LINES & LABELS (Zero-drift, 100% mathematically bound)
+   6. PLANET LABELS & LEADER LINES (EXACT MATCH TO REFERENCE IMAGE)
    -------------------------------------------------------------------------- */
 .node-label-container {
   position: absolute;
@@ -396,123 +626,79 @@
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.74rem;
   white-space: nowrap;
   pointer-events: auto;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.25s ease;
-  z-index: 12;
+  z-index: 3;
+  padding: 3px 6px;
+  border-radius: 4px;
+  outline: none;
+  transition: transform 0.18s ease, color 0.18s ease;
 }
 
-.node-label-container:hover,
-.planet-node:hover .node-label-container {
+.node-label-container:hover {
   transform: scale(1.04);
 }
 
+.node-label-container:focus-visible {
+  outline: 1.5px solid var(--stack-purple-primary);
+  outline-offset: 2px;
+}
+
 .node-num {
-  color: #A855F7;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  font-family: var(--font-mono, monospace);
+  color: var(--stack-purple-primary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
 }
 
 .node-slash {
-  color: #7E788F;
-  margin: 0 0.08rem;
+  color: var(--stack-text-muted);
+  font-size: 0.7rem;
 }
 
 .node-name {
-  color: #F5F5F7;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  font-family: var(--font-sans, sans-serif);
+  color: var(--stack-text-primary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  transition: color 0.18s ease, text-shadow 0.18s ease;
 }
 
-.planet-node:hover .node-num {
-  color: #C084FC;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
-}
-
-.planet-node:hover .node-name {
+.node-label-container:hover .node-name,
+.node-label--selected .node-name {
   color: #FFFFFF;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Leader Lines (SVG directly inside the planet node component) */
-.node-leader-svg {
-  position: absolute;
-  pointer-events: none;
-  overflow: visible;
-  z-index: 5;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.45);
 }
 
 .node-leader-line {
-  stroke: rgba(168, 85, 247, 0.55);
-  stroke-width: 0.9px;
-  transition: stroke 0.25s ease, stroke-width 0.25s ease;
+  stroke: var(--stack-orbit-line);
+  stroke-width: 1px;
 }
 
 .node-leader-dot {
-  fill: #A855F7;
-  filter: drop-shadow(0 0 3px #A855F7);
-  transition: fill 0.25s ease, r 0.25s ease;
-}
-
-.planet-node:hover .node-leader-line {
-  stroke: #C084FC;
-  stroke-width: 1.2px;
-}
-
-.planet-node:hover .node-leader-dot {
-  fill: #FFFFFF;
-  r: 2.2;
+  fill: var(--stack-purple-primary);
+  opacity: 0.75;
 }
 
 /* --------------------------------------------------------------------------
-   GLOWING STAR FLARES (Diffraction Spikes strictly in background)
+   7. FULL EXPLORATION MODAL (WHEN EXPANDED)
    -------------------------------------------------------------------------- */
-.star-spike-wrap {
-  position: absolute;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.85;
-}
-
-/* View Mode Transition (Smooth Fade & Slide) */
-.stack-view-fade {
-  animation: stackViewFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes stackViewFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ==========================================================================
-   FLOATING TRANSPARENT GLASS CARD MODAL (Ultra-Smooth Hardware-Accelerated)
-   ========================================================================== */
-
-/* When modal is open, completely freeze background animations to eliminate 100% GPU texture thrashing */
+.stack-has-modal .planets-orbit-container,
 .stack-has-modal .planet-node,
 .stack-has-modal .central-planet-sphere {
   animation-play-state: paused !important;
 }
 
-.stack-has-modal .universe-stage {
-  pointer-events: none;
-}
-
-/* Clean Dark Scrim (0ms GPU blur cost, 100% fluid) */
 .universe-glass-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(5, 6, 9, 0.75);
+  background: rgba(2, 2, 4, 0.80);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -523,73 +709,51 @@
 }
 
 @keyframes glassBackdropFadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* The Futuristic Floating Transparent Glass Card */
 .universe-glass-card {
   position: relative;
-  width: min(890px, 94vw);
-  max-height: min(620px, 78vh);
-  background: rgba(12, 10, 22, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(168, 85, 247, 0.28);
-  border-radius: 20px;
+  width: min(840px, 94vw);
+  max-height: min(620px, 82vh);
+  background: var(--stack-card-bg);
+  border: 1px solid var(--stack-purple-border);
+  border-radius: 18px;
   box-shadow:
-    0 16px 45px rgba(0, 0, 0, 0.8),
-    0 0 35px rgba(168, 85, 247, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  padding: 0 clamp(1.2rem, 2vw, 1.8rem) clamp(2.2rem, 3.2vw, 2.8rem);
+    0 16px 48px rgba(0, 0, 0, 0.9),
+    0 0 28px var(--stack-purple-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 0 clamp(1.2rem, 2vw, 1.8rem) clamp(2rem, 3vw, 2.6rem);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   box-sizing: border-box;
-  transform: translateZ(0);
-  will-change: transform;
-  z-index: 60;
-  animation: glassCardPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: glassCardPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Custom sleek scrollbar for glass panel */
 .universe-glass-card::-webkit-scrollbar {
   width: 5px;
 }
-
 .universe-glass-card::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .universe-glass-card::-webkit-scrollbar-thumb {
-  background: rgba(168, 85, 247, 0.3);
+  background: rgba(168, 85, 247, 0.25);
   border-radius: 9999px;
-}
-
-.universe-glass-card::-webkit-scrollbar-thumb:hover {
-  background: rgba(168, 85, 247, 0.6);
 }
 
 @keyframes glassCardPopIn {
   from {
     opacity: 0;
-    transform: scale(0.96) translateY(6px);
+    transform: scale(0.97) translateY(6px);
   }
-
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
-/* --------------------------------------------------------------------------
-   GLASS PANEL TOPBAR (Sticky Back Arrow & Circular Close)
-   -------------------------------------------------------------------------- */
 .glass-card-topbar {
   position: sticky;
   top: 0;
@@ -600,14 +764,69 @@
   width: calc(100% + 2 * clamp(1.2rem, 2vw, 1.8rem));
   margin-left: calc(-1 * clamp(1.2rem, 2vw, 1.8rem));
   margin-right: calc(-1 * clamp(1.2rem, 2vw, 1.8rem));
-  padding: clamp(0.9rem, 1.6vw, 1.2rem) clamp(1.2rem, 2vw, 1.8rem) 0.85rem;
-  background: rgba(12, 10, 22, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  padding: clamp(0.85rem, 1.5vw, 1.1rem) clamp(1.2rem, 2vw, 1.8rem) 0.85rem;
+  background: var(--stack-card-bg);
+  border-bottom: 1px solid var(--stack-purple-border);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
   margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.card-module-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+.card-module-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.card-module-pill {
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.16);
+  border-radius: 9999px;
+  padding: 0.28rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--stack-text-secondary);
+  transition: all 0.18s ease;
+  user-select: none;
+  outline: none;
+}
+
+.card-module-pill:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  color: var(--stack-text-primary);
+}
+
+.card-module-pill:focus-visible {
+  outline: 2px solid var(--stack-purple-primary);
+  outline-offset: 1px;
+}
+
+.card-module-pill--active {
+  background: var(--stack-card-elevated);
+  border-color: var(--stack-purple-primary);
+  color: var(--stack-text-primary);
+  box-shadow: 0 0 12px var(--stack-purple-glow);
+}
+
+.card-pill-num {
+  color: var(--stack-purple-primary);
+  font-weight: 600;
+}
+
+.card-pill-name {
+  font-weight: 500;
 }
 
 .glass-nav-back-btn {
@@ -615,9 +834,9 @@
   border: none;
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: #E2E8F0;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--stack-text-primary);
   text-transform: uppercase;
   cursor: pointer;
   display: inline-flex;
@@ -626,50 +845,45 @@
   transition: color 0.18s ease, transform 0.18s ease;
   padding: 0;
   user-select: none;
+  outline: none;
 }
 
 .glass-nav-back-btn:hover {
-  color: #C084FC;
+  color: var(--stack-purple-secondary);
   transform: translateX(-3px);
 }
 
 .glass-back-arrow {
-  color: #A855F7;
+  color: var(--stack-purple-primary);
   font-size: 0.95rem;
   line-height: 1;
-  transition: transform 0.18s ease;
-}
-
-.glass-nav-back-btn:hover .glass-back-arrow {
-  transform: translateX(-2px);
 }
 
 .glass-circular-close-btn {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: rgba(22, 16, 36, 0.6);
-  border: 1px solid rgba(168, 85, 247, 0.35);
+  background: var(--stack-card-elevated);
+  border: 1px solid var(--stack-purple-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #E2E8F0;
+  color: var(--stack-text-secondary);
   cursor: pointer;
   transition: all 0.18s ease;
   padding: 0;
+  flex-shrink: 0;
+  outline: none;
 }
 
 .glass-circular-close-btn:hover {
-  background: rgba(168, 85, 247, 0.25);
-  border-color: rgba(216, 180, 254, 0.8);
+  background: rgba(168, 85, 247, 0.2);
+  border-color: var(--stack-purple-primary);
   color: #FFFFFF;
   transform: scale(1.08);
-  box-shadow: 0 0 14px rgba(168, 85, 247, 0.45);
 }
 
-/* --------------------------------------------------------------------------
-   MODULE HEADER (Glowing 3D Planet + Meta)
-   -------------------------------------------------------------------------- */
+/* Modal Content & Categories */
 .glass-module-content {
   display: flex;
   flex-direction: column;
@@ -679,14 +893,14 @@
 .glass-module-header {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.25rem;
   margin-bottom: 1.4rem;
 }
 
 .glass-module-planet-wrap {
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 66px;
+  height: 66px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -694,33 +908,32 @@
 }
 
 .glass-module-planet-sphere {
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.05) 28%, transparent 60%),
-    radial-gradient(circle at 45% 45%, #2a1f44 0%, #150f24 55%, #080612 100%);
-  border: 1px solid rgba(168, 85, 247, 0.5);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.85);
+    radial-gradient(circle at 35% 25%, rgba(245, 243, 250, 0.16) 0%, rgba(168, 85, 247, 0.05) 30%, transparent 60%),
+    radial-gradient(circle at 45% 45%, var(--stack-card-elevated) 0%, var(--stack-bg-sec) 60%, var(--stack-bg) 100%);
+  border: 1px solid var(--stack-purple-primary);
   box-shadow:
-    0 0 24px rgba(168, 85, 247, 0.45),
-    inset 0 0 16px rgba(168, 85, 247, 0.4);
+    0 0 20px var(--stack-purple-glow),
+    inset 0 0 14px rgba(168, 85, 247, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: var(--stack-text-primary);
   z-index: 2;
 }
 
 .glass-module-planet-ring {
   position: absolute;
-  width: 86px;
-  height: 30px;
+  width: 80px;
+  height: 28px;
   border-radius: 50%;
-  border: 1.2px solid rgba(192, 132, 252, 0.5);
+  border: 1.2px solid rgba(168, 85, 247, 0.35);
   transform: rotate(-22deg);
   pointer-events: none;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 10px var(--stack-purple-glow);
   z-index: 1;
 }
 
@@ -733,57 +946,52 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
-  color: #A855F7;
+  color: var(--stack-purple-primary);
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .glass-module-slash {
-  color: #7E788F;
+  color: var(--stack-text-muted);
 }
 
 .glass-module-title {
   font-family: var(--font-sans, sans-serif);
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
   font-weight: 800;
   letter-spacing: -0.01em;
-  color: #FFFFFF;
+  color: var(--stack-text-primary);
+  margin: 0.15rem 0 0.3rem 0;
   text-transform: uppercase;
-  margin: 0.15rem 0 0.25rem;
-  line-height: 1.1;
 }
 
 .glass-module-subtitle {
   font-family: var(--font-sans, sans-serif);
-  font-size: 0.92rem;
-  color: #9CA3AF;
-  line-height: 1.4;
+  font-size: 0.88rem;
+  color: var(--stack-text-secondary);
+  line-height: 1.5;
   margin: 0;
+  max-width: 620px;
 }
 
-/* --------------------------------------------------------------------------
-   CATEGORIZED TECHNOLOGY SECTIONS (3 Skill Tiers per Module)
-   -------------------------------------------------------------------------- */
 .glass-categories-container {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  width: 100%;
+  gap: 1.5rem;
 }
 
 .glass-category-section {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  width: 100%;
+  gap: 0.75rem;
 }
 
 .glass-category-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.14);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  padding-bottom: 0.45rem;
 }
 
 .glass-category-heading-wrap {
@@ -793,176 +1001,121 @@
 }
 
 .glass-category-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   display: inline-block;
-  flex-shrink: 0;
 }
 
 .glass-category-dot--tier-1 {
-  background: #C084FC;
-  box-shadow: 0 0 10px rgba(192, 132, 252, 0.85);
+  background-color: var(--stack-purple-primary);
+  box-shadow: 0 0 8px var(--stack-purple-primary);
 }
 
 .glass-category-dot--tier-2 {
-  background: #A855F7;
-  opacity: 0.85;
+  background-color: var(--stack-purple-secondary);
 }
 
 .glass-category-dot--tier-3 {
-  background: #94A3B8;
-  opacity: 0.65;
+  background-color: var(--stack-text-muted);
 }
 
 .glass-category-title {
   font-family: var(--font-mono, monospace);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: var(--stack-text-primary);
+  font-weight: 600;
   text-transform: uppercase;
-  color: #E2E8F0;
   margin: 0;
-  line-height: 1;
-}
-
-.glass-category--tier-1 .glass-category-title {
-  color: #F3E8FF;
 }
 
 .glass-category-count {
   font-family: var(--font-mono, monospace);
   font-size: 0.68rem;
-  font-weight: 600;
-  color: #C084FC;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  border-radius: 999px;
-  padding: 1px 7px;
-  line-height: 1.3;
+  color: var(--stack-text-muted);
 }
 
-/* Grids for Cards */
 .glass-tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 10px;
-  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.glass-tech-grid--tier-1 {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .glass-tech-card {
+  background: var(--stack-card-elevated);
+  border: 1px solid rgba(168, 85, 247, 0.20);
+  border-radius: 10px;
+  padding: 0.85rem 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(14, 12, 24, 0.55);
-  border: 1px solid rgba(168, 85, 247, 0.18);
-  border-radius: 12px;
+  gap: 0.65rem;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  padding: 0.6rem 0.5rem;
-  user-select: none;
-  text-align: center;
-  box-sizing: border-box;
+  color: var(--stack-text-primary);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
 }
 
-/* Subtle Visual Emphasis for Tier 1 (Core / Proficient) */
-.glass-tech-card--tier1 {
-  height: 94px;
-  gap: 7px;
-  background: rgba(22, 16, 38, 0.72);
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.4),
-    0 0 15px rgba(168, 85, 247, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.glass-tech-card--tier1:hover {
-  background: rgba(30, 20, 52, 0.9);
-  border-color: rgba(192, 132, 252, 0.8);
+.glass-tech-card:hover {
+  border-color: rgba(168, 85, 247, 0.45);
   transform: translateY(-2px);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(168, 85, 247, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 16px var(--stack-purple-glow);
+  background: #141020;
 }
 
-.glass-tech-card--tier1 .glass-tech-card-name {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-
-/* Compact style for Working Knowledge & Exploring */
-.glass-tech-card--compact {
-  height: 84px;
-  gap: 6px;
-}
-
-.glass-tech-card--compact:hover {
-  background: rgba(24, 18, 42, 0.82);
-  border-color: rgba(168, 85, 247, 0.65);
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 18px rgba(168, 85, 247, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+.glass-tech-card:focus-visible {
+  border-color: var(--stack-purple-primary);
+  outline: 2px solid var(--stack-purple-primary);
+  outline-offset: 2px;
 }
 
 .glass-tech-card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.glass-tech-card:hover .glass-tech-card-icon {
-  transform: scale(1.06);
+  color: var(--stack-text-primary);
 }
 
 .glass-tech-card-name {
   font-family: var(--font-sans, sans-serif);
-  font-size: 0.76rem;
+  font-size: 0.84rem;
   font-weight: 500;
-  color: #E2E8F0;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 90%;
-  transition: color 0.18s ease;
+  text-align: center;
+  color: var(--stack-text-primary);
 }
 
-.glass-tech-card:hover .glass-tech-card-name {
-  color: #FFFFFF;
-}
-
-/* --------------------------------------------------------------------------
-   LEVEL 2: TECHNOLOGY DETAILS (Inside Glass Panel)
-   -------------------------------------------------------------------------- */
+/* Detail view */
 .glass-detail-content {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 1.25rem;
 }
 
 .glass-detail-header-row {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
-  margin-bottom: 1rem;
+  gap: 1.25rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.20);
 }
 
 .glass-detail-icon-wrap {
-  width: 58px;
-  height: 58px;
-  border-radius: 12px;
-  background: rgba(20, 16, 36, 0.7);
-  border: 1px solid rgba(168, 85, 247, 0.35);
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: var(--stack-card-elevated);
+  border: 1px solid var(--stack-purple-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 18px rgba(168, 85, 247, 0.25);
+  color: var(--stack-purple-primary);
+  box-shadow: 0 0 16px var(--stack-purple-glow);
   flex-shrink: 0;
 }
 
@@ -970,251 +1123,194 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
-  color: #A855F7;
+  color: var(--stack-purple-primary);
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .glass-detail-title {
   font-family: var(--font-sans, sans-serif);
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 0.1rem 0 0;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 700;
+  color: var(--stack-text-primary);
+  margin: 0.2rem 0 0 0;
 }
 
 .glass-detail-desc {
-  font-size: 0.94rem;
-  line-height: 1.6;
-  color: #B8B8C5;
-  margin: 0 0 1.2rem;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--stack-text-secondary);
+  margin: 0;
 }
 
 .glass-detail-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.3rem;
+  gap: 0.5rem;
 }
 
 .glass-badge-pill {
   font-family: var(--font-mono, monospace);
-  font-size: 0.7rem;
-  padding: 0.3rem 0.7rem;
-  background: rgba(26, 20, 44, 0.75);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  border-radius: 9999px;
-  color: #D8B4FE;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--stack-bg-sec);
+  border: 1px solid var(--stack-purple-border);
+  color: var(--stack-text-primary);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
 }
 
 .glass-detail-section {
-  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
 }
 
 .glass-detail-section-title {
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: #7E788F;
+  letter-spacing: 0.16em;
+  color: var(--stack-purple-primary);
+  font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 0.6rem;
 }
 
 .glass-detail-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.5rem;
 }
 
 .glass-concept-pill {
   font-family: var(--font-mono, monospace);
-  font-size: 0.7rem;
-  padding: 0.3rem 0.65rem;
-  background: rgba(14, 12, 24, 0.65);
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  font-size: 0.72rem;
+  background: var(--stack-card-elevated);
+  border: 1px solid rgba(168, 85, 247, 0.18);
+  color: var(--stack-text-secondary);
+  padding: 0.35rem 0.75rem;
   border-radius: 6px;
-  color: #D1D5DB;
+}
+
+.stack-view-fade {
+  animation: stackViewFadeIn 0.2s ease forwards;
+}
+
+@keyframes stackViewFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stack-paused .planets-orbit-container,
+.stack-paused .planet-node,
+.stack-paused .central-planet-sphere {
+  animation-play-state: paused !important;
 }
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN (TABLET & MOBILE)
+   8. RESPONSIVE DESIGN (Desktop, Tablet, Mobile)
    -------------------------------------------------------------------------- */
-
-/* TABLET (769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .stack-main-wrapper {
-    min-height: 780px;
-    height: 100vh;
-    padding: calc(var(--header-height) + 1.5rem) 2rem 2rem 2rem;
+    padding: 4.5rem 2rem 3rem;
   }
 
   .universe-stage {
-    top: 53%;
-    transform: translate(-50%, -50%) scale(clamp(0.72, 0.8vw, 0.86));
-    transform-origin: center center;
+    max-width: 900px;
+    max-height: 560px;
   }
 
   .central-planet-wrapper {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
   }
 
-  .central-planet-title {
-    font-size: 1.15rem;
-  }
-
-  .central-planet-sub {
-    font-size: 0.82rem;
-  }
-
-  .planet-sphere {
-    width: 52px;
-    height: 52px;
-  }
-
-  .planet-ring {
-    width: 74px;
-    height: 30px;
-  }
-
-  .node-label-container {
-    font-size: 0.66rem;
-  }
-
-  .universe-glass-card {
-    width: 90vw;
-    max-height: 78vh;
-    padding: 0 1.25rem 2.2rem;
-  }
-
-  .glass-card-topbar {
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-    padding: 0.9rem 1.25rem 0.75rem;
-  }
-
-  .glass-tech-grid-featured {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .glass-tech-grid-secondary {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .glass-detail-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .stack-preview-card {
+    width: 250px;
   }
 }
 
-/* MOBILE (<= 768px: covers 768px, 430px, 390px, 375px) */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .stack-section {
     min-height: auto;
-    padding-top: calc(var(--header-height) + 1.25rem);
-    padding-bottom: 2.5rem;
-    box-sizing: border-box;
-    overflow-x: hidden;
+    padding-top: 4.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .stack-main-wrapper {
-    min-height: auto;
     height: auto;
+    min-height: 720px;
     max-height: none;
-    padding: 0 1rem;
-    justify-content: flex-start;
+    padding: 1.5rem 1.25rem 2.5rem;
+  }
+
+  .stack-top-row {
+    flex-direction: column;
+    align-items: center;
     gap: 1.25rem;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+    margin-bottom: 1.5rem;
   }
 
   .stack-header-block {
-    position: relative;
-    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .stack-preview-card {
     width: 100%;
-    text-align: left;
-    pointer-events: auto;
+    max-width: 380px;
+    margin: 0 auto;
   }
 
-  .stack-index-tag {
-    font-size: 0.7rem;
-  }
-
-  .stack-main-title {
-    font-size: clamp(1.75rem, 6.8vw, 2.2rem);
-    line-height: 1.1;
-    margin: 0.15rem 0;
-  }
-
-  .stack-sub-tagline {
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-  }
-
-  /* Redesigned Mobile Orbital Stage */
   .universe-stage {
     position: relative;
     top: auto;
     left: auto;
     transform: none;
-    width: 100%;
-    max-width: 420px;
-    height: clamp(480px, 122vw, 540px);
+    height: 560px;
+    max-width: 440px;
     margin: 0 auto;
-    pointer-events: auto;
   }
 
-  /* Toggle Orbits: Portrait for mobile, horizontal for desktop */
+  .planets-orbit-container {
+    transform-origin: 50% 50%;
+  }
+
   .orbits-desktop {
-    display: none !important;
+    display: none;
   }
 
   .orbits-mobile {
-    display: block !important;
+    display: block;
   }
 
-  /* Mobile Portrait Planet Coordinates */
-  .planet-node {
-    left: var(--mob-x) !important;
-    top: var(--mob-y) !important;
-    touch-action: manipulation;
-  }
-
-  /* Compact Central Celestial Body */
   .central-planet-wrapper {
-    width: clamp(96px, 24vw, 110px);
-    height: clamp(96px, 24vw, 110px);
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 110px;
+    height: 110px;
   }
 
   .central-planet-title {
-    font-size: 0.85rem;
-    letter-spacing: 0.14em;
+    font-size: 0.95rem;
   }
 
   .central-planet-sub {
-    font-size: 0.62rem;
-    letter-spacing: 0.24em;
-    margin-top: 2px;
+    font-size: 0.65rem;
   }
 
-  .central-ring {
-    width: 140%;
-    height: 48%;
+  .planet-node {
+    left: var(--mob-x) !important;
+    top: var(--mob-y) !important;
+    flex-direction: column;
   }
 
-  /* Touch-Friendly Planet Spheres */
   .planet-sphere {
     width: 42px;
     height: 42px;
-    min-width: 42px;
-    min-height: 42px;
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.22);
   }
 
   .planet-sphere svg {
@@ -1222,217 +1318,70 @@
     height: 20px;
   }
 
-  .planet-ring {
-    width: 58px;
-    height: 24px;
-  }
-
-  /* Hide fixed desktop leader lines on mobile to eliminate overflow */
   .node-leader-svg {
-    display: none !important;
-  }
-
-  /* Vertically Stacked Planet Labels */
-  .node-label-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1px;
-    font-size: 0.58rem !important;
-    letter-spacing: 0.06em;
-    text-align: center;
-    white-space: nowrap;
-    top: calc(100% + 4px) !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: translateX(-50%) !important;
-    pointer-events: auto;
-    touch-action: manipulation;
-  }
-
-  .node-slash {
     display: none;
   }
 
-  .node-num {
-    font-size: 0.5rem;
-    opacity: 0.85;
-    line-height: 1;
+  .node-label-container {
+    position: static;
+    transform: none !important;
+    margin-top: 4px;
+    padding: 1px 3px;
   }
 
   .node-name {
-    font-size: 0.56rem;
-    line-height: 1.1;
+    font-size: 0.62rem;
   }
 
-  /* For Planet 01 (LANGUAGES) at the very top, place label neatly above */
-  .planet-node--languages .node-label-container {
-    top: auto !important;
-    bottom: calc(100% + 5px) !important;
-  }
-
-  /* Floating Glass Modal Mobile Optimization */
-  .universe-glass-backdrop {
-    padding: 0.75rem;
+  .node-num {
+    font-size: 0.6rem;
   }
 
   .universe-glass-card {
-    width: 95vw;
-    max-height: 80vh;
-    max-height: 80dvh;
-    padding: 0 0.9rem 2rem;
-    border-radius: 16px;
+    width: 96vw;
+    max-height: 84vh;
+    padding: 0 1rem 1.75rem;
   }
 
   .glass-card-topbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(12, 10, 22, 0.96);
-    width: calc(100% + 1.8rem);
-    margin-left: -0.9rem;
-    margin-right: -0.9rem;
-    padding: 0.75rem 0.9rem 0.65rem;
-    margin-bottom: 0.85rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0.75rem 1rem 0.65rem;
   }
 
-  .glass-nav-back-btn {
-    min-height: 42px;
-    font-size: 0.68rem;
-    touch-action: manipulation;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .glass-circular-close-btn {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    touch-action: manipulation;
-  }
-
-  .glass-module-header {
-    gap: 0.85rem;
-    margin-bottom: 1.1rem;
-  }
-
-  .glass-module-planet-wrap {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-  }
-
-  .glass-module-planet-sphere {
-    width: 40px;
-    height: 40px;
-  }
-
-  .glass-module-planet-ring {
-    width: 58px;
-    height: 22px;
-  }
-
-  .glass-module-title {
-    font-size: clamp(1.25rem, 5vw, 1.5rem);
-    line-height: 1.15;
-  }
-
-  .glass-module-subtitle {
-    font-size: 0.75rem;
-  }
-
-  .glass-categories-container {
-    gap: 1rem;
-  }
-
-  .glass-category-section {
-    gap: 0.5rem;
+  .card-module-pill {
+    font-size: 0.62rem;
+    padding: 0.22rem 0.5rem;
   }
 
   .glass-tech-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .glass-tech-card--tier1 {
-    height: 84px;
-    padding: 0.5rem 0.4rem;
-    touch-action: manipulation;
-  }
-
-  .glass-tech-card--compact {
-    height: 74px;
-    padding: 0.45rem 0.35rem;
-    touch-action: manipulation;
-  }
-
-  .glass-tech-card-icon {
-    margin-bottom: 4px;
-  }
-
-  .glass-tech-card-name {
-    font-size: 0.66rem;
-    letter-spacing: 0.08em;
-  }
-
-  .glass-detail-header-row {
-    gap: 0.85rem;
-  }
-
-  .glass-detail-icon-wrap {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-  }
-
-  .glass-detail-title {
-    font-size: 1.45rem;
-  }
-
-  .glass-detail-desc {
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  .glass-concept-pill,
-  .glass-badge-pill {
-    font-size: 0.65rem;
-    padding: 0.25rem 0.55rem;
   }
 }
 
-/* SMALL MOBILE SCREENS (<= 380px: covers 375px and 320px) */
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .universe-stage {
-    height: 460px;
-    max-width: 310px;
+    height: 500px;
+    max-width: 340px;
   }
 
   .central-planet-wrapper {
-    width: 86px;
-    height: 86px;
+    width: 95px;
+    height: 95px;
   }
 
   .central-planet-title {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
   }
 
   .central-planet-sub {
-    font-size: 0.55rem;
+    font-size: 0.58rem;
   }
 
   .planet-sphere {
     width: 38px;
     height: 38px;
-    min-width: 38px;
-    min-height: 38px;
   }
 
   .planet-sphere svg {
@@ -1440,30 +1389,38 @@
     height: 18px;
   }
 
-  .planet-ring {
-    width: 50px;
-    height: 20px;
+  .node-name {
+    font-size: 0.55rem;
   }
 
-  .node-name {
-    font-size: 0.52rem;
+  .glass-module-title {
+    font-size: 1.35rem;
+  }
+
+  .glass-tech-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .glass-tech-card {
+    padding: 0.65rem 0.5rem;
+  }
+
+  .glass-tech-card-name {
+    font-size: 0.76rem;
   }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .planet-bob-1,
-  .planet-bob-2,
-  .planet-bob-3,
-  .planet-bob-4,
-  .planet-bob-5,
-  .planet-bob-6,
-  .planet-bob-7,
-  .planet-bob-8,
+  .planets-orbit-container,
+  .planet-node,
   .central-planet-sphere,
   .stack-view-fade,
   .universe-glass-card,
-  .universe-glass-backdrop {
+  .universe-glass-backdrop,
+  .stack-preview-card,
+  .planet-ring {
     animation: none !important;
     transition: none !important;
   }
