@@ -51,7 +51,7 @@ export default function FAQ({
     <section id={id} className={`portfolio-section faq-section ${className}`}>
       <div className="container">
         <SectionTitle
-          index="FAQ"
+          index="06"
           title={title}
           subtitle={subtitle}
           theme="dark"
@@ -84,7 +84,7 @@ export default function FAQ({
                   >
                     <div className="faq-question-lead">
                       <span className="faq-number" aria-hidden="true">
-                        {item.number || String(index + 1).padStart(2, '0')}
+                        {item.number || `6.${index + 1}`}
                       </span>
                       <span className="faq-question-text">{item.question}</span>
                     </div>

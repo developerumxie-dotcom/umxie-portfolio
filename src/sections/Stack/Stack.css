@@ -132,6 +132,10 @@
   pointer-events: none;
 }
 
+.stack-header-block .section-header-block {
+  margin-bottom: 0;
+}
+
 /* Purple horizontal bar above heading matching reference image */
 .stack-header-line {
   width: 32px;
@@ -1257,6 +1261,15 @@
     text-align: center;
     align-items: center;
     margin: 0 auto;
+  }
+
+  .stack-header-block .section-meta-wrapper {
+    justify-content: center;
+  }
+
+  .stack-header-block .section-subtitle-tag {
+    margin-left: 0;
+    text-align: center;
   }
 
   .stack-preview-card {

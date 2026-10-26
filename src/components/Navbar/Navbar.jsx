@@ -22,7 +22,7 @@ export default function Navbar({ activeSection = 'hero' }) {
     { label: 'ABOUT', target: '#about', id: 'about' },
     { label: 'STACK', target: '#stack', id: 'stack' },
     { label: 'WORK', target: '#work', id: 'projects' },
-    { label: 'EXPERIENCE', target: '#experience', id: 'experience' },
+    { label: 'JOURNEY', target: '#experience', id: 'experience' },
     { label: 'CONTACT', target: '#contact', id: 'contact' }
   ];
 

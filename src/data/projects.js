@@ -1,7 +1,7 @@
 export const PROJECTS = [
   {
     id: "01",
-    num: "01",
+    num: "3.1",
     title: "VIDYA HOSPITAL WEBSITE",
     tagline: "Live healthcare platform featuring dynamic blog content powered by WordPress REST API.",
     description: "A comprehensive, responsive healthcare web platform developed for Vidya Hospital & Kidney Centre. Features an integrated WordPress REST API pipeline for dynamic medical articles, responsive consultation and department booking flows, and high-availability deployment on a custom domain with full HTTPS security.",
@@ -23,7 +23,7 @@ export const PROJECTS = [
   },
   {
     id: "02",
-    num: "02",
+    num: "3.2",
     title: "NEWCOMER PLATFORM",
     tagline: "Helping newcomers discover accommodation, food, jobs, and local services in a new city.",
     description: "A centralized platform engineered to eliminate relocation friction. Features intelligent search filters, verified accommodation listings, local employment discovery, and community guides.",
@@ -46,7 +46,7 @@ export const PROJECTS = [
   },
   {
     id: "03",
-    num: "03",
+    num: "3.3",
     title: "UMXIE'S STORE",
     tagline: "Modern e-commerce experience with smooth, clean UI and high-throughput backend architecture.",
     description: "A luxury minimalist commerce engine designed for technical apparel and design hardware. Features seamless product browsing, atomic cart interactions, and instant checkout flows.",
@@ -69,7 +69,7 @@ export const PROJECTS = [
   },
   {
     id: "04",
-    num: "04",
+    num: "3.4",
     title: "CRUD MANAGEMENT SYSTEM",
     tagline: "Full-stack developer admin portal with secure auth, image upload pipelines, and REST API telemetry.",
     description: "An enterprise administrative interface providing end-to-end data lifecycle control, live endpoint status monitoring, Multer-driven asset pipelines, and granular permission controls.",

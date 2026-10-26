@@ -121,19 +121,20 @@ export function initScrollAnimations() {
     triggers.push(p3Tween.scrollTrigger);
   }
 
-  // 4. Experience timeline: Progressive Line Drawing
+  // 4. Experience timeline: Progressive Line Drawing synchronized with scrolling milestones
   const expSection = document.getElementById('experience');
+  const itemsList = expSection?.querySelector('.experience-items-list');
   const progressFill = document.querySelector('.timeline-progress-fill');
-  if (expSection && progressFill) {
+  if (itemsList && progressFill) {
     const expTween = gsap.fromTo(
       progressFill,
       { height: '0%' },
       {
         scrollTrigger: {
-          trigger: expSection,
-          start: 'top 70%',
-          end: 'bottom 80%',
-          scrub: 0.5,
+          trigger: itemsList,
+          start: 'top 45%',
+          end: 'bottom 60%',
+          scrub: 1.2,
         },
         height: '100%',
         ease: 'none'
@@ -141,21 +142,22 @@ export function initScrollAnimations() {
     );
     triggers.push(expTween.scrollTrigger);
 
-    // Stagger reveal of experience entries
+    // Individual smooth entrance for each timeline entry as it scrolls into view
     const expEntries = expSection.querySelectorAll('.experience-entry');
-    const entryTween = gsap.from(expEntries, {
-      scrollTrigger: {
-        trigger: expSection,
-        start: 'top 65%',
-        toggleActions: 'play none none reverse',
-      },
-      opacity: 0,
-      x: -30,
-      stagger: 0.25,
-      duration: 0.85,
-      ease: 'power2.out'
+    expEntries.forEach((entry) => {
+      const entryTween = gsap.from(entry, {
+        scrollTrigger: {
+          trigger: entry,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+        },
+        opacity: 0,
+        x: -20,
+        duration: 0.6,
+        ease: 'power2.out'
+      });
+      triggers.push(entryTween.scrollTrigger);
     });
-    triggers.push(entryTween.scrollTrigger);
   }
 
   // 5. Philosophy 4 Principles Horizontal Rows Reveal

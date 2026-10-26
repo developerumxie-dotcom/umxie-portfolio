@@ -57,7 +57,7 @@ export default function Projects() {
                   <div className="project-info-side">
                     <div className="project-meta-top">
                       <span className="project-num">
-                        {project.num} // {String(PROJECTS.length).padStart(2, '0')}
+                        {project.num}
                       </span>
                       <span className="project-category-badge">
                         {project.stats[0]?.label}: {project.stats[0]?.value}

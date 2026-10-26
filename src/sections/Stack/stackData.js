@@ -14,7 +14,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'languages',
-    number: '01',
+    number: '2.1',
     name: 'LANGUAGES',
     subtitle: 'Programming and query languages across diverse computing paradigms.',
     categoryIcon: 'languages',
@@ -168,7 +168,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'frontend',
-    number: '02',
+    number: '2.2',
     name: 'FRONTEND',
     subtitle: 'User interfaces, responsive layouts, web performance, and mobile applications.',
     categoryIcon: 'frontend',
@@ -314,7 +314,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'backend',
-    number: '03',
+    number: '2.3',
     name: 'BACKEND',
     subtitle: 'APIs, server architecture, business logic, security, and server-side systems.',
     categoryIcon: 'backend',
@@ -468,7 +468,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'databases',
-    number: '04',
+    number: '2.4',
     name: 'DATABASES',
     subtitle: 'Relational, document, caching, and key-value persistence architectures.',
     categoryIcon: 'databases',
@@ -582,7 +582,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'cloud',
-    number: '05',
+    number: '2.5',
     name: 'CLOUD & DEVOPS',
     subtitle: 'Cloud hosting, containerization, deployment pipelines, and infrastructure automation.',
     categoryIcon: 'cloud',
@@ -712,7 +712,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'core_cs',
-    number: '06',
+    number: '2.6',
     name: 'CORE CS',
     subtitle: 'Foundational computing theory, algorithmics, architecture, and engineering principles.',
     categoryIcon: 'core_cs',
@@ -842,7 +842,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'tools',
-    number: '07',
+    number: '2.7',
     name: 'TOOLS & TESTING',
     subtitle: 'Engineering workflows, IDEs, version control, API testing, and test automation.',
     categoryIcon: 'tools',
@@ -980,7 +980,7 @@ export const UNIVERSE_MODULES = [
   // =========================================================================
   {
     id: 'hardware',
-    number: '08',
+    number: '2.8',
     name: 'SYSTEMS & HARDWARE',
     subtitle: 'Computer architecture, embedded microcontrollers, memory hierarchy, and low-level engineering.',
     categoryIcon: 'hardware',

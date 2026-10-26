@@ -5,10 +5,12 @@ export default function MagneticElement({
   strength = 8, // 5 - 12px range as specified in requirements
   className = '',
   as: Component = 'div',
+  onMouseEnter,
+  onMouseLeave,
+  style = {},
   ...props
 }) {
   const elementRef = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
     if (!elementRef.current) return;
@@ -28,24 +30,37 @@ export default function MagneticElement({
     if (distance < maxDist * 1.5) {
       const pullX = (deltaX / maxDist) * strength;
       const pullY = (deltaY / maxDist) * strength;
-      setPosition({ x: pullX, y: pullY });
+      elementRef.current.style.transform = `translate3d(${pullX}px, ${pullY}px, 0)`;
+      elementRef.current.style.transition = 'transform 0.1s ease-out';
     }
   };
 
-  const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
+  const handleMouseLeave = (e) => {
+    if (elementRef.current) {
+      elementRef.current.style.transform = 'translate3d(0, 0, 0)';
+      elementRef.current.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+    if (onMouseLeave) {
+      onMouseLeave(e);
+    }
+  };
+
+  const handleMouseEnter = (e) => {
+    if (onMouseEnter) {
+      onMouseEnter(e);
+    }
   };
 
   return (
     <Component
       ref={elementRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={className}
       style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-        transition: position.x === 0 && position.y === 0 ? 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' : 'transform 0.1s ease-out',
-        display: 'inline-block'
+        display: 'inline-block',
+        ...style
       }}
       {...props}
     >

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, memo } from 'react';
 import { UNIVERSE_MODULES, ALL_TECHNOLOGIES_MAP } from './stackData';
 import { CategoryIcon, TechIcon } from './StackIcons';
 import { useCursor } from '../../components/Cursor/CursorContext';
+import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import './Stack.css';
 
 /**
@@ -12,7 +13,7 @@ import './Stack.css';
 const PLANET_NODES = [
   {
     id: 'languages',
-    num: '01',
+    num: '2.1',
     name: 'LANGUAGES',
     icon: 'languages',
     x: 50,
@@ -24,7 +25,7 @@ const PLANET_NODES = [
   },
   {
     id: 'frontend',
-    num: '02',
+    num: '2.2',
     name: 'FRONTEND',
     icon: 'frontend',
     x: 65.5,
@@ -36,7 +37,7 @@ const PLANET_NODES = [
   },
   {
     id: 'backend',
-    num: '03',
+    num: '2.3',
     name: 'BACKEND',
     icon: 'backend',
     x: 74,
@@ -48,7 +49,7 @@ const PLANET_NODES = [
   },
   {
     id: 'databases',
-    num: '04',
+    num: '2.4',
     name: 'DATABASES',
     icon: 'databases',
     x: 67.5,
@@ -60,7 +61,7 @@ const PLANET_NODES = [
   },
   {
     id: 'cloud',
-    num: '05',
+    num: '2.5',
     name: 'CLOUD & DEVOPS',
     icon: 'cloud',
     x: 50,
@@ -72,7 +73,7 @@ const PLANET_NODES = [
   },
   {
     id: 'core_cs',
-    num: '06',
+    num: '2.6',
     name: 'CORE CS',
     icon: 'core_cs',
     x: 35,
@@ -84,7 +85,7 @@ const PLANET_NODES = [
   },
   {
     id: 'tools',
-    num: '07',
+    num: '2.7',
     name: 'TOOLS & TESTING',
     icon: 'tools',
     x: 27.5,
@@ -96,7 +97,7 @@ const PLANET_NODES = [
   },
   {
     id: 'hardware',
-    num: '08',
+    num: '2.8',
     name: 'SYSTEMS & HARDWARE',
     icon: 'hardware',
     x: 33.5,
@@ -236,13 +237,14 @@ function StackComponent({ hoveredTech: _hoveredTech, onTechHover }) {
           PERMANENT CODING UNIVERSE BACKGROUND (Always Visible & Preserved!)
           ==================================================================== */}
       <div className="stack-main-wrapper">
-        {/* Header Block (Upper-Left) - Exact match to reference image */}
+        {/* Header Block (Upper-Left) - Section 02 MY STACK */}
         <header className="stack-header-block">
-          <span className="stack-header-line" aria-hidden="true" />
-          <h2 className="stack-main-title">
-            CODING <span className="stack-title-purple">UNIVERSE</span>
-          </h2>
-          <div className="stack-sub-tagline">EXPLORE MY TECHNOLOGY ECOSYSTEM</div>
+          <SectionTitle
+            index="02"
+            title="TECH STACK"
+            subtitle="CODING UNIVERSE"
+            theme="dark"
+          />
         </header>
 
         {/* Central Universe Stage */}

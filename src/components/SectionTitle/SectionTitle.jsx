@@ -5,6 +5,7 @@ export default function SectionTitle({
   index = '01',
   title = '',
   subtitle = '',
+  description = '',
   theme = 'dark', // 'dark' | 'light'
   className = '',
   ...props
@@ -16,6 +17,7 @@ export default function SectionTitle({
         <h2 className="section-headline">{title}</h2>
       </div>
       {subtitle && <span className="section-subtitle-tag">{subtitle}</span>}
+      {description && <p className="section-description-text">{description}</p>}
     </div>
   );
 }
